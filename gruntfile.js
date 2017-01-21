@@ -1,3 +1,5 @@
+var devMode = true;
+
 module.exports = function (grunt) {
 
     // Configuration
@@ -52,7 +54,7 @@ module.exports = function (grunt) {
                     cwd: 'app/build/css',
                     src: ['style.css'],
                     dest: 'app/build/css',
-                    ext: '.min.css'
+                    ext: '.css'
                 }]
             }
         }
@@ -67,7 +69,12 @@ module.exports = function (grunt) {
     // Registered Tasks
     grunt.registerTask('concat-js', ['concat:js']);
     grunt.registerTask('concat-css', ['concat:css']);
-    grunt.registerTask('compile', ['sass', 'concat', 'uglify', 'cssmin']);
+    if (devMode) {
+        grunt.registerTask('default', ['sass', 'concat']);
+    }
+    else {
+        grunt.registerTask('default', ['sass', 'concat', 'uglify', 'cssmin']);
+    }
 
 };
 
