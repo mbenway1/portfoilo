@@ -11,7 +11,15 @@ module.exports = function (grunt) {
 
             js: {
 
-                src: 'app/components/Bootstrap/js/*.js',
+                src: ['app/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js',
+                      'app/bower_components/angular/angular.js',
+                      'app/bower_components/angular-route/angular-route.js',
+                      'app/app.js',
+                      'app/components/version/version.js',
+                      'app/components/version/version-directive.js',
+                      'app/components/version/interpolate-filter.js',
+                      'app/components/Bootstrap/js/*.js'
+                     ],
                 dest: 'app/build/js/scripts.js'
 
             },
