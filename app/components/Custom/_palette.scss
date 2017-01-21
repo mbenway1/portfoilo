@@ -1,0 +1,16 @@
+$black:         rgba(0,0,0,1);
+$white:         rgba(255,255,255,1);
+
+@each $colorname, $colorcode in
+
+                ("black", $black),
+                ("white", $white)
+
+{
+    .#{$colorname}--txt {
+        color: #{$colorcode};
+    }
+    .#{$colorname}--bg {
+        background-color: #{$colorcode};
+    }
+}

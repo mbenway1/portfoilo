@@ -5808,3 +5808,198 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+
+.black--txt {
+  color: black; }
+
+.black--bg {
+  background-color: black; }
+
+.white--txt {
+  color: white; }
+
+.white--bg {
+  background-color: white; }
+
+/*
+// Global Typography
+$base-background-color:                         $eggshell;
+$base-font-family:                              "verdana", "arial", sans-serif;
+// Font Weights
+$font-light:                                  200;
+$font-regular:                                400;
+$font-medium:                                 600;
+$font-bold:                                   800;
+$font-extra-bold:                             800;
+$base-font-size:                                16px;
+$base-line-height:                              1.25;
+$base-font-weight:                              $font-regular;
+$base-font-color:                               $offBlack;
+$base-link-color:                               $blue;
+$base-link-weight:                              $font-regular;
+$base-link-hover-color:                         $fadedBlue;
+$base-link-hover-weight:                        $font-regular;
+
+$paragraph-font-size:                           1rem;
+$paragraph-line-height:                         1.5;
+$list-font-size:                                1rem;
+$list-line-height:                              1.5;
+
+// Font Weights
+
+
+// Headings
+$heading-font-family:                           "verdana", "arial", sans-serif;
+$h1-font-size:                                  2rem;
+$h1-line-height:                                1.25;
+$h1-font-weight:                                $font-medium;
+$h1-color:                                      $blue;
+$h2-font-size:                                  1.5rem;
+$h2-line-height:                                1.25;
+$h2-font-weight:                                $font-bold;
+$h2-color:                                      $springGreen;
+$h3-font-size:                                  1.5rem;
+$h3-line-height:                                1.125;
+$h3-font-weight:                                $font-regular;
+$h3-color:                                      $stone;
+$h4-font-size:                                  1.25rem;
+$h4-line-height:                                1.125;
+$h4-font-weight:                                $font-regular;
+$h4-color:                                      $blue;
+$h5-font-size:                                  1.125rem;
+$h5-line-height:                                1.25;
+$h5-font-weight:                                $font-bold;
+$h5-color:                                      $black;
+$h6-font-size:                                  .9rem;
+$h6-line-height:                                1.25;
+$h6-font-weight:                                $font-regular;
+$h6-color:                                      $gray;
+
+// Blockquotes
+$base-blockquote-font-size:                     22;
+$base-blockquote-line-height:                   28;
+$base-blockquote-color:                         #424242;
+$base-blockquote-cite-color:                    #777;
+
+// Acordions
+$accordion-parent-bg-color:                     $red;
+$accordion-parent-header-color:                 $white;
+$accordion-parent-header-color-hover:           $eggshell;
+$accordion-sub-accordion-bg-color:              $eggshell;
+$accordion-sub-accordion-header-color:          $red;
+$accordion-sub-accordion-header-color-hover:    $offBlack;
+$accordion-sub-accordion-content-header:        $red;
+
+
+// Code
+$base-code-font-family:                         'courier new', monospace, serif;
+$base-code-font-size:                           13;
+$base-code-line-height:                         1.5rem;
+$base-code-color:                               #272727;
+$base-code-background-color:                    #f1f1f1;
+$base-code-border-color:                        #d7d7d7;
+
+// Grid Containers
+$mobile-container:                              100%;
+$tablet-container:                              720px;
+$desktop-container:                             960px;
+$hd-container:                                  1140px;
+
+// Responsive Breakpoints
+$phablet:						                480px;
+$tablet-breakpoint:                             768px;
+$desktop-breakpoint:                            1025px;
+$hd-breakpoint:                                 1140px;
+
+// Banner Settings
+$banner-max-width:                              1140px;
+$banner-height:                                 300px;          // Only need to change this to alter the height of the banner
+$banner-bg-color:                               transparent;
+
+// Nav Settings
+$nav-positioning-mobile:                        below; // relative to banner on mobile "below or above"
+
+// CHANGE LINES 3 & 4 IN BASE.JS AND RE-MINIFY TO BASE-MIN.JS
+$nav-positioning:                               below; // relative to banner on desktop  below or above"
+$nav-full-width:                                false;  // Either true or false
+$nav-background-color:                          $stone;
+$nav-link-font-size:                            1rem;
+$nav-link-color:                                $cream;
+$nav-link-color-hover:                          $white;
+$nav-link-bg-color-hover:                       $gray;
+$nav-dropdown-link-font-size:                   .8rem;
+$nav-dropdown-color-bg:                         $gray;
+$nav-dropdown-border:                           solid 1px $stone;
+$nav-dropdown-link-color:                       $cream;
+$nav-dropdown-link-color-hover:                 $white;
+$nav-dropdown-link-bg-color-hover:              $tan;
+$nav-dropshadow:                                true;   // Either true or false
+$nav-mobile-menu-padding:                       .5rem 1.25rem;
+$nav-tablet-menu-padding:                       .5rem 2.5rem;
+
+
+// Content Settings
+$content-max-width:                             1140px;
+$content-bg-color:                              $white;
+$content-padding-top:                           2.5rem;
+$content-padding-right:                         2.5rem;
+$content-padding-bottom:                        2.5rem;
+$content-padding-left:                          2.5rem;
+$content-padding-top-mobile:                    1.25rem;
+$content-padding-right-mobile:                  1.25rem;
+$content-padding-bottom-mobile:                 1.25rem;
+$content-padding-left-mobile:                   1.25rem;
+$sidebar-bg-color:                              $springGreen;
+$sidebar-font-color:                            $white;
+$sidebar-font-size:                             1.2rem;
+$sidebar-padding-top:                           2.5rem;
+$sidebar-padding-right:                         2.5rem;
+$sidebar-padding-bottom:                        2.5rem;
+$sidebar-padding-left:                          2.5rem;
+$sidebar-padding-top-mobile:                    1.25rem;
+$sidebar-padding-right-mobile:                  1.25rem;
+$sidebar-padding-bottom-mobile:                 1.25rem;
+$sidebar-padding-left-mobile:                   1.25rem;
+
+// Button Settings
+$button-bg-color:                               $fadedGreen;
+$button-color:                                  $stone;
+$button-border-radius:                          5px;
+$button-font-weight:                            $font-medium;
+$button-text-transform:                         uppercase;    // This can set font to only upper or lower case
+$button-color-hover:                            $white;
+$button-bg-color-hover:                         $springGreen;
+$button-font-size:                              1rem;
+
+// Input Settings
+$input-margin:                                  25.2px 0;     // This is for all 4 sides
+$input-max-width:                               400px;
+$input-label-initial-font-size:                 2rem;         // This sets what the font size of the label before it is filled or active
+$input-label-initial-color:                     $stone;       // This sets what the font color of the label before it is filled or active
+$input-label-initial-font-weight:               $font-medium; // This sets what the font weight of the label before it is filled or active
+$input-label-initial-line-color:                $fadedGreen;  // This sets what the line color is before the input is filled or active
+$input-label-font-size:                         1.5rem;       // This sets what the font size of the text below input when filled
+$input-label-color:                             $springGreen; // This sets what the font color of the text below input when filled
+$input-label-font-weight:                       $font-regular;// This sets what the font weight of the text below input when filled
+$input-font-size:                               1.5rem;       // This sets what the font size of the text entered into the input
+$input-color:                                   $offBlack;    // This sets what the font color of the text entered into the input
+$input-font-weight:                             $font-regular;// This sets what the font weight of the text entered into the input
+$textarea-height:                               8rem;
+$input-error-color:                             $red;
+*/
+.header {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100px;
+  background: white;
+  z-index: 10; }
+  .header .logo {
+    margin: 20px 10px 20px 40px;
+    max-height: 60px;
+    width: 25%; }
+    .header .logo svg {
+      height: 60px; }
+  .header .nav-wrapper {
+    width: 75%; }
