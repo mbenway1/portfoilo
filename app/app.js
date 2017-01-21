@@ -28,7 +28,7 @@ portfolioApp.config(function($routeProvider, $locationProvider) {
 portfolioApp.controller('mainController', function($scope) {
 
     // create a message to display in our view
-    $scope.message = 'This is the home page';
+    $scope.message = 'Welcome';
 });
 
 portfolioApp.controller('portfolioController', function($scope) {

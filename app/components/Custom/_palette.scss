@@ -1,4 +1,8 @@
 $black:         rgba(0,0,0,1);
+$slate:         rgba(64,64,64,1);
+$blue:          rgba(0,157,225,1);
+$darkBlue:      rgba(0,88,119,1);
+$orange:        rgba(244,121,32,1);
 $white:         rgba(255,255,255,1);
 
 @each $colorname, $colorcode in

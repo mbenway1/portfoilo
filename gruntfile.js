@@ -47,6 +47,16 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        autoprefixer: {
+            options: {
+                browsers: ['last 8 versions']
+            },
+            dist: {
+                files: {
+                    'app/components/Custom/style.css': 'app/components/Custom/style.css'
+                }
+            }
+        },
         cssmin: {
             target: {
                 files: [{
@@ -57,7 +67,15 @@ module.exports = function (grunt) {
                     ext: '.css'
                 }]
             }
-        }
+        },
+        watch: {
+            css: {
+                files: '**/*.scss',
+                tasks: ['default'],
+                options: {
+                },
+            },
+        },
 
     });
 
@@ -65,15 +83,17 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Registered Tasks
     grunt.registerTask('concat-js', ['concat:js']);
     grunt.registerTask('concat-css', ['concat:css']);
     if (devMode) {
-        grunt.registerTask('default', ['sass', 'concat']);
+        grunt.registerTask('default', ['sass', 'concat', 'autoprefixer']);
     }
     else {
-        grunt.registerTask('default', ['sass', 'concat', 'uglify', 'cssmin']);
+        grunt.registerTask('default', ['sass', 'concat', 'autoprefixer', 'uglify', 'cssmin']);
     }
 
 };

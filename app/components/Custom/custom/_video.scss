@@ -1,0 +1,36 @@
+.video-container {
+    position: relative;
+    height: auto;
+    width: 100vw;
+    background: $slate;
+    margin-top: 80px;
+
+    .video-wraper {
+
+        video.video {
+            width: 100%;
+            vertical-align: middle; // Solves the 5px mystery padding
+        }
+        .welcome-container {
+            position: absolute;
+            top: 65%;
+            left: 0;
+            .welcome-wrapper {
+                position:relative;
+                background: rgba(64, 64, 64, .6);
+                padding: 10px 15px 10px 25vw;
+                &::after {
+                    width: 0;
+                    height: 0;
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-bottom: 5px solid rgba(64, 64, 64, .6);
+                }
+                .welcome {
+                    color: $white;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
