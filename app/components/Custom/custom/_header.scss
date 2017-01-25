@@ -4,60 +4,185 @@
     top:0;
     width: 100vw;
     max-width: 100vw;
-    height: 80px;
+    height: 60px;
     background: rgba(255,255,255,1);
     z-index: 10;
-    a.logoLink {
-        width: 25%;
-        .logo-wrapper {
-            position: relative;
-            width: 100%;
-            .logo {
-                width: 100%;
-                img {
-                    margin: 15px 10px 15px 40px;
-                    height: 50px;
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            width: calc(100vw - 60px);
+            a.logoLink {
+                margin-left: 60px;
+                .logo-wrapper {
+                    position: relative;
+                    .logo {
+                        img {
+                            margin: 5px 10px 5px 5px;
+                            height: 50px;
+                        }
+                    }
                 }
             }
         }
-    }
+        @media only screen and (min-width: $tablet-breakpoint) {
+            height: 80px;
+            .logo-container {
+                display: block;
+                width: 25%;
+                a.logoLink {
+                    margin-left: 0;
+                    .logo-wrapper {
+                        position: relative;
+                        width: 100%;
+                        .logo {
+                            width: 100%;
+                            img {
+                                margin: 15px 10px 15px 40px;
+                                height: 50px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     .nav-wrapper {
-        position: relative;
-        width: 75%;
+        position: fixed;
+        height: calc(100vh - 60px);
+        width: 100vw;
+        z-index: 9;
+        background: $slate;
+        transition: bottom .5s ease, left .5s ease;
+        // Just for flippin you IE
+        @media only screen and (max-width: $tablet-breakpoint - 1) {
+            bottom: 100vh;
+            left: calc(100vw - 60px);
+        }
         ul.nav {
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            height: 80px;
-            padding-right: 25px;
+            flex-direction: column;
+            height: 100%;
+
             li {
                 display: flex;
+                position: relative;
                 justify-content: center;
                 align-items: center;
                 height: 100%;
-                &::before {
-
+                width: 100%;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    background: $white;
+                    height: 1px;
+                    width: calc(100vw - 120px);
+                }
+                &:last-child {
+                    &::after {
+                        display: none;
+                    }
                 }
 
                 a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
                     padding: 3px;
-                    margin: 12px;
+                    margin: 0 auto;
                     background: transparent;
-                    color: $slate!important;
-                    font-size: 1.5rem;
+                    color: $white;
+                    font-size: 2.5rem;
                     text-transform: uppercase;
                     &.hover {
-
-                        &::before {
-
-                        }
+                        color: #777777;
                     }
                     &.active, &.focus, &.visited {
-
+                        color: $white;
                     }
 
                 }
             }
+        }
+        &.slideVertical {
+            bottom: 0;
+            transition: bottom .5s ease, left .5s ease;
+        }
+        &.slideHorizontal {
+            left: 0;
+            transition: left .5s ease;
+        }
+        @media only screen and (min-width: $tablet-breakpoint) {
+            position: relative;
+            width: 75%;
+            height: auto;
+            background: transparent;
+            ul.nav {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                flex-direction: row;
+                height: 80px;
+                padding-right: 25px;
+                li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+                    width: auto;
+                    &::before {
+
+                    }
+                    &::after {
+                        display: none;
+                    }
+
+                    a {
+                        display: block;
+                        padding: 3px;
+                        margin: 12px;
+                        background: transparent;
+                        color: $slate !important;
+                        font-size: 1.5rem;
+                        text-transform: uppercase;
+                        height: auto;
+                        width: auto;
+                        &.hover {
+
+                            &::before {
+
+                            }
+                        }
+                        &.active, &.focus, &.visited {
+
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+    .nav-mobile-btn {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        right: 0;
+        height: 60px;
+        width: 60px;
+        cursor: pointer;
+        background: $white;
+        z-index: 10;
+        @media only screen and (min-width: $tablet-breakpoint) {
+            display: none;
+        }
+            i {
+            font-size: 2.5rem;
+            color: $slate;
         }
     }
 }

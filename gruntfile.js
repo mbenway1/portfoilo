@@ -12,6 +12,7 @@ module.exports = function (grunt) {
             js: {
 
                 src: ['app/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js',
+                      'app/components/jQuery/jquery-3.1.1.js',
                       'app/bower_components/angular/angular.js',
                       'app/bower_components/angular-route/angular-route.js',
                       'app/app.js',
@@ -80,10 +81,12 @@ module.exports = function (grunt) {
             css: {
                 files: '**/*.scss',
                 tasks: ['default'],
-                options: {
-                },
             },
-        },
+            scripts: {
+                files: ['**/*.js'],
+                tasks: ['default'],
+            }
+        }
 
     });
 

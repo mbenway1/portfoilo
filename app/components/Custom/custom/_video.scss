@@ -3,9 +3,12 @@
     height: auto;
     width: 100vw;
     background: $slate;
-    margin-top: 80px;
+    margin-top: 60px;
+    @media only screen and (min-width: $tablet-breakpoint) {
+        margin-top: 80px;
+    }
 
-    .video-wraper {
+        .video-wraper {
 
         video.video {
             width: 100%;

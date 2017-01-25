@@ -2,6 +2,12 @@
 // Base – Variables
 // ==========================================================================
 
+// Responsive Breakpoints
+$phablet:						                480px;
+$tablet-breakpoint:                             768px;
+$desktop-breakpoint:                            992px;
+$hd-breakpoint:                                 1200px;
+
 // Global Typography
 $base-background-color:                         $slate;
 $base-font-family:                              "Avenir Next", sans-serif;
@@ -85,11 +91,7 @@ $tablet-container:                              720px;
 $desktop-container:                             960px;
 $hd-container:                                  1140px;
 
-// Responsive Breakpoints
-$phablet:						                480px;
-$tablet-breakpoint:                             768px;
-$desktop-breakpoint:                            1025px;
-$hd-breakpoint:                                 1140px;
+
 
 // Banner Settings
 $banner-max-width:                              1140px;
