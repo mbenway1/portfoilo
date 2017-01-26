@@ -1,6 +1,7 @@
 'use strict';
 var portfolioApp = angular.module("portfolioApp", ['ngRoute']);
 var appMenu;
+var welcomeContainer;
 
 portfolioApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
@@ -8,7 +9,7 @@ portfolioApp.config(function($routeProvider, $locationProvider) {
     // route for the home page
         .when('/', {
             templateUrl : 'pages/home.html',
-            controller  : 'mainController'
+            controller  : 'mainController',
         })
 
         // route for the about page
@@ -32,7 +33,6 @@ portfolioApp.directive('portfolioHeader', function () {
        link        : function (scope, element) {
 
            appMenu = document.getElementsByClassName("nav-wrapper");
-           //console.log('document.getElementsByClassName: ', appMenu);
        }
    };
 });
@@ -41,8 +41,6 @@ portfolioApp.controller('headerController', function($scope) {
 
 
     $scope.animateMenu = function() {
-        //var menuBtn = $('nav-mobile-btn');
-        console.log("This worked!");
         if (angular.element(appMenu).hasClass('closed')) {
             angular.element(appMenu).addClass('slideVertical');
 
