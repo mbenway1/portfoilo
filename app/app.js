@@ -1,7 +1,9 @@
 'use strict';
 var portfolioApp = angular.module("portfolioApp", ['ngRoute']);
 var appMenu;
-var welcomeContainer;
+var homeFunction;
+var portfoliioFunction;
+var photographyFunction;
 
 portfolioApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
@@ -71,6 +73,13 @@ portfolioApp.controller('mainController', function($scope) {
 
     // create a message to display in our view
     $scope.message = 'Welcome';
+    homeFunction = function() {
+        $(document).ready(function () {
+            $('.welcome-container').addClass("slideIn");
+        });
+    };
+    homeFunction();
+
 });
 
 portfolioApp.controller('portfolioController', function($scope) {

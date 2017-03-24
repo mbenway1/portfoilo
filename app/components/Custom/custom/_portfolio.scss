@@ -1,0 +1,26 @@
+.portfolio-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background: $slate;
+    padding: 50px 0;
+    .portfolio-wraper {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 80vw;
+        .portfolio-item {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            height: 32.5vw;
+            width: 32.5vw;
+            margin: 2.5vw;
+            background: $white;
+            .portfolio-title {
+                color: $blue;
+            }
+        }
+    }
+}

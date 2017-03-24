@@ -1,0 +1,23 @@
+.photography-container {
+    background: url(../../img/bg-photography.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 500px;
+    .photography-wraper {
+        position: absolute;
+        top: 34.6vw;
+        right: 14vw;
+        background: url(../../img/btn-photography.svg) no-repeat;
+        padding: 13px 0 7px 0;
+        width: 417px;
+
+        .photography-button {
+            color: $orange;
+            text-decoration: none !important;
+            font-size: 40px;
+            padding: 14px 0 14px 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.17rem;
+        }
+    }
+}
