@@ -25,7 +25,9 @@
                 left: 0;
             }
             .welcome-wrapper {
-                position:relative;
+                position:absolute;
+                top: 0;
+                width: 40vw;
                 background: rgba(64, 64, 64, .6);
                 padding: 10px 20px 10px;
                 text-align: right;

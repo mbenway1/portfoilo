@@ -6177,7 +6177,9 @@ h3, .h3 {
               transition: left .75s ease-in;
       left: 0; }
     .video-container .video-wraper .welcome-container .welcome-wrapper {
-      position: relative;
+      position: absolute;
+      top: 0;
+      width: 40vw;
       background: rgba(64, 64, 64, 0.6);
       padding: 10px 20px 10px;
       text-align: right; }
@@ -6205,8 +6207,7 @@ h3, .h3 {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: url(../../img/bg-about.jpg) no-repeat;
-  background-size: cover; }
+  position: relative; }
   .about-container .about-title-container {
     display: -webkit-box;
     display: -webkit-flex;
@@ -6244,11 +6245,29 @@ h3, .h3 {
         margin: 8px 0 0 0;
         font-style: italic;
         text-align: center; }
-  .about-container .about-wraper {
-    width: 75vw;
-    background: rgba(64, 64, 64, 0.8);
-    padding: 30px;
-    margin: 30px 0; }
+  .about-container .about-bg {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    z-index: 3;
+    background: url(../../img/bg-about.jpg) no-repeat;
+    background-size: cover; }
+    .about-container .about-bg .about-wraper {
+      width: 75vw;
+      background: rgba(64, 64, 64, 0.8);
+      padding: 30px;
+      margin: 30px 0 50px 0; }
 
 .portfolio-container {
   display: -webkit-box;
@@ -6265,7 +6284,11 @@ h3, .h3 {
       -ms-flex-direction: column;
           flex-direction: column;
   background: #404040;
-  padding: 50px 0; }
+  padding: 50px 0;
+  position: absolute;
+  top: 620px;
+  z-index: -1;
+  width: 100vw; }
   .portfolio-container .portfolio-wraper {
     display: -webkit-box;
     display: -webkit-flex;
@@ -6304,22 +6327,85 @@ h3, .h3 {
       .portfolio-container .portfolio-wraper .portfolio-item .portfolio-title {
         color: #009de1; }
 
-.photography-container {
-  background: url(../../img/bg-photography.jpg) no-repeat;
-  background-size: cover;
-  position: relative;
-  height: 500px; }
-  .photography-container .photography-wraper {
-    position: absolute;
-    top: 34.6vw;
-    right: 14vw;
-    background: url(../../img/btn-photography.svg) no-repeat;
-    padding: 13px 0 7px 0;
-    width: 417px; }
-    .photography-container .photography-wraper .photography-button {
-      color: #f47920;
-      text-decoration: none !important;
-      font-size: 40px;
-      padding: 14px 0 14px 50px;
-      text-transform: uppercase;
-      letter-spacing: 0.17rem; }
+.photography-window {
+  height: 800px;
+  width: 100vw;
+  overflow: hidden; }
+  @media screen and (max-width: 649px) and (min-width: 500px) {
+    .photography-window {
+      position: relative;
+      top: -80px;
+      height: 600px; } }
+  @media screen and (max-width: 767px) and (min-width: 650px) {
+    .photography-window {
+      height: 670px; } }
+  @media screen and (min-width: 768px) {
+    .photography-window {
+      height: 800px; } }
+  .photography-window .photography-container {
+    background: url(../../img/bg-photography.jpg) repeat;
+    position: relative;
+    height: 2000px;
+    z-index: -2; }
+    .photography-window .photography-container .photography-wraper {
+      position: absolute;
+      bottom: 450px;
+      right: 14vw;
+      background: url(../../img/btn-photography.svg) no-repeat;
+      padding: 13px 0 7px 0;
+      width: 417px; }
+      @media screen and (max-width: 767px) and (min-width: 650px) {
+        .photography-window .photography-container .photography-wraper {
+          bottom: 550px; } }
+      @media screen and (min-width: 768px) {
+        .photography-window .photography-container .photography-wraper {
+          bottom: 350px; } }
+      .photography-window .photography-container .photography-wraper .photography-button {
+        color: #f47920;
+        text-decoration: none !important;
+        font-size: 40px;
+        padding: 14px 0 14px 50px;
+        text-transform: uppercase;
+        letter-spacing: 0.17rem; }
+
+.hire-container {
+  background-color: #f47920; }
+  .hire-container .hire-wraper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 120px;
+    background-color: #f47920; }
+    .hire-container .hire-wraper .hire-content {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      width: 75vw; }
+      .hire-container .hire-wraper .hire-content .hire-btn {
+        border: 2px solid white;
+        padding: 8px 13px;
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: .2rem; }

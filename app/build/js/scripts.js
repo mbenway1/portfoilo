@@ -43994,7 +43994,110 @@ portfolioApp.controller('mainController', function($scope) {
     $scope.message = 'Welcome';
     homeFunction = function() {
         $(document).ready(function () {
+            var header, video, about, portfolio, photography, pageHeight,
+                lastScrollY = 0,
+                lastWidth = 0,
+                ticking = false,
+                resizeTicking = false;
+            /*
+            setTimeout(function () {
+                header = $("section.header").height();
+                video = $("section.video-container").height();
+                about = $("section.about-container").height();
+                portfolio = $("section.portfolio-container").outerHeight();
+                photography = $("section.photography-container").height();
+                pageHeight = header + video + about + portfolio + photography;
+                console.log(header, video, about, portfolio, photography, pageHeight);
+            },90); // this may need to be longer for slower machines
+            */
             $('.welcome-container').addClass("slideIn");
+
+
+            // THIS FUNCTION HAS BEEN JUST COPIED FROM FASS SITE I MADE TO APPLY HERE HOW ITS NEEDED. DOES NOT WORK YET
+            // Start of the parallax animations
+            function onRender() {
+                lastScrollY = window.pageYOffset;
+                requestTick();
+            }
+            function requestTick() {
+                if(!ticking)
+                    requestAnimationFrame(update);
+                ticking = true;
+            }
+            function update() {
+                var windowWidth = window.innerWidth,
+                    windowHeight = window.innerHeight,
+                    header = $('section.header'),    // bannerPosition = bannerTrueHeight.outerHeight() - 15,
+                    welcome = $('div.welcome-wrapper'),
+                    video = $('div.video-container'),
+                    about = $('div.about-container'),
+                    portfolio = $("div.portfolio-container"),
+                    photography = $('div.photography-container'),
+                    photographyPosition = video.outerHeight() + about.outerHeight(),
+                    scrolltop = window.pageYOffset;
+                //console.log(scrolltop);
+
+                if (700 >= scrolltop) {
+                    //console.log("Banner bottom location:  " + bannerPosition + "px, scroll position" + scrolltop + "px");
+                    welcome.css({'top': scrolltop * .3 + 'px', 'z-index': '2'}); // move  at 30% of scroll rate
+                    video.css('top', -scrolltop * .7 + 'px'); // move  at 50% of scroll rate
+                    about.css('top', -scrolltop * 1.2 + 'px');
+
+                }
+                else {
+                    welcome.css('z-index', '-3');
+                }
+                if (windowHeight + scrolltop >= photographyPosition) {
+                    //console.log("pageYOffset: " + scrolltop + "px, ", "testimonialPosition: " + testimonialPosition + "px, ", "windowHeight: " + windowHeight + "px");
+                    if (windowWidth < 580) {
+                        if (windowHeight < 650)
+                            photography.css('top', ((-scrolltop + -windowHeight) + photographyPosition) * 1.4 + windowHeight + 'px');
+                        else
+                            photography.css('top', ((-scrolltop + -windowHeight) + photographyPosition) * 1.25 + windowHeight + 'px');
+                    }
+                    else if (windowWidth < 768) {
+                        if (windowWidth >= 580)
+                            photography.css('top', ((-scrolltop + -windowHeight) + photographyPosition) * 1.2 + windowHeight - 500 + 'px');
+                    }
+                    else if (windowWidth < 1025) {
+                        if (windowWidth >= 768)
+                            photography.css('top', ((-scrolltop + -windowHeight) + photographyPosition) * 1.45 + windowHeight - 440 + 'px');
+                    }
+                    else
+                        photography.css('top', ((-scrolltop + -windowHeight) + photographyPosition) * 1.75 + windowHeight + 'px');
+                }
+                ticking = false;
+            }
+            // only listen for scroll events
+            window.addEventListener('scroll', onRender, false);
+
+            // Start of animation for resize
+            function resizeOnRender() {
+                lastWidth = window.innerWidth;
+                requestWidthTick();
+            }
+            function requestWidthTick() {
+                if(resizeTicking)
+                    requestAnimationFrame(resizeUpdate);
+                resizeTicking = true;
+            }
+            function resizeUpdate() {
+                //console.log(window.innerWidth + "px");
+                if (window.innerWidth >= 768)
+                    if (body.hasClass('menuOpen'))
+                        body.removeClass('menuOpen').addClass('mobileMenuWasOpen');
+                if (window.innerWidth <= 767)
+                    if (body.hasClass('mobileMenuWasOpen'))
+                        body.removeClass('mobileMenuWasOpen').addClass("menuOpen");
+                if (workTogetherHeader.outerHeight() > 50)
+                    workTogetherHeader.addClass('twoLines');
+                else
+                    workTogetherHeader.removeClass('twoLines');
+            }
+            // only listen for resize events
+            //window.addEventListener('resize', resizeOnRender, false);
+
+
         });
     };
     homeFunction();

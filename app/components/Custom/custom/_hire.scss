@@ -1,0 +1,26 @@
+.hire-container {
+    background-color: $orange;
+    .hire-wraper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120px;
+        background-color: $orange;
+        .hire-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 75vw;
+            .hire-btn {
+                border: 2px solid $white;
+                padding: 8px 13px;
+                color: $white;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 2rem;
+                font-weight: 600;
+                letter-spacing: .2rem;
+            }
+        }
+    }
+}

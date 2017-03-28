@@ -4,6 +4,10 @@
     flex-direction: column;
     background: $slate;
     padding: 50px 0;
+    position: absolute;
+    top: 620px;
+    z-index: -1;
+    width: 100vw;
     .portfolio-wraper {
         display: flex;
         justify-content: space-between;

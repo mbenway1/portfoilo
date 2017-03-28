@@ -1,23 +1,48 @@
-.photography-container {
-    background: url(../../img/bg-photography.jpg) no-repeat;
-    background-size: cover;
-    position: relative;
-    height: 500px;
-    .photography-wraper {
-        position: absolute;
-        top: 34.6vw;
-        right: 14vw;
-        background: url(../../img/btn-photography.svg) no-repeat;
-        padding: 13px 0 7px 0;
-        width: 417px;
+.photography-window {
+    height: 800px;
+    width: 100vw;
+    overflow: hidden;
+    @media screen and (max-width: 649px) and (min-width: 500px) {
+        position: relative;
+        top: -80px;
+        height: 600px;
+    }
+    @media screen and (max-width: 767px) and (min-width: 650px) {
+        height: 670px;
+    }
+    @media screen and (min-width: 768px){
+        height: 800px;
 
-        .photography-button {
-            color: $orange;
-            text-decoration: none !important;
-            font-size: 40px;
-            padding: 14px 0 14px 50px;
-            text-transform: uppercase;
-            letter-spacing: 0.17rem;
+    }
+    .photography-container {
+        background: url(../../img/bg-photography.jpg) repeat;
+        //background-size: cover;
+        position: relative;
+        height: 2000px;
+        z-index: -2;
+        .photography-wraper {
+            position: absolute;
+            bottom: 450px;
+            right: 14vw;
+            background: url(../../img/btn-photography.svg) no-repeat;
+            padding: 13px 0 7px 0;
+            width: 417px;
+            @media screen and (max-width: 767px) and (min-width: 650px) {
+                bottom: 550px;
+            }
+            @media screen and (min-width: 768px){
+                bottom: 350px;
+
+            }
+
+            .photography-button {
+                color: $orange;
+                text-decoration: none !important;
+                font-size: 40px;
+                padding: 14px 0 14px 50px;
+                text-transform: uppercase;
+                letter-spacing: 0.17rem;
+            }
         }
     }
 }
