@@ -1,5 +1,7 @@
 .hire-container {
     background-color: $orange;
+    width: 100vw;
+    max-width: 100%;
     .hire-wraper {
         display: flex;
         justify-content: center;

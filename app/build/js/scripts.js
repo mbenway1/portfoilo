@@ -44035,13 +44035,13 @@ portfolioApp.controller('mainController', function($scope) {
                     photography = $('div.photography-container'),
                     photographyPosition = video.outerHeight() + about.outerHeight(),
                     scrolltop = window.pageYOffset;
-                //console.log(scrolltop);
+                console.log("window.pageYOffset: " + scrolltop + "px", " Video Position: " + (-scrolltop * .7) + "px", " About Position: " + (-scrolltop * .75) + "px");
 
-                if (700 >= scrolltop) {
+                if (10000 >= scrolltop) {
                     //console.log("Banner bottom location:  " + bannerPosition + "px, scroll position" + scrolltop + "px");
-                    welcome.css({'top': scrolltop * .3 + 'px', 'z-index': '2'}); // move  at 30% of scroll rate
+                    welcome.css({'top': scrolltop * .35 + 'px', 'z-index': '2'}); // .3   move  at 30% of scroll rate
                     video.css('top', -scrolltop * .7 + 'px'); // move  at 50% of scroll rate
-                    about.css('top', -scrolltop * 1.2 + 'px');
+                    about.css('top', -scrolltop * .75 + 'px'); //  1.2
 
                 }
                 else {

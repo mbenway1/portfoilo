@@ -1,6 +1,7 @@
 .photography-window {
     height: 800px;
     width: 100vw;
+    max-width: 100%;
     overflow: hidden;
     @media screen and (max-width: 649px) and (min-width: 500px) {
         position: relative;
@@ -10,8 +11,16 @@
     @media screen and (max-width: 767px) and (min-width: 650px) {
         height: 670px;
     }
-    @media screen and (min-width: 768px){
+    @media screen and (max-width: 1024px) and (min-width: 768px){
         height: 800px;
+
+    }
+    @media screen and (max-width: 1139px) and (min-width: 1025px) {
+        height: 950px;
+
+    }
+    @media screen and (min-width: 1140px) {
+        height: 1024px;
 
     }
     .photography-container {
@@ -20,6 +29,14 @@
         position: relative;
         height: 2000px;
         z-index: -2;
+        @media screen and (min-width: 1025px) {
+            height: 2200px;
+
+        }
+        @media screen and (min-width: 1140px) {
+            height: 2400px;
+
+        }
         .photography-wraper {
             position: absolute;
             bottom: 450px;

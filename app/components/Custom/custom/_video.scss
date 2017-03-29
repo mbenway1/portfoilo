@@ -2,6 +2,7 @@
     position: relative;
     height: auto;
     width: 100vw;
+    max-width: 100%;
     background: $slate;
     margin-top: 60px;
     @media only screen and (min-width: $tablet-breakpoint) {
@@ -16,7 +17,7 @@
         }
         .welcome-container {
             position: absolute;
-            top: 57%;
+            top: 52%;  // was 57
             left: -40vw;
             width: 40vw;
             transition: left .75s ease-in;

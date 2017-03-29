@@ -3,27 +3,49 @@
     align-items: center;
     flex-direction: column;
     background: $slate;
-    padding: 50px 0;
     position: absolute;
-    top: 620px;
+    top: 760px; // was 620
     z-index: -1;
     width: 100vw;
+    max-width: 100%;
+    padding: 170px 0 90px 0;
+    @media screen and (min-width: 1025px) {
+        padding: 190px 0 90px 0;
+
+    }
+    @media screen and (min-width: 1140px) {
+        padding: 210px 0 90px 0;
+    }
+    @media screen and (min-width: 1300px) {
+        padding: 240px 0 90px 0;
+    }
     .portfolio-wraper {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
         flex-wrap: wrap;
         width: 80vw;
+        @media screen and (min-width: 1140px) {
+            width: 71vw;
+        }
         .portfolio-item {
             display: flex;
             align-items: flex-end;
             justify-content: center;
+            background: $white;
             height: 32.5vw;
             width: 32.5vw;
             margin: 2.5vw;
-            background: $white;
+            @media screen and (min-width: 1140px) {
+                height: 30.5vw;
+                width: 30.5vw;
+                margin: 2.5vw;
+            }
             .portfolio-title {
                 color: $blue;
+            }
+            img {
+                width: 100%;
             }
         }
     }
