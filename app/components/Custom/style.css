@@ -6363,7 +6363,8 @@ h3, .h3 {
   height: 800px;
   width: 100vw;
   max-width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
   @media screen and (max-width: 649px) and (min-width: 500px) {
     .photography-window {
       position: relative;
@@ -6416,7 +6417,8 @@ h3, .h3 {
 .hire-container {
   background-color: #f47920;
   width: 100vw;
-  max-width: 100%; }
+  max-width: 100%;
+  position: relative; }
   .hire-container .hire-wraper {
     display: -webkit-box;
     display: -webkit-flex;

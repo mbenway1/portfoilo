@@ -75,26 +75,54 @@ portfolioApp.controller('mainController', function($scope) {
     $scope.message = 'Welcome';
     homeFunction = function() {
         $(document).ready(function () {
-            var header, video, about, portfolio, photography, pageHeight,
+            var header, headerHeight, video, videoHeight, about, aboutHeight,
+                portfolio, portfolioHeight, photography, videoFullHeight, portfolioTotalHeight,
+                photographyAlignment, hireHeight, photographySetHeight, photographyImageHeight, visiblePortfolio,
                 lastScrollY = 0,
                 lastWidth = 0,
                 ticking = false,
                 resizeTicking = false;
-            /*
+
+            function alignPhotographyHire () {
+// This function is completely working and also in the update and resize being called
+                var windowHeight = window.innerHeight;
+                headerHeight = $("section.header").height();
+                videoHeight = $("div.video-container").outerHeight();
+                videoFullHeight = videoHeight + headerHeight;
+                aboutHeight = $("div.about-container").outerHeight();
+                portfolioHeight = $("div.portfolio-container").outerHeight();
+                hireHeight = $("div.hire-container").outerHeight();
+                var portfolioId = document.getElementById('portfolio-section'),
+                    style = window.getComputedStyle(portfolioId),
+                    portfolioTop = Number(style.getPropertyValue('top').replace("px", ""));
+                //console.log(portfolioTop),
+                portfolioTotalHeight = portfolioHeight +  portfolioTop,
+                photographyAlignment = ((videoFullHeight + aboutHeight) - portfolioTotalHeight),
+                visiblePortfolio = 30, // The 70 here is a fixed number that I can make what I feel looks best
+                photographySetHeight = windowHeight - (headerHeight + hireHeight + visiblePortfolio),
+                photographyImageHeight = ((photographySetHeight + visiblePortfolio) * 2) * 1.75;
+                //console.log(videoHeight, aboutHeight, portfolioHeight);
+
+                $('div.photography-window').css({
+                    top: -photographyAlignment + "px",
+                    //marginBottom: photographyAlignment + "px",
+                    height: photographySetHeight + "px"
+                });
+                $('div.photography-container').css("height", photographyImageHeight);
+                $("div.hire-container").css("top", -photographyAlignment);
+
+            }
+
             setTimeout(function () {
-                header = $("section.header").height();
-                video = $("section.video-container").height();
-                about = $("section.about-container").height();
-                portfolio = $("section.portfolio-container").outerHeight();
-                photography = $("section.photography-container").height();
-                pageHeight = header + video + about + portfolio + photography;
-                console.log(header, video, about, portfolio, photography, pageHeight);
+
+                alignPhotographyHire();
+                //console.log(portfolioTotalHeight - (videoFullHeight + about));
+
             },90); // this may need to be longer for slower machines
-            */
+
             $('.welcome-container').addClass("slideIn");
 
 
-            // THIS FUNCTION HAS BEEN JUST COPIED FROM FASS SITE I MADE TO APPLY HERE HOW ITS NEEDED. DOES NOT WORK YET
             // Start of the parallax animations
             function onRender() {
                 lastScrollY = window.pageYOffset;
@@ -116,36 +144,47 @@ portfolioApp.controller('mainController', function($scope) {
                     photography = $('div.photography-container'),
                     photographyPosition = video.outerHeight() + about.outerHeight(),
                     scrolltop = window.pageYOffset;
-                console.log("window.pageYOffset: " + scrolltop + "px", " Video Position: " + (-scrolltop * .7) + "px", " About Position: " + (-scrolltop * .75) + "px");
+                //console.log("window.pageYOffset: " + scrolltop + "px");
+                //console.log("window.pageYOffset: " + scrolltop + "px", " Video Position: " + (-scrolltop * .7) + "px", " About Position: " + (-scrolltop * .75) + "px");
 
-                if (10000 >= scrolltop) {
-                    //console.log("Banner bottom location:  " + bannerPosition + "px, scroll position" + scrolltop + "px");
+
+                if (350 >= scrolltop) {
                     welcome.css({'top': scrolltop * .35 + 'px', 'z-index': '2'}); // .3   move  at 30% of scroll rate
                     video.css('top', -scrolltop * .7 + 'px'); // move  at 50% of scroll rate
-                    about.css('top', -scrolltop * .75 + 'px'); //  1.2
-
                 }
                 else {
                     welcome.css('z-index', '-3');
                 }
-                if (windowHeight + scrolltop >= photographyPosition) {
-                    //console.log("pageYOffset: " + scrolltop + "px, ", "testimonialPosition: " + testimonialPosition + "px, ", "windowHeight: " + windowHeight + "px");
+                if (1200 >= scrolltop) {
+                    //console.log("Banner bottom location:  " + bannerPosition + "px, scroll position" + scrolltop + "px");
+                    about.css('top', -scrolltop * .75 + 'px'); //  1.2
+
+                }
+                if (windowHeight + scrolltop >= portfolioTotalHeight) {
+                    console.log("Photography Position: " + photographyPosition + "px, ", "pageYOffset: " + scrolltop + "px, ", "Portfolio Height: " + portfolioTotalHeight + "px, ", "windowHeight: " + windowHeight + "px");
+                    //console.log((scrolltop * 1.75) - scrolltop);
+                    console.log(windowHeight);
+                    console.log((windowHeight + scrolltop - portfolioHeight - 33) - windowHeight); // sure where the 33 comes from but stays the same at all browser widths
+                    // The amazing zeroing formula!!!
+                    var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight - 33) - windowHeight);
+                    /*
                     if (windowWidth < 580) {
                         if (windowHeight < 650)
-                            photography.css('top', ((-scrolltop + -windowHeight) + photographyPosition) * 1.4 + windowHeight + 'px');
+                            photography.css('top', photograhyFormula * 1.4 + 'px');
                         else
-                            photography.css('top', ((-scrolltop + -windowHeight) + photographyPosition) * 1.25 + windowHeight + 'px');
+                            photography.css('top', photograhyFormula * 1.25 + 'px');
                     }
                     else if (windowWidth < 768) {
                         if (windowWidth >= 580)
-                            photography.css('top', ((-scrolltop + -windowHeight) + photographyPosition) * 1.2 + windowHeight - 500 + 'px');
+                            photography.css('top', photograhyFormula * 1.2 + 'px');
                     }
                     else if (windowWidth < 1025) {
                         if (windowWidth >= 768)
-                            photography.css('top', ((-scrolltop + -windowHeight) + photographyPosition) * 1.45 + windowHeight - 440 + 'px');
+                            photography.css('top', photograhyFormula * 1.45 + 'px');
                     }
                     else
-                        photography.css('top', ((-scrolltop + -windowHeight) + photographyPosition) * 1.75 + windowHeight + 'px');
+                        */
+                    photography.css({top: photograhyFormula * 1.75  + 'px', height: photographyImageHeight + "px"});
                 }
                 ticking = false;
             }
@@ -163,7 +202,10 @@ portfolioApp.controller('mainController', function($scope) {
                 resizeTicking = true;
             }
             function resizeUpdate() {
+                alignPhotographyHire();
+                console.log("working");
                 //console.log(window.innerWidth + "px");
+                /*
                 if (window.innerWidth >= 768)
                     if (body.hasClass('menuOpen'))
                         body.removeClass('menuOpen').addClass('mobileMenuWasOpen');
@@ -174,9 +216,10 @@ portfolioApp.controller('mainController', function($scope) {
                     workTogetherHeader.addClass('twoLines');
                 else
                     workTogetherHeader.removeClass('twoLines');
+                */
             }
             // only listen for resize events
-            //window.addEventListener('resize', resizeOnRender, false);
+            window.addEventListener('resize', resizeOnRender, false);
 
 
         });

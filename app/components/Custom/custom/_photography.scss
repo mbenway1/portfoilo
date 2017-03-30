@@ -3,6 +3,7 @@
     width: 100vw;
     max-width: 100%;
     overflow: hidden;
+    position: relative;
     @media screen and (max-width: 649px) and (min-width: 500px) {
         position: relative;
         top: -80px;
