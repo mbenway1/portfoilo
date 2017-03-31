@@ -4,11 +4,21 @@
     flex-direction: column;
     background: $slate;
     position: absolute;
-    top: 760px; // was 620
     z-index: -1;
     width: 100vw;
     max-width: 100%;
-    padding: 170px 0 90px 0;
+    top: 650px; // was 620
+    padding: 90px 0 50px 0;
+    @media screen and (min-width: 481px) {
+        top: 640px; // was 620
+        padding: 110px 0 70px 0;
+
+    }
+    @media screen and (min-width: 768px) {
+        top: 760px; // was 620
+        padding: 170px 0 90px 0;
+
+    }
     @media screen and (min-width: 1025px) {
         padding: 190px 0 90px 0;
 
@@ -24,7 +34,10 @@
         justify-content: space-between;
         flex-direction: row;
         flex-wrap: wrap;
-        width: 80vw;
+        width: 100vw;
+        @media screen and (min-width: 641px) {
+            width: 80vw;
+        }
         @media screen and (min-width: 1140px) {
             width: 71vw;
         }
@@ -33,9 +46,14 @@
             align-items: flex-end;
             justify-content: center;
             background: $white;
-            height: 32.5vw;
-            width: 32.5vw;
-            margin: 2.5vw;
+            height: 95vw;
+            width: 95vw;
+            margin: 1.25vw 2.5vw;
+            @media screen and (min-width: 768px) {
+                height: 32.5vw;
+                width: 32.5vw;
+                margin: 2.5vw;
+            }
             @media screen and (min-width: 1140px) {
                 height: 30.5vw;
                 width: 30.5vw;

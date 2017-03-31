@@ -51,10 +51,13 @@
         background-size: cover;
 
         .about-wraper {
-            width: 75vw;
+            width: 95vw;
             background: rgba(64, 64, 64, .8);
             padding: 30px;
             margin: 30px 0 50px 0;
+            @media screen and (min-width: 768px) {
+                width: 66vw;
+            }
             @media screen and (min-width: 1140px) {
                 width: 66vw;
             }

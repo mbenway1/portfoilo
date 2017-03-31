@@ -6146,20 +6146,36 @@ h3, .h3 {
     vertical-align: middle; }
   .video-container .video-wraper .welcome-container {
     position: absolute;
-    top: 52%;
-    left: -40vw;
-    width: 40vw;
-    transition: left .75s ease-in; }
+    transition: left .75s ease-in;
+    top: 33%;
+    left: -65vw;
+    width: 65vw; }
+    @media only screen and (min-width: 481px) {
+      .video-container .video-wraper .welcome-container {
+        top: 45%;
+        left: -54vw;
+        width: 54vw; } }
+    @media only screen and (min-width: 641px) {
+      .video-container .video-wraper .welcome-container {
+        top: 52%;
+        left: -40vw;
+        width: 40vw; } }
     .video-container .video-wraper .welcome-container.slideIn {
       transition: left .75s ease-in;
       left: 0; }
     .video-container .video-wraper .welcome-container .welcome-wrapper {
       position: absolute;
       top: 0;
-      width: 40vw;
       background: rgba(64, 64, 64, 0.6);
       padding: 10px 20px 10px;
-      text-align: right; }
+      text-align: right;
+      width: 65vw; }
+      @media only screen and (min-width: 481px) {
+        .video-container .video-wraper .welcome-container .welcome-wrapper {
+          width: 54vw; } }
+      @media only screen and (min-width: 641px) {
+        .video-container .video-wraper .welcome-container .welcome-wrapper {
+          width: 40vw; } }
       .video-container .video-wraper .welcome-container .welcome-wrapper::after {
         width: 0;
         height: 0;
@@ -6217,10 +6233,13 @@ h3, .h3 {
     background: url(../../img/bg-about.jpg) no-repeat;
     background-size: cover; }
     .about-container .about-bg .about-wraper {
-      width: 75vw;
+      width: 95vw;
       background: rgba(64, 64, 64, 0.8);
       padding: 30px;
       margin: 30px 0 50px 0; }
+      @media screen and (min-width: 768px) {
+        .about-container .about-bg .about-wraper {
+          width: 66vw; } }
       @media screen and (min-width: 1140px) {
         .about-container .about-bg .about-wraper {
           width: 66vw; } }
@@ -6231,11 +6250,19 @@ h3, .h3 {
   flex-direction: column;
   background: #404040;
   position: absolute;
-  top: 760px;
   z-index: -1;
   width: 100vw;
   max-width: 100%;
-  padding: 170px 0 90px 0; }
+  top: 650px;
+  padding: 90px 0 50px 0; }
+  @media screen and (min-width: 481px) {
+    .portfolio-container {
+      top: 640px;
+      padding: 110px 0 70px 0; } }
+  @media screen and (min-width: 768px) {
+    .portfolio-container {
+      top: 760px;
+      padding: 170px 0 90px 0; } }
   @media screen and (min-width: 1025px) {
     .portfolio-container {
       padding: 190px 0 90px 0; } }
@@ -6250,7 +6277,10 @@ h3, .h3 {
     justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 80vw; }
+    width: 100vw; }
+    @media screen and (min-width: 641px) {
+      .portfolio-container .portfolio-wraper {
+        width: 80vw; } }
     @media screen and (min-width: 1140px) {
       .portfolio-container .portfolio-wraper {
         width: 71vw; } }
@@ -6259,9 +6289,14 @@ h3, .h3 {
       align-items: flex-end;
       justify-content: center;
       background: white;
-      height: 32.5vw;
-      width: 32.5vw;
-      margin: 2.5vw; }
+      height: 95vw;
+      width: 95vw;
+      margin: 1.25vw 2.5vw; }
+      @media screen and (min-width: 768px) {
+        .portfolio-container .portfolio-wraper .portfolio-item {
+          height: 32.5vw;
+          width: 32.5vw;
+          margin: 2.5vw; } }
       @media screen and (min-width: 1140px) {
         .portfolio-container .portfolio-wraper .portfolio-item {
           height: 30.5vw;
@@ -6278,34 +6313,11 @@ h3, .h3 {
   max-width: 100%;
   overflow: hidden;
   position: relative; }
-  @media screen and (max-width: 649px) and (min-width: 500px) {
-    .photography-window {
-      position: relative;
-      top: -80px;
-      height: 600px; } }
-  @media screen and (max-width: 767px) and (min-width: 650px) {
-    .photography-window {
-      height: 670px; } }
-  @media screen and (max-width: 1024px) and (min-width: 768px) {
-    .photography-window {
-      height: 800px; } }
-  @media screen and (max-width: 1139px) and (min-width: 1025px) {
-    .photography-window {
-      height: 950px; } }
-  @media screen and (min-width: 1140px) {
-    .photography-window {
-      height: 1024px; } }
   .photography-window .photography-container {
     background: url(../../img/bg-photography.jpg) repeat;
     position: relative;
     height: 2000px;
     z-index: -2; }
-    @media screen and (min-width: 1025px) {
-      .photography-window .photography-container {
-        height: 2200px; } }
-    @media screen and (min-width: 1140px) {
-      .photography-window .photography-container {
-        height: 2400px; } }
     .photography-window .photography-container .photography-wraper {
       position: absolute;
       bottom: 450px;
@@ -6313,12 +6325,9 @@ h3, .h3 {
       background: url(../../img/btn-photography.svg) no-repeat;
       padding: 13px 0 7px 0;
       width: 417px; }
-      @media screen and (max-width: 767px) and (min-width: 650px) {
-        .photography-window .photography-container .photography-wraper {
-          bottom: 550px; } }
       @media screen and (min-width: 768px) {
         .photography-window .photography-container .photography-wraper {
-          bottom: 350px; } }
+          bottom: 425px; } }
       .photography-window .photography-container .photography-wraper .photography-button {
         color: #f47920;
         text-decoration: none !important;

@@ -4,40 +4,13 @@
     max-width: 100%;
     overflow: hidden;
     position: relative;
-    @media screen and (max-width: 649px) and (min-width: 500px) {
-        position: relative;
-        top: -80px;
-        height: 600px;
-    }
-    @media screen and (max-width: 767px) and (min-width: 650px) {
-        height: 670px;
-    }
-    @media screen and (max-width: 1024px) and (min-width: 768px){
-        height: 800px;
 
-    }
-    @media screen and (max-width: 1139px) and (min-width: 1025px) {
-        height: 950px;
-
-    }
-    @media screen and (min-width: 1140px) {
-        height: 1024px;
-
-    }
     .photography-container {
         background: url(../../img/bg-photography.jpg) repeat;
         //background-size: cover;
         position: relative;
         height: 2000px;
         z-index: -2;
-        @media screen and (min-width: 1025px) {
-            height: 2200px;
-
-        }
-        @media screen and (min-width: 1140px) {
-            height: 2400px;
-
-        }
         .photography-wraper {
             position: absolute;
             bottom: 450px;
@@ -45,11 +18,8 @@
             background: url(../../img/btn-photography.svg) no-repeat;
             padding: 13px 0 7px 0;
             width: 417px;
-            @media screen and (max-width: 767px) and (min-width: 650px) {
-                bottom: 550px;
-            }
             @media screen and (min-width: 768px){
-                bottom: 350px;
+                bottom: 425px;
 
             }
 

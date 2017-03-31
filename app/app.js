@@ -203,7 +203,8 @@ portfolioApp.controller('mainController', function($scope) {
             }
             function resizeUpdate() {
                 alignPhotographyHire();
-                console.log("working");
+                update();
+                //console.log("working");
                 //console.log(window.innerWidth + "px");
                 /*
                 if (window.innerWidth >= 768)
