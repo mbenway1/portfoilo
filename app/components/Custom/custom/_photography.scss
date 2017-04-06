@@ -10,30 +10,36 @@
         //background-size: cover;
         position: relative;
         height: 2000px;
-        .photography-wraper {
-            position: absolute;
-            bottom: 450px;
-            right: 14vw;
-            background: url(../../img/btn-photography.svg) no-repeat;
-            padding: 13px 0 7px 0;
-            width: 417px;
-            @media screen and (min-width: 768px){
-                bottom: 425px;
 
-            }
+    }
+    .photography-wraper {
+        position: absolute;
+        bottom: 15vh;
+        right: 14vw;
+        background: url(../../img/btn-photography.svg) no-repeat;
+        padding: 13px 0 7px 0;
+        width: 417px;
+        @media screen and (min-height: 475px){
+            bottom: 25vh;
+        }
+        @media screen and (min-height: 600px){
+            bottom: 38vh;
+        }
+        @media screen and (min-height: 820px){
+            bottom: 43vh;
+        }
 
-            .photography-button {
-                color: $orange;
-                text-decoration: none !important;
-                font-size: 40px;
-                padding: 17px 50px 11px 50px;
-                text-transform: uppercase;
-                letter-spacing: 0.17rem;
+        .photography-button {
+            color: $orange;
+            text-decoration: none !important;
+            font-size: 40px;
+            padding: 17px 50px 11px 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.17rem;
+            transition: color ease .25s;
+            &:hover {
+                color: $white;
                 transition: color ease .25s;
-                &:hover {
-                    color: $white;
-                    transition: color ease .25s;
-                }
             }
         }
     }

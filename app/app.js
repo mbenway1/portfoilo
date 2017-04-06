@@ -95,12 +95,21 @@ portfolioApp.controller('mainController', function($scope) {
                 var portfolioId = document.getElementById('portfolio-section'),
                     style = window.getComputedStyle(portfolioId);
                 portfolioTop = Number(style.getPropertyValue('top').replace("px", ""));
-                //console.log("PortfolioTop: " + portfolioTop),
                 portfolioTotalHeight = portfolioHeight +  portfolioTop,
                 photographyAlignment = ((videoFullHeight + aboutHeight) - portfolioTotalHeight),
                 visiblePortfolio = 30, // The 70 here is a fixed number that I can make what I feel looks best
-                photographySetHeight = windowHeight - (headerHeight + hireHeight + visiblePortfolio),
-                photographyImageHeight = ((photographySetHeight + visiblePortfolio) * 2) * 1.75;
+                photographySetHeight = windowHeight - (headerHeight + hireHeight + visiblePortfolio);
+                console.log("PortfolioTop: " + portfolioTop);
+                console.log("Window Height: " + windowHeight);
+                if (windowHeight >= 300 && windowHeight <= 399)
+                    photographyImageHeight = ((photographySetHeight + visiblePortfolio) * 6.5) * 1.75; // was 2 before I switched the link out of photography-container
+                else if (windowHeight >= 400 && windowHeight <= 500)
+                    photographyImageHeight = ((photographySetHeight + visiblePortfolio) * 4.5) * 1.75; // was 2 before I switched the link out of photography-container
+                else if (windowHeight >= 501 && windowHeight <= 600)
+                    photographyImageHeight = ((photographySetHeight + visiblePortfolio) * 3.5) * 1.75; // was 2 before I switched the link out of photography-container
+                else
+                    photographyImageHeight = ((photographySetHeight + visiblePortfolio) * 2.75) * 1.75; // was 2 before I switched the link out of photography-container
+
                 //console.log(videoHeight, aboutHeight, portfolioHeight);
 
                 $('div.photography-window').css({
@@ -169,10 +178,27 @@ portfolioApp.controller('mainController', function($scope) {
                 }
                 if (windowHeight + scrolltop >= portfolioTotalHeight) {
 ////////////////////// This ling right below is the one that is causing the issues with the white space above and below the image depending on browsers size, looks like its going to nee parameters for heights and widths unless I can come up with a better formula
-                    var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 50) - windowHeight); //  was -33 not sure why??
+                    /*
+                    var photographyVariable = 50;
+                    if (windowWidth >= 1441 && windowWidth <= 1920) {
+                        photographyVariable = 50;
+                        if (windowHeight >= 801 && windowHeight <= 1080) {
+                            photographyVariable = 75;
+                        }
+                        else if (windowHeight >=  && windowHeight <= 800) {
+                            photographyVariable = 75;
+                        }
+
+                    }
+                    else if (windowWidth >= 1141 && windowWidth <= 1440) {
+                        photographyVariable = 30;
+
+                    }
+                    */
+                    var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 120) - windowHeight); //  was -33 not sure why?? might be to overlap by 3 px of the set figure of 30 of visiblePortfolio
 
 
-
+////////////////////// End
                     console.log("Photography Position: " + photographyPosition + "px, ", "pageYOffset: " + scrolltop + "px, ", "Portfolio Height: " + portfolioTotalHeight + "px, ", "windowHeight: " + windowHeight + "px ", "portfolioTop: " + portfolioTop + "px ", "PortfolioHeight: " + portfolioHeight + "px");
                     //console.log((scrolltop * 1.75) - scrolltop);
                     console.log("windowHeight:            " + windowHeight);

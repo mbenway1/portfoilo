@@ -6421,29 +6421,29 @@ h3, .h3 {
     background: url(../../img/bg-photography.jpg) repeat;
     position: relative;
     height: 2000px; }
-    .photography-window .photography-container .photography-wraper {
-      position: absolute;
-      bottom: 450px;
-      right: 14vw;
-      background: url(../../img/btn-photography.svg) no-repeat;
-      padding: 13px 0 7px 0;
-      width: 417px; }
-      @media screen and (min-width: 768px) {
-        .photography-window .photography-container .photography-wraper {
-          bottom: 425px; } }
-      .photography-window .photography-container .photography-wraper .photography-button {
-        color: #f47920;
-        text-decoration: none !important;
-        font-size: 40px;
-        padding: 17px 50px 11px 50px;
-        text-transform: uppercase;
-        letter-spacing: 0.17rem;
+  .photography-window .photography-wraper {
+    position: absolute;
+    bottom: 450px;
+    right: 14vw;
+    background: url(../../img/btn-photography.svg) no-repeat;
+    padding: 13px 0 7px 0;
+    width: 417px; }
+    @media screen and (min-width: 768px) {
+      .photography-window .photography-wraper {
+        bottom: 425px; } }
+    .photography-window .photography-wraper .photography-button {
+      color: #f47920;
+      text-decoration: none !important;
+      font-size: 40px;
+      padding: 17px 50px 11px 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.17rem;
+      -webkit-transition: color ease .25s;
+              transition: color ease .25s; }
+      .photography-window .photography-wraper .photography-button:hover {
+        color: white;
         -webkit-transition: color ease .25s;
                 transition: color ease .25s; }
-        .photography-window .photography-container .photography-wraper .photography-button:hover {
-          color: white;
-          -webkit-transition: color ease .25s;
-                  transition: color ease .25s; }
 
 .hire-container {
   background-color: #f47920;
