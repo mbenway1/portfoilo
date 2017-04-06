@@ -43996,7 +43996,7 @@ portfolioApp.controller('mainController', function($scope) {
         $(document).ready(function () {
             var header, headerHeight, video, videoHeight, about, aboutHeight,
                 portfolio, portfolioHeight, photography, videoFullHeight, portfolioTotalHeight,
-                photographyAlignment, hireHeight, photographySetHeight, photographyImageHeight, visiblePortfolio,
+                photographyAlignment, hireHeight, photographySetHeight, photographyImageHeight, visiblePortfolio, portfolioTop,
                 lastScrollY = 0,
                 lastWidth = 0,
                 ticking = false,
@@ -44012,9 +44012,9 @@ portfolioApp.controller('mainController', function($scope) {
                 portfolioHeight = $("div.portfolio-container").outerHeight();
                 hireHeight = $("div.hire-container").outerHeight();
                 var portfolioId = document.getElementById('portfolio-section'),
-                    style = window.getComputedStyle(portfolioId),
-                    portfolioTop = Number(style.getPropertyValue('top').replace("px", ""));
-                //console.log(portfolioTop),
+                    style = window.getComputedStyle(portfolioId);
+                portfolioTop = Number(style.getPropertyValue('top').replace("px", ""));
+                //console.log("PortfolioTop: " + portfolioTop),
                 portfolioTotalHeight = portfolioHeight +  portfolioTop,
                 photographyAlignment = ((videoFullHeight + aboutHeight) - portfolioTotalHeight),
                 visiblePortfolio = 30, // The 70 here is a fixed number that I can make what I feel looks best
@@ -44029,7 +44029,7 @@ portfolioApp.controller('mainController', function($scope) {
                 });
                 $('div.photography-container').css("height", photographyImageHeight);
                 $("div.hire-container").css("top", -photographyAlignment);
-
+                //console.log(photographyAlignment, photographyImageHeight, photographySetHeight, windowHeight);
             }
 
             setTimeout(function () {
@@ -44040,7 +44040,14 @@ portfolioApp.controller('mainController', function($scope) {
             },90); // this may need to be longer for slower machines
 
             $('.welcome-container').addClass("slideIn");
+            $('.hire-btn').click(function () {
+                $(".hire-content").toggleClass('opened');
 
+            });
+
+            $("ul.nav>li>a").hover(function () {
+                $(this).parent().toggleClass('over');
+            });
 
             // Start of the parallax animations
             function onRender() {
@@ -44080,29 +44087,35 @@ portfolioApp.controller('mainController', function($scope) {
 
                 }
                 if (windowHeight + scrolltop >= portfolioTotalHeight) {
-                    console.log("Photography Position: " + photographyPosition + "px, ", "pageYOffset: " + scrolltop + "px, ", "Portfolio Height: " + portfolioTotalHeight + "px, ", "windowHeight: " + windowHeight + "px");
+                    var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 15) - windowHeight); //  was -33 not sure why??
+                    console.log("Photography Position: " + photographyPosition + "px, ", "pageYOffset: " + scrolltop + "px, ", "Portfolio Height: " + portfolioTotalHeight + "px, ", "windowHeight: " + windowHeight + "px ", "portfolioTop: " + portfolioTop + "px ", "PortfolioHeight: " + portfolioHeight + "px");
                     //console.log((scrolltop * 1.75) - scrolltop);
-                    console.log(windowHeight);
-                    console.log((windowHeight + scrolltop - portfolioHeight - 33) - windowHeight); // sure where the 33 comes from but stays the same at all browser widths
+                    console.log("windowHeight:            " + windowHeight);
+                    console.log("photographyFormula:      " + photograhyFormula); // sure where the 33 comes from but stays the same at all browser widths
+                    console.log("photographyTopValue:     " + photograhyFormula * 1.75, "photographyImgHeight: " + photographyImageHeight);
+                    console.log("photographyWindowHeight: " + photographySetHeight + "  (photographySetHeight)");
+                    console.log("Photo img height Formula:  ((photographySetHeight + visiblePortfolio) * 2) * 1.75, visiblePortfolio is set at 30");
+                    console.log("photographyFormula: -((windowHeight + scrolltop - portfolioHeight - 33) - windowHeight)");
                     // The amazing zeroing formula!!!
-                    var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight - 33) - windowHeight);
                     /*
                     if (windowWidth < 580) {
                         if (windowHeight < 650)
-                            photography.css('top', photograhyFormula * 1.4 + 'px');
+                            photography.css({top: photograhyFormula * 1.55  + 'px', height: photographyImageHeight + "px"});
                         else
-                            photography.css('top', photograhyFormula * 1.25 + 'px');
+                            photography.css({top: photograhyFormula * 1.65  + 'px', height: photographyImageHeight + "px"});
                     }
                     else if (windowWidth < 768) {
                         if (windowWidth >= 580)
-                            photography.css('top', photograhyFormula * 1.2 + 'px');
+                            photography.css({top: photograhyFormula * 1.5  + 'px', height: photographyImageHeight + "px"});
                     }
-                    else if (windowWidth < 1025) {
-                        if (windowWidth >= 768)
-                            photography.css('top', photograhyFormula * 1.45 + 'px');
+                    else if (windowWidth >= 768) {
+                        if (windowHeight <= 660)
+                            photography.css({top: photograhyFormula * 1.65  + 'px', height: photographyImageHeight + "px"});
+                        else
+                            photography.css({top: photograhyFormula * 1.75  + 'px', height: photographyImageHeight + "px"});
                     }
                     else
-                        */
+                    */
                     photography.css({top: photograhyFormula * 1.75  + 'px', height: photographyImageHeight + "px"});
                 }
                 ticking = false;

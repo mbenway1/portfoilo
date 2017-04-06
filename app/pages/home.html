@@ -64,7 +64,23 @@
 <div class="hire-container">
     <div class="hire-wraper">
         <div class="hire-content">
-            <a ng-href="/contact" class="hire-btn">Hire Me</a>
+            <button type="button" class="hire-btn">Hire Me</button>
+            <form id="hire-form">
+                <input type="text" placeholder="Name/Company" required="">
+                <input type="tel" placeholder="(123) 456-7890">
+                <input type="email" required>
+                <select>
+                    <option selected disabled>-- select your budget --</option>
+                    <option>Unknown</option>
+                    <option>500</option>
+                    <option>1000</option>
+                    <option>2000</option>
+                    <option>5000</option>
+                    <option>10000</option>
+                    <option>10000+</option>
+                </select>
+                <textarea placeholder="Just Say Hi"></textarea>
+            </form>
         </div>
     </div>
 </div>

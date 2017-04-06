@@ -129,17 +129,38 @@
                 padding-right: 25px;
                 li {
                     display: flex;
+                    position: relative;
                     justify-content: center;
                     align-items: center;
                     height: 100%;
                     width: auto;
+                    overflow: hidden;
+                    &::after {
+                        content: " ";
+                        display: block;
+                        position: absolute;
+                        width: 100%;
+                        height: 2px;
+                        left: 100%;
+                        top:0;
+                        background: $orange;
+                        transition: left ease .25s;
+                    }
+                    &.over {
+                        &::after {
+                            left: 0;
+                            transition: left ease .25s;
+                        }
+                    }
+                    &:last-child {
+                        &::after {
+                            display: block;
+                        }
+                    }
+
                     &::before {
 
                     }
-                    &::after {
-                        display: none;
-                    }
-
                     a {
                         display: block;
                         padding: 3px;
@@ -150,12 +171,6 @@
                         text-transform: uppercase;
                         height: auto;
                         width: auto;
-                        &.hover {
-
-                            &::before {
-
-                            }
-                        }
                         &.active, &.focus, &.visited {
 
                         }
