@@ -6331,17 +6331,26 @@ h3, .h3 {
   .photography-window .photography-container {
     background: url(../../img/bg-photography.jpg) repeat;
     position: relative;
-    height: 2000px; }
+    height: 2000px;
+    background-size: 100%; }
   .photography-window .photography-wraper {
     position: absolute;
-    bottom: 450px;
+    top: -100px;
     right: 14vw;
     background: url(../../img/btn-photography.svg) no-repeat;
     padding: 13px 0 7px 0;
-    width: 417px; }
-    @media screen and (min-width: 768px) {
-      .photography-window .photography-wraper {
-        bottom: 425px; } }
+    width: 417px;
+    /*
+        @media screen and (min-height: 475px){
+            bottom: 25vh;
+        }
+        @media screen and (min-height: 600px){
+            bottom: 38vh;
+        }
+        @media screen and (min-height: 820px){
+            bottom: 43vh;
+        }
+        */ }
     .photography-window .photography-wraper .photography-button {
       color: #f47920;
       text-decoration: none !important;

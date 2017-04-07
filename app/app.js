@@ -109,7 +109,6 @@ portfolioApp.controller('mainController', function($scope) {
                     photographyImageHeight = ((photographySetHeight + visiblePortfolio) * 3.5) * 1.75; // was 2 before I switched the link out of photography-container
                 else
                     photographyImageHeight = ((photographySetHeight + visiblePortfolio) * 2.75) * 1.75; // was 2 before I switched the link out of photography-container
-
                 //console.log(videoHeight, aboutHeight, portfolioHeight);
 
                 $('div.photography-window').css({
@@ -159,6 +158,7 @@ portfolioApp.controller('mainController', function($scope) {
                     portfolio = $("div.portfolio-container"),
                     photography = $('div.photography-container'),
                     photographyPosition = video.outerHeight() + about.outerHeight(),
+
                     scrolltop = window.pageYOffset;
                 //console.log("window.pageYOffset: " + scrolltop + "px");
                 //console.log("window.pageYOffset: " + scrolltop + "px", " Video Position: " + (-scrolltop * .7) + "px", " About Position: " + (-scrolltop * .75) + "px");
@@ -176,6 +176,15 @@ portfolioApp.controller('mainController', function($scope) {
                     about.css('top', -scrolltop * .75 + 'px'); //  1.2
 
                 }
+                //console.log("bottom of page position: " + (windowHeight + scrolltop));
+                // this determines the positon to trigger the photography link to arise. the .6 is 60% of the photography-wrapper in
+                if ((portfolioTotalHeight + (photographySetHeight * .6)) <= (windowHeight + scrolltop)) {
+                    console.log("triggered!");
+                    var photographyWraperPosition = (portfolioTotalHeight + (photographySetHeight * .6)) - (windowHeight + scrolltop); // - in front makes it positive
+                    //console.log(-photographyWraperPosition * .6);
+                    $('div.photography-wraper').css("top", (-photographyWraperPosition * .9) - 100 ); // - 100 to account for the height of the element so you see no jump, the .9 is just to set the speed of how it goes down. cannot be over 1 or it will do the opposite
+                }
+
                 if (windowHeight + scrolltop >= portfolioTotalHeight) {
 ////////////////////// This ling right below is the one that is causing the issues with the white space above and below the image depending on browsers size, looks like its going to nee parameters for heights and widths unless I can come up with a better formula
                     /*
@@ -199,14 +208,14 @@ portfolioApp.controller('mainController', function($scope) {
 
 
 ////////////////////// End
-                    console.log("Photography Position: " + photographyPosition + "px, ", "pageYOffset: " + scrolltop + "px, ", "Portfolio Height: " + portfolioTotalHeight + "px, ", "windowHeight: " + windowHeight + "px ", "portfolioTop: " + portfolioTop + "px ", "PortfolioHeight: " + portfolioHeight + "px");
+                    //console.log("Photography Position: " + photographyPosition + "px, ", "pageYOffset: " + scrolltop + "px, ", "Portfolio Height: " + portfolioTotalHeight + "px, ", "windowHeight: " + windowHeight + "px ", "portfolioTop: " + portfolioTop + "px ", "PortfolioHeight: " + portfolioHeight + "px ", "photogrraphyAlignment: " + photographyAlignment + "px");
                     //console.log((scrolltop * 1.75) - scrolltop);
-                    console.log("windowHeight:            " + windowHeight);
-                    console.log("photographyFormula:      " + photograhyFormula); // sure where the 33 comes from but stays the same at all browser widths
-                    console.log("photographyTopValue:     " + photograhyFormula * 1.75, "photographyImgHeight: " + photographyImageHeight);
-                    console.log("photographyWindowHeight: " + photographySetHeight + "  (photographySetHeight)");
-                    console.log("Photo img height Formula:  ((photographySetHeight + visiblePortfolio) * 2) * 1.75, visiblePortfolio is set at 30");
-                    console.log("photographyFormula: -((windowHeight + scrolltop - portfolioHeight - 33) - windowHeight)");
+                    //console.log("windowHeight:            " + windowHeight);
+                    //console.log("photographyFormula:      " + photograhyFormula); // sure where the 33 comes from but stays the same at all browser widths
+                    //console.log("photographyTopValue:     " + photograhyFormula * 1.75, "photographyImgHeight: " + photographyImageHeight);
+                    //console.log("photographyWindowHeight: " + photographySetHeight + "  (photographySetHeight)");
+                    //console.log("Photo img height Formula:  ((photographySetHeight + visiblePortfolio) * 2) * 1.75, visiblePortfolio is set at 30");
+                    //console.log("photographyFormula: -((windowHeight + scrolltop - portfolioHeight - 33) - windowHeight)");
                     // The amazing zeroing formula!!!
                     /*
                     if (windowWidth < 580) {

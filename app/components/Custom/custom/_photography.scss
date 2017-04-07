@@ -10,15 +10,17 @@
         //background-size: cover;
         position: relative;
         height: 2000px;
-
+        background-size: 100%;
     }
     .photography-wraper {
         position: absolute;
-        bottom: 15vh;
+        //bottom: 15vh;
+        top: -100px;
         right: 14vw;
         background: url(../../img/btn-photography.svg) no-repeat;
         padding: 13px 0 7px 0;
         width: 417px;
+        /*
         @media screen and (min-height: 475px){
             bottom: 25vh;
         }
@@ -28,7 +30,7 @@
         @media screen and (min-height: 820px){
             bottom: 43vh;
         }
-
+        */
         .photography-button {
             color: $orange;
             text-decoration: none !important;
