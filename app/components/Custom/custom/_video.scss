@@ -21,12 +21,12 @@
             top: 33%;  // was 57
             left: -65vw;
             width: 65vw;
-            @media only screen and (min-width: 481px) {
+            @media only screen and (min-width: $phablet) {
                 top: 45%;  // was 57
                 left: -54vw;
                 width: 54vw;
             }
-            @media only screen and (min-width: 641px) {
+            @media only screen and (min-width: $small-tablet) {
                 top: 52%;  // was 57
                 left: -40vw;
                 width: 40vw;
@@ -42,10 +42,10 @@
                 padding: 10px 20px 10px;
                 text-align: right;
                 width: 65vw;
-                @media only screen and (min-width: 481px) {
+                @media only screen and (min-width: $phablet) {
                     width: 54vw;
                 }
-                @media only screen and (min-width: 641px) {
+                @media only screen and (min-width: $small-tablet) {
                     width: 40vw;
                 }
                 &::after {
@@ -58,6 +58,15 @@
                 .welcome {
                     color: $white;
                     text-transform: uppercase;
+                    margin: 0;
+                    font-size: 26px;
+                    @media only screen and (min-width: $phablet) {
+                        font-size: 36px;
+                        margin: 10px 0;
+                    }
+                    @media only screen and (min-width: $hd-breakpoint) {
+                        font-size: 45px;
+                    }
                 }
             }
         }

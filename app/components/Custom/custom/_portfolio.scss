@@ -9,24 +9,24 @@
     max-width: 100%;
     top: 650px; // was 620
     padding: 90px 0 50px 0;
-    @media screen and (min-width: 481px) {
+    @media screen and (min-width: $phablet) {
         top: 640px; // was 620
         padding: 110px 0 70px 0;
 
     }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet-breakpoint) {
         top: 760px; // was 620
         padding: 170px 0 90px 0;
 
     }
-    @media screen and (min-width: 1025px) {
+    @media screen and (min-width: $desktop-breakpoint) {
         padding: 190px 0 90px 0;
 
     }
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1140px) { // this one has to stay at 1140
         padding: 210px 0 90px 0;
     }
-    @media screen and (min-width: 1300px) {
+    @media screen and (min-width: 1300px) { // this one has to stay at 1300
         padding: 240px 0 90px 0;
     }
     .portfolio-wraper {
@@ -35,10 +35,10 @@
         flex-direction: row;
         flex-wrap: wrap;
         width: 100vw;
-        @media screen and (min-width: 641px) {
+        @media screen and (min-width: $small-tablet) {
             width: 80vw;
         }
-        @media screen and (min-width: 1140px) {
+        @media screen and (min-width: $hd-breakpoint) {
             width: 71vw;
         }
         .portfolio-item {
@@ -49,12 +49,12 @@
             height: 95vw;
             width: 95vw;
             margin: 1.25vw 2.5vw;
-            @media screen and (min-width: 768px) {
+            @media screen and (min-width: $tablet-breakpoint) {
                 height: 32.5vw;
                 width: 32.5vw;
                 margin: 2.5vw;
             }
-            @media screen and (min-width: 1140px) {
+            @media screen and (min-width: $hd-breakpoint) {
                 height: 30.5vw;
                 width: 30.5vw;
                 margin: 2.5vw;

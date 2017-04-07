@@ -5968,7 +5968,8 @@ $textarea-height:                               8rem;
 $input-error-color:                             $red;
 */
 body {
-  font: 12px "Avenir Next", sans-serif; }
+  font: 12px "Avenir Next", sans-serif;
+  overflow-x: hidden; }
 
 p {
   color: white; }
@@ -5976,14 +5977,14 @@ p {
 h1, .h1 {
   color: white;
   text-transform: uppercase; }
-  @media screen and (min-width: 1140px) {
+  @media screen and (min-width: 1200px) {
     h1, .h1 {
       font-size: 45px; } }
 
 h2, .h2 {
   color: #f47920;
   text-transform: uppercase; }
-  @media screen and (min-width: 1140px) {
+  @media screen and (min-width: 1200px) {
     h2, .h2 {
       font-size: 36px; } }
 
@@ -6165,7 +6166,7 @@ h3, .h3 {
     top: 33%;
     left: -65vw;
     width: 65vw; }
-    @media only screen and (min-width: 481px) {
+    @media only screen and (min-width: 480px) {
       .video-container .video-wraper .welcome-container {
         top: 45%;
         left: -54vw;
@@ -6185,7 +6186,7 @@ h3, .h3 {
       padding: 10px 20px 10px;
       text-align: right;
       width: 65vw; }
-      @media only screen and (min-width: 481px) {
+      @media only screen and (min-width: 480px) {
         .video-container .video-wraper .welcome-container .welcome-wrapper {
           width: 54vw; } }
       @media only screen and (min-width: 641px) {
@@ -6199,7 +6200,16 @@ h3, .h3 {
         border-bottom: 5px solid rgba(64, 64, 64, 0.6); }
       .video-container .video-wraper .welcome-container .welcome-wrapper .welcome {
         color: white;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        margin: 0;
+        font-size: 26px; }
+        @media only screen and (min-width: 480px) {
+          .video-container .video-wraper .welcome-container .welcome-wrapper .welcome {
+            font-size: 36px;
+            margin: 10px 0; } }
+        @media only screen and (min-width: 1200px) {
+          .video-container .video-wraper .welcome-container .welcome-wrapper .welcome {
+            font-size: 45px; } }
 
 .about-container {
   display: flex;
@@ -6212,18 +6222,18 @@ h3, .h3 {
     display: flex;
     justify-content: center;
     background: white;
-    width: 300px;
-    height: 76px;
+    width: 260px;
+    height: 67px;
     padding: 3px 0;
-    margin-top: -39px;
+    margin-top: -33px;
     z-index: 1; }
     .about-container .about-title-container .about-title {
-      width: 294px;
+      width: 254px;
       background: #404040;
       padding: 10px 15px; }
       .about-container .about-title-container .about-title .title-name {
         color: white;
-        font-size: 18px;
+        font-size: 14px;
         text-transform: uppercase;
         letter-spacing: .5rem;
         margin: 0 0 4px 0;
@@ -6234,11 +6244,22 @@ h3, .h3 {
         background: white; }
       .about-container .about-title-container .about-title .title-job {
         color: white;
-        font-size: 16px;
+        font-size: 13px;
         letter-spacing: .05rem;
         margin: 8px 0 0 0;
         font-style: italic;
         text-align: center; }
+    @media only screen and (min-width: 480px) {
+      .about-container .about-title-container {
+        width: 300px;
+        height: 76px;
+        margin-top: -39px; }
+        .about-container .about-title-container .about-title {
+          width: 294px; }
+          .about-container .about-title-container .about-title .title-name {
+            font-size: 18px; }
+          .about-container .about-title-container .about-title .title-job {
+            font-size: 16px; } }
   .about-container .about-bg {
     display: flex;
     align-items: center;
@@ -6254,8 +6275,8 @@ h3, .h3 {
       margin: 30px 0 50px 0; }
       @media screen and (min-width: 768px) {
         .about-container .about-bg .about-wraper {
-          width: 66vw; } }
-      @media screen and (min-width: 1140px) {
+          width: 75vw; } }
+      @media screen and (min-width: 1200px) {
         .about-container .about-bg .about-wraper {
           width: 66vw; } }
 
@@ -6270,7 +6291,7 @@ h3, .h3 {
   max-width: 100%;
   top: 650px;
   padding: 90px 0 50px 0; }
-  @media screen and (min-width: 481px) {
+  @media screen and (min-width: 480px) {
     .portfolio-container {
       top: 640px;
       padding: 110px 0 70px 0; } }
@@ -6296,7 +6317,7 @@ h3, .h3 {
     @media screen and (min-width: 641px) {
       .portfolio-container .portfolio-wraper {
         width: 80vw; } }
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: 1200px) {
       .portfolio-container .portfolio-wraper {
         width: 71vw; } }
     .portfolio-container .portfolio-wraper .portfolio-item {
@@ -6312,7 +6333,7 @@ h3, .h3 {
           height: 32.5vw;
           width: 32.5vw;
           margin: 2.5vw; } }
-      @media screen and (min-width: 1140px) {
+      @media screen and (min-width: 1200px) {
         .portfolio-container .portfolio-wraper .portfolio-item {
           height: 30.5vw;
           width: 30.5vw;
@@ -6336,29 +6357,28 @@ h3, .h3 {
   .photography-window .photography-wraper {
     position: absolute;
     top: -100px;
-    right: 14vw;
+    right: 3vw;
     background: url(../../img/btn-photography.svg) no-repeat;
-    padding: 13px 0 7px 0;
-    width: 417px;
-    /*
-        @media screen and (min-height: 475px){
-            bottom: 25vh;
-        }
-        @media screen and (min-height: 600px){
-            bottom: 38vh;
-        }
-        @media screen and (min-height: 820px){
-            bottom: 43vh;
-        }
-        */ }
+    padding: 11px 0 9px 0;
+    width: 277px; }
+    @media only screen and (min-width: 480px) {
+      .photography-window .photography-wraper {
+        padding: 13px 0 7px 0;
+        width: 417px; } }
+    @media only screen and (min-width: 768px) {
+      .photography-window .photography-wraper {
+        right: 14vw; } }
     .photography-window .photography-wraper .photography-button {
       color: #f47920;
       text-decoration: none !important;
-      font-size: 40px;
+      font-size: 21px;
       padding: 17px 50px 11px 50px;
       text-transform: uppercase;
       letter-spacing: 0.17rem;
       transition: color ease .25s; }
+      @media only screen and (min-width: 768px) {
+        .photography-window .photography-wraper .photography-button {
+          font-size: 40px; } }
       .photography-window .photography-wraper .photography-button:hover {
         color: white;
         transition: color ease .25s; }

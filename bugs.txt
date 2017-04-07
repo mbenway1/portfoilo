@@ -1,0 +1,1 @@
+04/07/2017 on mobile there is some weird skipping caused by the showing and hiding of the address bar in all browsers

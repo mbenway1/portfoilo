@@ -44083,7 +44083,7 @@ portfolioApp.controller('mainController', function($scope) {
                 //console.log("window.pageYOffset: " + scrolltop + "px", " Video Position: " + (-scrolltop * .7) + "px", " About Position: " + (-scrolltop * .75) + "px");
 
 
-                if (350 >= scrolltop) {
+                if (550 >= scrolltop) {
                     welcome.css({'top': scrolltop * .35 + 'px', 'z-index': '2'}); // .3   move  at 30% of scroll rate
                     video.css('top', -scrolltop * .7 + 'px'); // move  at 50% of scroll rate
                 }
@@ -44100,8 +44100,8 @@ portfolioApp.controller('mainController', function($scope) {
                 if ((portfolioTotalHeight + (photographySetHeight * .6)) <= (windowHeight + scrolltop)) {
                     console.log("triggered!");
                     var photographyWraperPosition = (portfolioTotalHeight + (photographySetHeight * .6)) - (windowHeight + scrolltop); // - in front makes it positive
-                    console.log(-photographyWraperPosition * .6);
-                    $('div.photography-wraper').css("top", (-photographyWraperPosition * .9) - 100 )
+                    //console.log(-photographyWraperPosition * .6);
+                    $('div.photography-wraper').css("top", (-photographyWraperPosition * .9) - 100 ); // - 100 to account for the height of the element so you see no jump, the .9 is just to set the speed of how it goes down. cannot be over 1 or it will do the opposite
                 }
 
                 if (windowHeight + scrolltop >= portfolioTotalHeight) {
@@ -44123,7 +44123,7 @@ portfolioApp.controller('mainController', function($scope) {
 
                     }
                     */
-                    var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 120) - windowHeight); //  was -33 not sure why?? might be to overlap by 3 px of the set figure of 30 of visiblePortfolio
+                    var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 160) - windowHeight); //  Now just set high enough that no whitespace shows on any screen was 120 raising because of mobile, was -33 not sure why?? might be to overlap by 3 px of the set figure of 30 of visiblePortfolio
 
 
 ////////////////////// End

@@ -1,5 +1,6 @@
 body {
     font: 12px "Avenir Next", sans-serif;
+    overflow-x: hidden;
 }
 
 p {
@@ -9,7 +10,7 @@ p {
 h1, .h1 {
     color: $white;
     text-transform: uppercase;
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: $hd-breakpoint) {
         font-size: 45px;
     }
 }
@@ -17,7 +18,7 @@ h1, .h1 {
 h2, .h2 {
     color: $orange;
     text-transform: uppercase;
-    @media screen and (min-width: 1140px) {
+    @media screen and (min-width: $hd-breakpoint) {
         font-size: 36px;
     }
 }

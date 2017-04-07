@@ -16,32 +16,32 @@
         position: absolute;
         //bottom: 15vh;
         top: -100px;
-        right: 14vw;
+        right: 3vw;
         background: url(../../img/btn-photography.svg) no-repeat;
-        padding: 13px 0 7px 0;
-        width: 417px;
-        /*
-        @media screen and (min-height: 475px){
-            bottom: 25vh;
+        padding: 11px 0 9px 0;
+        width: 277px;
+        @media only screen and (min-width: $phablet) {
+            padding: 13px 0 7px 0;
+            width: 417px;
         }
-        @media screen and (min-height: 600px){
-            bottom: 38vh;
+        @media only screen and (min-width: $tablet-breakpoint) {
+            right: 14vw;
         }
-        @media screen and (min-height: 820px){
-            bottom: 43vh;
-        }
-        */
-        .photography-button {
+
+            .photography-button {
             color: $orange;
             text-decoration: none !important;
-            font-size: 40px;
+            font-size: 21px;
             padding: 17px 50px 11px 50px;
             text-transform: uppercase;
             letter-spacing: 0.17rem;
             transition: color ease .25s;
+            @media only screen and (min-width: $tablet-breakpoint) {
+                font-size: 40px;
+            }
             &:hover {
-                color: $white;
-                transition: color ease .25s;
+            color: $white;
+            transition: color ease .25s;
             }
         }
     }
