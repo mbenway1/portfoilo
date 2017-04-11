@@ -15,7 +15,8 @@ module.exports = function (grunt) {
                       'app/components/jQuery/jquery-3.1.1.js',
                       'app/bower_components/angular/angular.js',
                       'app/bower_components/angular-route/angular-route.js',
-                      'app/app.js',
+                    'app/js/app.js',
+                    'app/js/Controllers/*.js',
                       'app/components/version/version.js',
                       'app/components/version/version-directive.js',
                       'app/components/version/interpolate-filter.js',
@@ -82,11 +83,11 @@ module.exports = function (grunt) {
         watch: {
             css: {
                 files: '**/*.scss',
-                tasks: ['default'],
+                tasks: ['default']
             },
             scripts: {
                 files: ['**/*.js'],
-                tasks: ['default'],
+                tasks: ['default']
             }
         }
 

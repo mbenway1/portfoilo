@@ -43921,35 +43921,39 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 var portfolioApp = angular.module("portfolioApp", ['ngRoute']);
 var appMenu;
 var homeFunction;
-var portfoliioFunction;
-var photographyFunction;
+//var portfoliioFunction;
+//var photographyFunction;
 
 portfolioApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
 
     // route for the home page
         .when('/', {
-            templateUrl : 'pages/home.html',
-            controller  : 'mainController',
+            templateUrl : '../pages/home.html',
+            controller  : 'mainController'
         })
 
         // route for the about page
         .when('/portfolio', {
-            templateUrl : 'pages/portfolio.html',
+            templateUrl : '../pages/portfolio.html',
             controller  : 'portfolioController'
         })
 
         // route for the contact page
         .when('/photography', {
-            templateUrl : 'pages/photography.html',
+            templateUrl : '../pages/photography.html',
             controller  : 'photographyController'
+        })
+        // route for anything besides whats listed, this also fixes the back button so it goes to the home page
+        .otherwise({
+            redirectTo: '/'
         });
     $locationProvider.html5Mode(true);
 });
 
 portfolioApp.directive('portfolioHeader', function () {
    return {
-       templateUrl : 'Partials/header.html',
+       templateUrl : '../Partials/header.html',
        controller  : 'headerController',
        link        : function (scope, element) {
 
@@ -43958,7 +43962,17 @@ portfolioApp.directive('portfolioHeader', function () {
    };
 });
 
-portfolioApp.controller('headerController', function($scope) {
+portfolioApp.controller('photographyController', function($scope) {
+
+    // create a message to display in our view
+    $scope.message = 'This is the photography page';
+});
+
+
+angular.module('portfolioApp')
+    .controller('headerController', function ($scope) {
+// line below was for when it was inside app.js
+//portfolioApp.controller('headerController', function($scope) {
 
 
     $scope.animateMenu = function() {
@@ -43987,8 +44001,10 @@ portfolioApp.controller('headerController', function($scope) {
         }, 500);
     };
 });
-
-portfolioApp.controller('mainController', function($scope) {
+angular.module('portfolioApp')
+    .controller('mainController', function ($scope) {
+// line below was for when it was inside app.js
+//portfolioApp.controller('mainController', function($scope) {
 
     // create a message to display in our view
     $scope.message = 'Welcome';
@@ -44014,9 +44030,9 @@ portfolioApp.controller('mainController', function($scope) {
                 var portfolioId = document.getElementById('portfolio-section'),
                     style = window.getComputedStyle(portfolioId);
                 portfolioTop = Number(style.getPropertyValue('top').replace("px", ""));
-                portfolioTotalHeight = portfolioHeight +  portfolioTop,
-                photographyAlignment = ((videoFullHeight + aboutHeight) - portfolioTotalHeight),
-                visiblePortfolio = 30, // The 70 here is a fixed number that I can make what I feel looks best
+                portfolioTotalHeight = portfolioHeight +  portfolioTop;
+                photographyAlignment = ((videoFullHeight + aboutHeight) - portfolioTotalHeight);
+                visiblePortfolio = 30 ; // The 70 here is a fixed number that I can make what I feel looks best
                 photographySetHeight = windowHeight - (headerHeight + hireHeight + visiblePortfolio);
                 //console.log("PortfolioTop: " + portfolioTop);
                 //console.log("Window Height: " + windowHeight);
@@ -44068,15 +44084,15 @@ portfolioApp.controller('mainController', function($scope) {
                 ticking = true;
             }
             function update() {
-                var windowWidth = window.innerWidth,
-                    windowHeight = window.innerHeight,
+                //var windowWidth = window.innerWidth, // unused right now
+                var windowHeight = window.innerHeight,
                     header = $('section.header'),    // bannerPosition = bannerTrueHeight.outerHeight() - 15,
                     welcome = $('div.welcome-wrapper'),
                     video = $('div.video-container'),
                     about = $('div.about-container'),
                     portfolio = $("div.portfolio-container"),
                     photography = $('div.photography-container'),
-                    photographyPosition = video.outerHeight() + about.outerHeight(),
+                    //photographyPosition = video.outerHeight() + about.outerHeight(), // unused right now
                     scrolltop = window.pageYOffset;
                 //console.log("window.pageYOffset: " + scrolltop + "px");
                 //console.log("window.pageYOffset: " + scrolltop + "px", " Video Position: " + (-scrolltop * .7) + "px", " About Position: " + (-scrolltop * .75) + "px");
@@ -44106,22 +44122,22 @@ portfolioApp.controller('mainController', function($scope) {
                 if (windowHeight + scrolltop >= portfolioTotalHeight) {
 ////////////////////// This ling right below is the one that is causing the issues with the white space above and below the image depending on browsers size, looks like its going to nee parameters for heights and widths unless I can come up with a better formula
                     /*
-                    var photographyVariable = 50;
-                    if (windowWidth >= 1441 && windowWidth <= 1920) {
-                        photographyVariable = 50;
-                        if (windowHeight >= 801 && windowHeight <= 1080) {
-                            photographyVariable = 75;
-                        }
-                        else if (windowHeight >=  && windowHeight <= 800) {
-                            photographyVariable = 75;
-                        }
+                     var photographyVariable = 50;
+                     if (windowWidth >= 1441 && windowWidth <= 1920) {
+                     photographyVariable = 50;
+                     if (windowHeight >= 801 && windowHeight <= 1080) {
+                     photographyVariable = 75;
+                     }
+                     else if (windowHeight >=  && windowHeight <= 800) {
+                     photographyVariable = 75;
+                     }
 
-                    }
-                    else if (windowWidth >= 1141 && windowWidth <= 1440) {
-                        photographyVariable = 30;
+                     }
+                     else if (windowWidth >= 1141 && windowWidth <= 1440) {
+                     photographyVariable = 30;
 
-                    }
-                    */
+                     }
+                     */
                     var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 160) - windowHeight); //  Now just set high enough that no whitespace shows on any screen was 120 raising because of mobile, was -33 not sure why?? might be to overlap by 3 px of the set figure of 30 of visiblePortfolio
 
 
@@ -44136,24 +44152,24 @@ portfolioApp.controller('mainController', function($scope) {
                     //console.log("photographyFormula: -((windowHeight + scrolltop - portfolioHeight - 33) - windowHeight)");
                     // The amazing zeroing formula!!!
                     /*
-                    if (windowWidth < 580) {
-                        if (windowHeight < 650)
-                            photography.css({top: photograhyFormula * 1.55  + 'px', height: photographyImageHeight + "px"});
-                        else
-                            photography.css({top: photograhyFormula * 1.65  + 'px', height: photographyImageHeight + "px"});
-                    }
-                    else if (windowWidth < 768) {
-                        if (windowWidth >= 580)
-                            photography.css({top: photograhyFormula * 1.5  + 'px', height: photographyImageHeight + "px"});
-                    }
-                    else if (windowWidth >= 768) {
-                        if (windowHeight <= 660)
-                            photography.css({top: photograhyFormula * 1.65  + 'px', height: photographyImageHeight + "px"});
-                        else
-                            photography.css({top: photograhyFormula * 1.75  + 'px', height: photographyImageHeight + "px"});
-                    }
-                    else
-                    */
+                     if (windowWidth < 580) {
+                     if (windowHeight < 650)
+                     photography.css({top: photograhyFormula * 1.55  + 'px', height: photographyImageHeight + "px"});
+                     else
+                     photography.css({top: photograhyFormula * 1.65  + 'px', height: photographyImageHeight + "px"});
+                     }
+                     else if (windowWidth < 768) {
+                     if (windowWidth >= 580)
+                     photography.css({top: photograhyFormula * 1.5  + 'px', height: photographyImageHeight + "px"});
+                     }
+                     else if (windowWidth >= 768) {
+                     if (windowHeight <= 660)
+                     photography.css({top: photograhyFormula * 1.65  + 'px', height: photographyImageHeight + "px"});
+                     else
+                     photography.css({top: photograhyFormula * 1.75  + 'px', height: photographyImageHeight + "px"});
+                     }
+                     else
+                     */
                     photography.css({top: photograhyFormula * 1.75  + 'px', height: photographyImageHeight + "px"});
                 }
                 ticking = false;
@@ -44309,19 +44325,23 @@ portfolioApp.controller('mainController', function($scope) {
 
 
 });
-
-portfolioApp.controller('portfolioController', function($scope) {
-
-    // create a message to display in our view
-    $scope.message = 'This is the portfolio page';
-});
-
-portfolioApp.controller('photographyController', function($scope) {
+angular.module('portfolioApp')
+    .controller('photographyController', function ($scope) {
+// line below was for when it was inside app.js
+//portfolioApp.controller('photographyController', function($scope) {
 
     // create a message to display in our view
     $scope.message = 'This is the photography page';
 });
 
+angular.module('portfolioApp')
+    .controller('portfolioController', function ($scope) {
+// line below was for when it was inside app.js
+//portfolioApp.controller('portfolioController', function($scope) {
+
+    // create a message to display in our view
+    $scope.message = 'This is the portfolio page';
+});
 
 'use strict';
 
