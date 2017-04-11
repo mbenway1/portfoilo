@@ -66,20 +66,46 @@
         <div class="hire-content">
             <button type="button" class="hire-btn">Hire Me</button>
             <form id="hire-form">
-                <input type="text" placeholder="Name/Company" required="">
-                <input type="tel" placeholder="(123) 456-7890">
-                <input type="email" required>
-                <select>
-                    <option selected disabled>-- select your budget --</option>
-                    <option>Unknown</option>
-                    <option>500</option>
-                    <option>1000</option>
-                    <option>2000</option>
-                    <option>5000</option>
-                    <option>10000</option>
-                    <option>10000+</option>
-                </select>
-                <textarea placeholder="Just Say Hi"></textarea>
+                <span class="input input--haruki first">
+					<input class="input__field input__field--haruki" type="text" id="NameCompany" />
+					<label class="input__label input__label--haruki" for="NameCompany">
+						<span class="input__label-content input__label-content--haruki">Name/Company</span>
+					</label>
+				</span>
+                <span class="input input--haruki">
+					<input class="input__field input__field--haruki" type="tel" id="Phone" />
+					<label class="input__label input__label--haruki" for="Phone">
+						<span class="input__label-content input__label-content--haruki">Phone</span>
+					</label>
+				</span>
+                <span class="input input--haruki">
+					<input class="input__field input__field--haruki" type="email" id="Email" />
+					<label class="input__label input__label--haruki" for="Email">
+						<span class="input__label-content input__label-content--haruki">Email</span>
+					</label>
+				</span>
+
+                <div class="input-container">
+                    <select>
+                        <option selected disabled>-- Select Your Budget --</option>
+                        <option value="?">Unknown</option>
+                        <option value="500">$500</option>
+                        <option value="1000">$1000</option>
+                        <option value="2000">$2000</option>
+                        <option value="5000">$5000</option>
+                        <option value="10000">$10000</option>
+                        <option value="10000+">$10000+</option>
+                    </select>
+                </div>
+                <span class="input input--haruki">
+					<input class="input__field input__field--haruki" type="text" id="message" />
+					<label class="input__label input__label--haruki" for="message">
+						<span class="input__label-content input__label-content--haruki">Short Message or Just Say Hi</span>
+					</label>
+				</span>
+                <div class="input-container">
+                    <button type="submit" class="hire-btn">Connect With Me</button>
+                </div>
             </form>
         </div>
     </div>

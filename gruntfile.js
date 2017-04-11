@@ -19,7 +19,9 @@ module.exports = function (grunt) {
                       'app/components/version/version.js',
                       'app/components/version/version-directive.js',
                       'app/components/version/interpolate-filter.js',
-                      'app/components/Bootstrap/js/*.js'
+                      'app/components/Bootstrap/js/*.js',
+                    'app/components/InputEffects/js/classie.js',
+                    'app/components/InputEffects/js/input.js'
                      ],
                 dest: 'app/build/js/scripts.js'
 

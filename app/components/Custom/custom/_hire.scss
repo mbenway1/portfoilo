@@ -16,31 +16,47 @@
             position: absolute;
             bottom: 0;
             height: 120px;
-            padding-top: 38px;
             overflow: hidden;
             text-align: center;
             transition: height 1.25s ease;
             background-color: $orange;
+            padding-top: 38px;
+            @media screen and (max-height: 700px){
+                padding-top: 43.5px;
+            }
             &.opened {
+                padding-top: 10px;
                 transition: height 1.25s ease;
-                height: calc(100vh - 80px);
+                height: calc(100vh - 60px);
                 justify-content: space-around;
                 @media screen and (min-width: $tablet-breakpoint) {
                     height: calc(100vh - 100px);
+                    @media screen and (max-height: 700px){
+                        height: calc(100vh - 80px);
+                    }
+
+                }
+                #hire-form {
+                    padding-top: 10px;
+                    transition: padding-top ease 1.25s;
                 }
             }
             .hire-btn {
                 border: 2px solid $white;
-                padding: 8px 13px;
                 background: transparent;
                 color: $white;
                 text-decoration: none;
                 text-transform: uppercase;
-                font-size: 2rem;
                 font-weight: 600;
                 letter-spacing: .2rem;
                 outline: none;
                 transition: color ease .25s, border-color ease .25s;
+                font-size: 2rem;
+                padding: 8px 13px;
+                @media screen and (max-height: 700px){
+                    font-size: 1.4rem;
+                    padding: 5px 9px;
+                }
                 &:hover {
                     color: $slate;
                     border-color: $slate;
@@ -55,10 +71,13 @@
                 overflow: hidden;
                 padding-top: 50px;
                 transition: height ease .5s;
-                height: calc(100vh - 220px);
-                transition: height ease .5s;
+                height: calc(100vh - 110px); // was 220
+                transition: height ease .5s, padding-top ease .5s;
                 @media screen and (min-width: $tablet-breakpoint) {
-                    height: calc(100vh - 300px);
+                    height: calc(100vh - 180px); // was 220
+                    @media screen and (max-height: 700px){
+                        height: calc(100vh - 130px); // was 220
+                    }
                 }
             }
         }
