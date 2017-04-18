@@ -5,7 +5,7 @@
         </video>
         <div class="welcome-container">
             <div id="welcome" class="welcome-wrapper">
-                <h1 class="welcome">{{ message }}</h1>
+                <h1 class="welcome">{{ welcomMessage }}</h1>
             </div>
         </div>
     </div>
@@ -38,17 +38,8 @@
 <div id="portfolio-section" class="portfolio-container">
     <h2>Portfolio</h2>
     <div class="portfolio-wraper">
-        <div class="portfolio-item">
-            <img src="img/thumb-fass.jpg" alt="FASS">
-        </div>
-        <div class="portfolio-item">
-            <img src="img/thumb-meeting.jpg" alt="Meeting Template">
-        </div>
-        <div class="portfolio-item">
-            <img src="img/thumb-fcg.png" alt="Front & Center Gallery">
-        </div>
-        <div class="portfolio-item">
-            <img src="img/thumb-scls.png" alt="Shirley's Custom Lights and Signs">
+        <div class="portfolio-item" ng-repeat="portfolioItem in portfolioItem">
+            <img ng-src="{{ portfolioItem.source }}" alt="{{ portfolioItem.name }}">
         </div>
     </div>
 </div>
@@ -64,10 +55,20 @@
 <div class="hire-container">
     <div class="hire-wraper">
         <div class="hire-content">
-            <button type="button" class="hire-btn">Hire Me</button>
-            <form id="hire-form">
-                <span class="input input--haruki first">
-                    <input class="input__field input__field--haruki" type="text" id="NameCompany"/>
+            <button type="button" class="hire-btn hire-opener">Hire Me</button>
+            <form id="hire-form" action="submit.php" ng-controller="formController" method="post">
+
+
+                <span class="input input--haruki first" ng-repeat="hireInput in hireInput">
+                    <input class="input__field input__field--haruki" type="{{ hireInput.type }}" id="{{ hireInput.id }}"
+                           name="{{ hireInput.id }}" ng-blur="validate()" data-input="{{ hireInput.id }}"/>
+                    <label class="input__label input__label--haruki" for="{{ hireInput.id }}">
+                        <span class="input__label-content input__label-content--haruki">{{ hireInput.label }}</span>
+                    </label>
+                </span>
+
+                <!--span class="input input--haruki first">
+                    <input class="input__field input__field--haruki" type="text" id="NameCompany" onblur="validate()" ng-model="form.nameCompany"/>
                     <label class="input__label input__label--haruki" for="NameCompany">
                         <span class="input__label-content input__label-content--haruki">Name/Company</span>
                     </label>
@@ -79,32 +80,34 @@
                     </label>
                 </span>
                 <span class="input input--haruki">
-                    <input class="input__field input__field--haruki" type="email" id="Email"/>
+                    <input class="input__field input__field--haruki" type="email" id="Email"  ng-blur="validate()" ng-model="form.email"/>
                     <label class="input__label input__label--haruki" for="Email">
                         <span class="input__label-content input__label-content--haruki">Email</span>
                     </label>
                 </span>
-
-                <div class="input-container">
-                    <select title="budget" id="Budget">
+                <span-- class="input input--haruki">
+                    <input class="input__field input__field--haruki" type="text" id="Message"/>
+                    <label class="input__label input__label--haruki" for="Message">
+                        <span class="input__label-content input__label-content--haruki">Short Message or Just Say Hi</span>
+                    </label>
+                </span-->
+                <div class="input-container" ng-repeat="hireSelect in hireSelect">
+                    <select title="budget" id="{{ hireSelect.id }}" name="{{ hireSelect.id }}" ng-blur="validate()"
+                            data-input="Budget">
                         <option selected disabled>-- Select Your Budget --</option>
-                        <option value="?">Unknown</option>
+                        <option ng-repeat="budgetoption in budgetoption" value="{{ budgetoption.value }}">{{
+                            budgetoption.amount }}
+                        </option>
+                        <!--option value="?">Unknown</option>
                         <option value="500">$500</option>
                         <option value="1000">$1000</option>
                         <option value="2000">$2000</option>
                         <option value="5000">$5000</option>
                         <option value="10000">$10000</option>
-                        <option value="10000+">$10000+</option>
+                        <option value="10000+">$10000+</option-->
                     </select>
                 </div>
-                <span class="input input--haruki">
-                    <input class="input__field input__field--haruki" type="text" id="message"/>
-                    <label class="input__label input__label--haruki" for="message">
-                        <span class="input__label-content input__label-content--haruki">Short Message or Just Say Hi</span>
-                    </label>
-                </span>
-                <div class="input-container">
-                    <button type="submit" class="hire-btn">Connect With Me</button>
+                <div class="input-container submit-container">
                 </div>
             </form>
         </div>

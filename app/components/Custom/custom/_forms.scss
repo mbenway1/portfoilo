@@ -76,6 +76,9 @@
             margin: 1.25em 1em 0;
         }
     }
+    &.error label::before, &.error label::after {
+        background: $validation-red;
+    }
 }
 
 .input__field--haruki {
@@ -172,6 +175,11 @@
             height: 37px;
             font-size: 9px;
         }
+        &.error {
+            border-color: $validation-red;
+        }
+        option {
+            color: #000;
+        }
     }
 }
-

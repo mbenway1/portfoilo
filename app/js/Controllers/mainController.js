@@ -4,7 +4,27 @@ angular.module('portfolioApp')
 //portfolioApp.controller('mainController', function($scope) {
 
         // create a message to display in our view
-        $scope.message = 'Welcome';
+        $scope.welcomMessage = 'Welcome';
+        $scope.portfolioItem = [
+            {
+                name: 'FASS',
+                source: 'img/thumb-fass.jpg'
+            },
+            {
+                name: 'Meeting Template',
+                source: 'img/thumb-meeting.jpg'
+            },
+            {
+                name: 'Front & Center Gallery',
+                source: 'img/thumb-fcg.png'
+            },
+            {
+                name: "Shirley's Custom Lights and Signs",
+                source: 'img/thumb-scls.png'
+            }
+
+        ];
+
         homeFunction = function () {
             $(document).ready(function () {
                 var header, headerHeight, video, videoHeight, about, aboutHeight,
@@ -58,10 +78,10 @@ angular.module('portfolioApp')
                     alignPhotographyHire();
                     //console.log(portfolioTotalHeight - (videoFullHeight + about));
 
-                }, 120); // this may need to be longer for slower machines
+                }, 1000); // this may need to be longer for slower machines was 120, also tried 220 450 750 and still got it
 
                 $('.welcome-container').addClass("slideIn");
-                $('.hire-btn').click(function () {
+                $('.hire-opener').click(function () {
                     $(".hire-content").toggleClass('opened');
 
                 });
@@ -203,123 +223,7 @@ angular.module('portfolioApp')
         homeFunction();
 
 
-//////////  I DON'T WANT THIS IN HERE LIKE THIS BUT IT MAKES IT WORK
-        /*!
-         * classie - class helper functions
-         * from bonzo https://github.com/ded/bonzo
-         *
-         * classie.has( elem, 'my-class' ) -> true/false
-         * classie.add( elem, 'my-new-class' )
-         * classie.remove( elem, 'my-unwanted-class' )
-         * classie.toggle( elem, 'my-class' )
-         */
 
-        /*jshint browser: true, strict: true, undef: true */
-        /*global define: false */
-
-        (function (window) {
-
-            'use strict';
-
-// class helper functions from bonzo https://github.com/ded/bonzo
-
-            function classReg(className) {
-                return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
-            }
-
-// classList support for class management
-// altho to be fair, the api sucks because it won't accept multiple classes at once
-            var hasClass, addClass, removeClass;
-
-            if ('classList' in document.documentElement) {
-                hasClass = function (elem, c) {
-                    return elem.classList.contains(c);
-                };
-                addClass = function (elem, c) {
-                    elem.classList.add(c);
-                };
-                removeClass = function (elem, c) {
-                    elem.classList.remove(c);
-                };
-            }
-            else {
-                hasClass = function (elem, c) {
-                    return classReg(c).test(elem.className);
-                };
-                addClass = function (elem, c) {
-                    if (!hasClass(elem, c)) {
-                        elem.className = elem.className + ' ' + c;
-                    }
-                };
-                removeClass = function (elem, c) {
-                    elem.className = elem.className.replace(classReg(c), ' ');
-                };
-            }
-
-            function toggleClass(elem, c) {
-                var fn = hasClass(elem, c) ? removeClass : addClass;
-                fn(elem, c);
-            }
-
-            var classie = {
-                // full names
-                hasClass: hasClass,
-                addClass: addClass,
-                removeClass: removeClass,
-                toggleClass: toggleClass,
-                // short names
-                has: hasClass,
-                add: addClass,
-                remove: removeClass,
-                toggle: toggleClass
-            };
-
-// transport
-            if (typeof define === 'function' && define.amd) {
-                // AMD
-                define(classie);
-            } else {
-                // browser global
-                window.classie = classie;
-            }
-
-        })(window);
-
-
-        (function () {
-            // trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
-            if (!String.prototype.trim) {
-                (function () {
-                    // Make sure we trim BOM and NBSP
-                    var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-                    String.prototype.trim = function () {
-                        return this.replace(rtrim, '');
-                    };
-                })();
-            }
-
-            [].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
-                // in case the input is already filled..
-                if (inputEl.value.trim() !== '') {
-                    classie.add(inputEl.parentNode, 'input--filled');
-                }
-
-                // events:
-                inputEl.addEventListener('focus', onInputFocus);
-                inputEl.addEventListener('blur', onInputBlur);
-            });
-
-            function onInputFocus(ev) {
-                classie.add(ev.target.parentNode, 'input--filled');
-            }
-
-            function onInputBlur(ev) {
-                if (ev.target.value.trim() === '') {
-                    classie.remove(ev.target.parentNode, 'input--filled');
-                }
-            }
-        })();
-/////////////////   END OF WHAT I NEED TO FIND A WAY TO HAVE IN A SEPERATE FILE
 
 
     });

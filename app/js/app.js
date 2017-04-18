@@ -43,9 +43,4 @@ portfolioApp.directive('portfolioHeader', function () {
    };
 });
 
-portfolioApp.controller('photographyController', function($scope) {
-
-    // create a message to display in our view
-    $scope.message = 'This is the photography page';
-});
 

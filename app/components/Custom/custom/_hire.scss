@@ -15,6 +15,7 @@
             max-width: 100%;
             position: absolute;
             bottom: 0;
+            left: 0; // added because of IE
             height: 120px;
             overflow: hidden;
             text-align: center;
@@ -62,6 +63,9 @@
                     border-color: $slate;
                     transition: color ease .25s, border-color ease .25s;
                 }
+            }
+            .hire-submit {
+                display: none;
             }
             #hire-form {
                 display: flex;

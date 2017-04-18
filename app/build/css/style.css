@@ -5968,6 +5968,32 @@ $textarea-height:                               8rem;
 $input-error-color:                             $red;
 */
 body {
+    /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
+    -webkit-backface-visibility: hidden;
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transfrom: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+
+.shake {
+    animation-name: shake;
+}
+
+body {
   font: 12px "Avenir Next", sans-serif;
   overflow-x: hidden; }
 
@@ -6400,6 +6426,7 @@ h3, .h3 {
       max-width: 100%;
       position: absolute;
       bottom: 0;
+        left: 0;
       height: 120px;
       overflow: hidden;
       text-align: center;
@@ -6443,6 +6470,10 @@ h3, .h3 {
           color: #404040;
           border-color: #404040;
           transition: color ease .25s, border-color ease .25s; }
+
+.hire-container .hire-wraper .hire-content .hire-submit {
+    display: none;
+}
       .hire-container .hire-wraper .hire-content #hire-form {
         display: flex;
         flex-direction: column;
@@ -6530,6 +6561,10 @@ h3, .h3 {
       .input--haruki.first {
         margin: 1.25em 1em 0; } }
 
+.input--haruki.error label::before, .input--haruki.error label::after {
+    background: #e74c50;
+}
+
 .input__field--haruki {
   width: 100%;
   background: transparent;
@@ -6614,3 +6649,11 @@ h3, .h3 {
       .input-container select {
         height: 37px;
         font-size: 9px; } }
+
+.input-container select.error {
+    border-color: #e74c50;
+}
+
+.input-container select option {
+    color: #000;
+}
