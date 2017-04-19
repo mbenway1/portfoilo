@@ -7,8 +7,22 @@
     z-index: -1;
     width: 100vw;
     max-width: 100%;
-    top: 650px; // was 620
-    padding: 90px 0 50px 0;
+    top: 780px; // was 620
+    padding: 120px 0 50px 0;
+    @media screen and (min-width: 340px) {
+        top: 745px; // was 620
+        padding: 120px 0 50px 0;
+    }
+    @media screen and (min-width: 380px) {
+        top: 710px; // was 620
+        padding: 110px 0 70px 0;
+
+    }
+    @media screen and (min-width: 420px) {
+        top: 675px; // was 620
+        padding: 110px 0 70px 0;
+
+    }
     @media screen and (min-width: $phablet) {
         top: 640px; // was 620
         padding: 110px 0 70px 0;

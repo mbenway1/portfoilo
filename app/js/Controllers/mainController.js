@@ -103,8 +103,8 @@ angular.module('portfolioApp')
                 }
 
                 function update() {
-                    //var windowWidth = window.innerWidth, // unused right now
-                    var windowHeight = window.innerHeight,
+                    var windowWidth = window.innerWidth, // unused right now
+                        windowHeight = window.innerHeight,
                         header = $('section.header'),    // bannerPosition = bannerTrueHeight.outerHeight() - 15,
                         welcome = $('div.welcome-wrapper'),
                         video = $('div.video-container'),
@@ -157,8 +157,9 @@ angular.module('portfolioApp')
 
                          }
                          */
-                        var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 160) - windowHeight); //  Now just set high enough that no whitespace shows on any screen was 120 raising because of mobile, was -33 not sure why?? might be to overlap by 3 px of the set figure of 30 of visiblePortfolio
 
+                        //  Now just set high enough that no whitespace shows on any screen was 120 raising because of mobile, was -33 not sure why?? might be to overlap by 3 px of the set figure of 30 of visiblePortfolio
+                        var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 160) - windowHeight);
 
 ////////////////////// End
                         //console.log("Photography Position: " + photographyPosition + "px, ", "pageYOffset: " + scrolltop + "px, ", "Portfolio Height: " + portfolioTotalHeight + "px, ", "windowHeight: " + windowHeight + "px ", "portfolioTop: " + portfolioTop + "px ", "PortfolioHeight: " + portfolioHeight + "px ", "photogrraphyAlignment: " + photographyAlignment + "px");

@@ -43965,7 +43965,7 @@ portfolioApp.directive('portfolioHeader', function () {
 
 
 angular.module('portfolioApp')
-    .controller('formController', function($scope, $http) {
+    .controller('formController', function ($scope, $http) {
 // line below was for when it was inside app.js
 //portfolioApp.controller('formController', function($scope) {
 
@@ -44036,7 +44036,7 @@ angular.module('portfolioApp')
 
 
         $scope.validate = function () {
-                var e = this.hireInput.id;
+            var e = this.hireInput.id;
             var select = this.hireSelect.id;
             //console.log(e);
             //console.log("working!");
@@ -44052,7 +44052,7 @@ angular.module('portfolioApp')
                 $("#" + nameCompany).parent().removeClass('error animated shake valid');
                 setTimeout(function () {
                     $("#" + nameCompany).parent().addClass('error animated shake');
-                },5);
+                }, 5);
                 return false;
             }
             else if (!regEmail.test($("#" + email).val()) && e === "Email") {
@@ -44060,7 +44060,7 @@ angular.module('portfolioApp')
                 $("#" + email).parent().removeClass('error animated shake valid');
                 setTimeout(function () {
                     $("#" + email).parent().addClass('error animated shake');
-                },5);
+                }, 5);
 
             }
             else if ($("#" + Message).val().length < 2 && e === "Message") {
@@ -44068,17 +44068,17 @@ angular.module('portfolioApp')
                 $("#" + Message).parent().removeClass('error animated shake valid');
                 setTimeout(function () {
                     $("#" + Message).parent().addClass('error animated shake');
-                },5);
+                }, 5);
                 return false;
             }
             /*else if ($("#Budget").val() === null && select === "Budget") {
-                console.log("invalid budget");
-                $("#Budget").removeClass('error animated shake valid');
-                setTimeout(function () {
-                    $("#Budget").addClass('error animated shake');
-                },5);
+             console.log("invalid budget");
+             $("#Budget").removeClass('error animated shake valid');
+             setTimeout(function () {
+             $("#Budget").addClass('error animated shake');
+             },5);
 
-            }*/
+             }*/
             else {
                 $("#" + e).parent().removeClass('error animated shake').addClass('valid');
                 $("#" + select).removeClass('error animated shake').addClass('valid');
@@ -44100,7 +44100,7 @@ angular.module('portfolioApp')
                 $("#" + nameInput).parent().removeClass('error animated shake');
                 setTimeout(function () {
                     $("#" + nameInput).parent().addClass('error animated shake');
-                },5);
+                }, 5);
                 return false;
             }
             else if (!regEmail.test($("#" + emailInput).val())) {
@@ -44108,7 +44108,7 @@ angular.module('portfolioApp')
                 $("#" + emailInput).parent().removeClass('error animated shake');
                 setTimeout(function () {
                     $("#" + emailInput).parent().addClass('error animated shake');
-                },5);
+                }, 5);
                 return false;
             }
             else if ($("#" + budgetInput).val() === null) {
@@ -44116,7 +44116,7 @@ angular.module('portfolioApp')
                 $("#" + budgetInput).removeClass('error animated shake');
                 setTimeout(function () {
                     $("#" + budgetInput).addClass('error animated shake');
-                },5);
+                }, 5);
                 return false;
             }
             else {
@@ -44126,7 +44126,7 @@ angular.module('portfolioApp')
         };
 
 
-            setTimeout(function () {  // There needs to be a better fix then just slowing down when it runs but for now this seems to be an option to keep going
+        setTimeout(function () {  // There needs to be a better fix then just slowing down when it runs but for now this seems to be an option to keep going
 
             //////////  I DON'T WANT THIS IN HERE LIKE THIS BUT IT MAKES IT WORK
             /*!
@@ -44245,10 +44245,10 @@ angular.module('portfolioApp')
                 }
             })();
 /////////////////   END OF WHAT I NEED TO FIND A WAY TO HAVE IN A SEPERATE FILE
-        },200); // This value has just been chosen out of thin air to see if it fixes the problem
+        }, 200); // This value has just been chosen out of thin air to see if it fixes the problem
 
 
-});
+    });
 
 angular.module('portfolioApp')
     .controller('headerController', function ($scope) {
@@ -44362,7 +44362,7 @@ angular.module('portfolioApp')
                     alignPhotographyHire();
                     //console.log(portfolioTotalHeight - (videoFullHeight + about));
 
-                }, 1000); // this may need to be longer for slower machines was 120
+                }, 1000); // this may need to be longer for slower machines was 120, also tried 220 450 750 and still got it
 
                 $('.welcome-container').addClass("slideIn");
                 $('.hire-opener').click(function () {
@@ -44387,8 +44387,8 @@ angular.module('portfolioApp')
                 }
 
                 function update() {
-                    //var windowWidth = window.innerWidth, // unused right now
-                    var windowHeight = window.innerHeight,
+                    var windowWidth = window.innerWidth, // unused right now
+                        windowHeight = window.innerHeight,
                         header = $('section.header'),    // bannerPosition = bannerTrueHeight.outerHeight() - 15,
                         welcome = $('div.welcome-wrapper'),
                         video = $('div.video-container'),
@@ -44441,8 +44441,9 @@ angular.module('portfolioApp')
 
                          }
                          */
-                        var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 160) - windowHeight); //  Now just set high enough that no whitespace shows on any screen was 120 raising because of mobile, was -33 not sure why?? might be to overlap by 3 px of the set figure of 30 of visiblePortfolio
 
+                        //  Now just set high enough that no whitespace shows on any screen was 120 raising because of mobile, was -33 not sure why?? might be to overlap by 3 px of the set figure of 30 of visiblePortfolio
+                        var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 160) - windowHeight);
 
 ////////////////////// End
                         //console.log("Photography Position: " + photographyPosition + "px, ", "pageYOffset: " + scrolltop + "px, ", "Portfolio Height: " + portfolioTotalHeight + "px, ", "windowHeight: " + windowHeight + "px ", "portfolioTop: " + portfolioTop + "px ", "PortfolioHeight: " + portfolioHeight + "px ", "photogrraphyAlignment: " + photographyAlignment + "px");
