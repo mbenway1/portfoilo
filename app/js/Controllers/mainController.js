@@ -190,7 +190,7 @@ angular.module('portfolioApp')
                          }
                          else
                          */
-                        photography.css({top: photograhyFormula * 1.75 + 'px', height: photographyImageHeight + "px"});
+                        photography.css({top: photograhyFormula * .75 + 'px', height: photographyImageHeight + "px"}); // this was 1.75
                     }
                     ticking = false;
                 }

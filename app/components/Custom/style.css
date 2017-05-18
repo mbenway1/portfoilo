@@ -9110,6 +9110,110 @@ h3, .h3 {
         .about-container .about-bg .about-wraper {
           width: 66vw; } }
 
+.about-container .about-bg .about-wraper .about-img-container {
+    text-align: center;
+}
+
+.about-container .about-bg .about-wraper .about-img-container .about-img {
+    max-width: 240px;
+    width: 100%;
+}
+
+.about-container .about-bg .about-wraper .about-social-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding: 15px 0 30px 0;
+}
+
+.about-container .about-bg .about-wraper .about-social-container .social-menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 240px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.about-container .about-bg .about-wraper .about-social-container .social-menu .social-item {
+    height: 60px;
+    width: 100%;
+    border: 1px solid #989898;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container .about-bg .about-wraper .about-social-container .social-menu .social-item::after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    -webkit-transition: top 0.4s cubic-bezier(1, 0, 0.58, 1);
+    transition: top 0.4s cubic-bezier(1, 0, 0.58, 1);
+}
+
+.about-container .about-bg .about-wraper .about-social-container .social-menu .social-item:first-child {
+    border-right: none;
+}
+
+.about-container .about-bg .about-wraper .about-social-container .social-menu .social-item:nth-child(2) {
+    border-right: none;
+}
+
+.about-container .about-bg .about-wraper .about-social-container .social-menu .social-item:nth-child(3) {
+    border-right: none;
+}
+
+.about-container .about-bg .about-wraper .about-social-container .social-menu .social-item a {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+    font-size: 20px;
+    color: white;
+    height: 100%;
+    width: 100%;
+    text-decoration: none !important;
+    -webkit-transition: color 0.4s cubic-bezier(1, 0, 0.58, 1);
+    transition: color 0.4s cubic-bezier(1, 0, 0.58, 1);
+}
+
+.about-container .about-bg .about-wraper .about-social-container .social-menu .social-item:hover::after {
+    top: 0;
+    -webkit-transition: top 0.4s cubic-bezier(1, 0, 0.58, 1);
+    transition: top 0.4s cubic-bezier(1, 0, 0.58, 1);
+}
+
+.about-container .about-bg .about-wraper .about-social-container .social-menu .social-item:hover a {
+    color: black;
+    -webkit-transition: color 0.4s cubic-bezier(1, 0, 0.58, 1);
+    transition: color 0.4s cubic-bezier(1, 0, 0.58, 1);
+}
+
 .portfolio-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -9554,4 +9658,558 @@ h3, .h3 {
 
 .input-container select option {
     color: #000;
+}
+
+body {
+    overflow-x: hidden;
+    position: static;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #404040;
+}
+
+body.modall {
+    position: fixed;
+    overflow-y: scroll;
+}
+
+.photo-container {
+    width: 100vw;
+    max-width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+@media screen and (min-width: 1025px) {
+    .photo-container {
+        margin-top: 80px;
+    }
+}
+
+.photo-container .photo {
+    border: solid #404040;
+    background-size: cover !important;
+    position: relative;
+    /*
+        &.photo-11 {
+            width: calc(50% - 3px);
+            .photo-small {
+                background: url("/img/11.jpg") rgba(20,20,20,0.1);
+            }
+            .photofull-container {
+                background: url("/img/11.jpg") rgba(20,20,20,0.1);
+                background-size: cover;
+            }
+        }
+        &.photo-12 {
+            width: calc(50% - 3px);
+            .photo-small {
+                background: url("/img/12.jpg") rgba(20,20,20,0.1);
+            }
+            .photofull-container {
+                background: url("/img/12.jpg") rgba(20,20,20,0.1);
+                background-size: cover;
+            }
+        }
+        */
+}
+
+@media screen and (max-width: 1 1024px) {
+    .photo-container .photo {
+        width: 100% !important;
+        height: 50vw !important;
+        border-width: 1px 2px 1px 2px;
+    }
+
+    .photo-container .photo:first-child {
+        border-top-width: 2px;
+    }
+
+    .photo-container .photo:last-child {
+        border-bottom-width: 2px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .photo-container .photo {
+        width: 50%;
+        height: 25vw;
+    }
+
+    .photo-container .photo:nth-child(even) {
+        border-width: 1px 2px 1px 1px;
+    }
+
+    .photo-container .photo:nth-child(odd) {
+        border-width: 1px 1px 1px 2px;
+    }
+
+    .photo-container .photo:first-child, .photo-container .photo:nth-child(2) {
+        border-top-width: 2px;
+    }
+
+    .photo-container .photo:last-child, .photo-container .photo:nth-child(11) {
+        border-bottom-width: 2px;
+    }
+}
+
+.photo-container .photo.photo-1 {
+    width: 66.66%;
+}
+
+.photo-container .photo.photo-1 .photo-small {
+    background: url("/img/1.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-1 .photofull-container {
+    background: url("/img/1.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-2 {
+    width: 33.333%;
+}
+
+.photo-container .photo.photo-2 .photo-small {
+    background: url("/img/2.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-2 .photofull-container {
+    background: url("/img/2.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-3 {
+    width: 50%;
+}
+
+.photo-container .photo.photo-3 .photo-small {
+    background: url("/img/3.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-3 .photofull-container {
+    background: url("/img/3.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-4 {
+    width: 50%;
+}
+
+.photo-container .photo.photo-4 .photo-small {
+    background: url("/img/4.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-4 .photofull-container {
+    background: url("/img/4.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-5 {
+    width: 33.333%;
+}
+
+.photo-container .photo.photo-5 .photo-small {
+    background: url("/img/5.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-5 .photofull-container {
+    background: url("/img/5.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-6 {
+    width: 66.66%;
+}
+
+.photo-container .photo.photo-6 .photo-small {
+    background: url("/img/6.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-6 .photofull-container {
+    background: url("/img/6.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-7 {
+    width: 75%;
+}
+
+.photo-container .photo.photo-7 .photo-small {
+    background: url("/img/7.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-7 .photofull-container {
+    background: url("/img/7.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-8 {
+    width: 25%;
+}
+
+.photo-container .photo.photo-8 .photo-small {
+    background: url("/img/8.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-8 .photofull-container {
+    background: url("/img/8.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-9 {
+    width: 50%;
+}
+
+.photo-container .photo.photo-9 .photo-small {
+    background: url("/img/9.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-9 .photofull-container {
+    background: url("/img/9.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-10 {
+    width: 50%;
+}
+
+.photo-container .photo.photo-10 .photo-small {
+    background: url("/img/10.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-10 .photofull-container {
+    background: url("/img/10.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo .photo-small-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.photo-container .photo .photo-small-container .photo-small {
+    height: 100%;
+    width: 100%;
+    background-size: cover !important;
+    cursor: pointer;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    background-position: center top;
+}
+
+.photo-container .photo .photo-small-container .photo-small:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.photo-container .photo .photo-small-container .photo-small::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 6em rgba(20, 20, 20, 0.5);
+    -webkit-transition: box-shadow .5s ease-in-out;
+    transition: box-shadow .5s ease-in-out;
+}
+
+.photo-container .photo .photo-small-container .photo-small.hover::after {
+    box-shadow: inset 0 0 0em rgba(20, 20, 20, 0);
+    -webkit-transition: box-shadow .5s ease-in-out;
+    transition: box-shadow .5s ease-in-out;
+}
+
+.photo-container .photo .photofull-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    overflow: hidden;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+    /*
+          This all should be able to be deleted since it is done differently now
+          .photo-description {
+              position: absolute;
+              bottom: 0;
+              left: -100%;
+              height: 100px;
+              width: 100%;
+              background-color: rgb(50,50,50);
+              transition: left 1.25s ease-in-out;
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              &.show {
+                  left: 0;
+                  transition: left 1.25s ease-in-out;
+              }
+              h2 {
+                  color: white;
+                  font-family: sans-serif;
+                  font-size: 22px;
+                  @media screen and (min-width: 1025px) {
+                      font-size: 30px;
+                  }
+              }
+              .view-instagram {
+                  border: 2px solid white;
+                  padding: 6px 12px;
+                  font-size: 15px;
+                  color: white;
+                  background-color: transparent;
+                  @media screen and (min-width: 1025px) {
+                      padding: 10px 16px;
+                      font-size: 18px;                    }
+                  &:hover {
+                      color: #009cea;
+                      border-color: #009cea;
+                  }
+              }
+          }
+          */
+}
+
+.photo-container .photo .photofull-container.open {
+    height: 100vh;
+    width: 100%;
+    -webkit-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+
+@media screen and (min-width: 1025px) {
+    .photo-container .photo .photofull-container.open {
+        width: 100vw;
+    }
+}
+
+.photo-container .photo .photofull-container.ontop {
+    z-index: 11;
+}
+
+.photo-container .photo .photofull-container .close-btn {
+    position: absolute;
+    top: 140px;
+    right: -50px;
+    background: #888888;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+    -webkit-transition: right 1.5s ease-in-out, -webkit-transform 1.5s ease-in-out;
+    transition: right 1.5s ease-in-out, transform 1.5s ease-in-out;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.photo-container .photo .photofull-container .close-btn.show {
+    right: 9%;
+    -webkit-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+    -webkit-transition: right 1.5s ease-in-out, -webkit-transform 1.5s ease-in-out;
+    transition: right 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.photo-container .photo .photofull-container .close-btn.roll-out {
+    -webkit-transition: right 1.5s ease-in-out, -webkit-transform 1.5s ease-in-out;
+    transition: right 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.photo-container .photo .photofull-container .close-btn .close-x {
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    line-height: 1;
+    font-size: 30px;
+}
+
+@media screen and (min-width: 1025px) {
+    .photo-container .photo:nth-child(even) .photofull-container {
+        right: -2px;
+        top: -2px;
+        -webkit-transition: height 1.0s ease-in-out, width 1.0s ease-in-out, top 1s ease-in-out, right 1s ease-in-out;
+        transition: height 1.0s ease-in-out, width 1.0s ease-in-out, top 1s ease-in-out, right 1s ease-in-out;
+    }
+
+    .photo-container .photo:nth-child(odd) .photofull-container {
+        left: -2px;
+        top: -2px;
+        -webkit-transition: height 1.0s ease-in-out, width 1.0s ease-in-out, top 1s ease-in-out, left 1s ease-in-out;
+        transition: height 1.0s ease-in-out, width 1.0s ease-in-out, top 1s ease-in-out, left 1s ease-in-out;
+    }
+}
+
+.photo-container .photo-border-right {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 2px;
+    background: #404040;
+    z-index: 12;
+}
+
+.photo-view {
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url("images/5.jpg") center top #404040;
+    background-size: cover;
+    border: 2px solid #404040;
+    z-index: 13;
+    -webkit-transition: top ease-out 1s;
+    transition: top ease-out 1s;
+    -webkit-transition: none;
+    transition: none;
+}
+
+.photo-view.show {
+    display: block;
+}
+
+.photo-view.easeout {
+    top: -100vh !important;
+    -webkit-transition: top ease-out 1s;
+    transition: top ease-out 1s;
+}
+
+.photo-view .photo-description {
+    position: absolute;
+    bottom: 0;
+    left: -120vw;
+    height: 100px;
+    width: 100%;
+    background-color: #323232;
+    -webkit-transition: left 1.25s ease-in-out;
+    transition: left 1.25s ease-in-out;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.photo-view .photo-description.show {
+    left: 0;
+    -webkit-transition: left 1.25s ease-in-out;
+    transition: left 1.25s ease-in-out;
+}
+
+.photo-view .photo-description h2 {
+    color: white;
+    font-family: sans-serif;
+    font-size: 22px;
+}
+
+@media screen and (min-width: 1025px) {
+    .photo-view .photo-description h2 {
+        font-size: 30px;
+    }
+}
+
+.photo-view .photo-description .view-instagram {
+    border: 2px solid white;
+    padding: 6px 12px;
+    font-size: 15px;
+    color: white;
+    background-color: transparent;
+}
+
+@media screen and (min-width: 1025px) {
+    .photo-view .photo-description .view-instagram {
+        padding: 10px 16px;
+        font-size: 18px;
+    }
+}
+
+.photo-view .photo-description .view-instagram:hover {
+    color: #009cea;
+    border-color: #009cea;
+}
+
+.photo-view .close-btn {
+    position: absolute;
+    top: 140px;
+    right: -50px;
+    background: #888888;
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    cursor: pointer;
+    -webkit-transition: right 1.5s ease-in-out, -webkit-transform 1.5s ease-in-out;
+    transition: right 1.5s ease-in-out, transform 1.5s ease-in-out;
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.photo-view .close-btn.show {
+    right: 9%;
+    -webkit-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+    -webkit-transition: right 1.5s ease-in-out, -webkit-transform 1.5s ease-in-out;
+    transition: right 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.photo-view .close-btn.roll-out {
+    -webkit-transition: right 1.5s ease-in-out, -webkit-transform 1.5s ease-in-out;
+    transition: right 1.5s ease-in-out, transform 1.5s ease-in-out;
+}
+
+.photo-view .close-btn .close-x {
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    line-height: 1;
+    font-size: 30px;
 }

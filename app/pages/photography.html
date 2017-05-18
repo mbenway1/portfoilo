@@ -1,3 +1,18 @@
-<div>
-    <p style="padding-top: 200px">{{ message }}</p>
+<div ng-controller="photographyController">
+    <div class="photo-container">
+        <div class="photo {{ photo.classes }}" ng-repeat="photo in photo" ng-click="alert()">
+            <div class="photo-small-container">
+                <div class="photo-small" ng-click="setPhotoView(photo.source, photo.name)"></div>
+            </div>
+            <div class="photofull-container"></div>
+        </div>
+        <!--div class="photo-border-right"></div-->
+    </div>
+    <div class="photo-view">
+        <div class="photo-description">
+            <h2></h2>
+            <button class="view-instagram">View on Instagram</button>
+        </div>
+        <div class="close-btn"><span class="close-x">X</span></div>
+    </div>
 </div>

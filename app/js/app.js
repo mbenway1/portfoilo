@@ -29,7 +29,7 @@ portfolioApp.config(function($routeProvider, $locationProvider) {
         .otherwise({
             redirectTo: '/'
         });
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode({enabled: true, requireBase: false});
 });
 
 portfolioApp.directive('portfolioHeader', function () {
@@ -42,5 +42,3 @@ portfolioApp.directive('portfolioHeader', function () {
        }
    };
 });
-
-
