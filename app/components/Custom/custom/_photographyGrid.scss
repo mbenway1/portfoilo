@@ -25,7 +25,7 @@ body {
         border: solid #404040;
         background-size: cover !important;
         position: relative;
-        @media screen and (max-width: (1 $desktop-breakpoint - 1)) {
+        @media screen and (max-width: ($desktop-breakpoint - 1)) {
             width: 100% !important;
             height: 50vw !important;
             border-width: 1px 2px 1px 2px;

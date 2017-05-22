@@ -49,7 +49,7 @@ angular.module('portfolioApp')
                     portfolioTop = Number(style.getPropertyValue('top').replace("px", ""));
                     portfolioTotalHeight = portfolioHeight + portfolioTop;
                     photographyAlignment = ((videoFullHeight + aboutHeight) - portfolioTotalHeight);
-                    visiblePortfolio = 30; // The 70 here is a fixed number that I can make what I feel looks best
+                    visiblePortfolio = 30; // The 30 here is a fixed number that I can make what I feel looks best (gap above hire box and the header)
                     photographySetHeight = windowHeight - (headerHeight + hireHeight + visiblePortfolio);
                     //console.log("PortfolioTop: " + portfolioTop);
                     //console.log("Window Height: " + windowHeight);
@@ -65,7 +65,6 @@ angular.module('portfolioApp')
 
                     $('div.photography-window').css({
                         top: -photographyAlignment + "px",
-                        //marginBottom: photographyAlignment + "px",
                         height: photographySetHeight + "px"
                     });
                     $('div.photography-container').css("height", photographyImageHeight);
@@ -81,14 +80,13 @@ angular.module('portfolioApp')
                 }, 1000); // this may need to be longer for slower machines was 120, also tried 220 450 750 and still got it
 
                 $('.welcome-container').addClass("slideIn");
+
+                // This should be done via ng-click unless there is a reason it dont work.
                 $('.hire-opener').click(function () {
                     $(".hire-content").toggleClass('opened');
 
                 });
 
-                $("ul.nav>li>a").hover(function () {
-                    $(this).parent().toggleClass('over');
-                });
 
                 // Start of the parallax animations
                 function onRender() {
@@ -111,25 +109,24 @@ angular.module('portfolioApp')
                         about = $('div.about-container'),
                         portfolio = $("div.portfolio-container"),
                         photography = $('div.photography-container'),
-                        //photographyPosition = video.outerHeight() + about.outerHeight(), // unused right now
                         scrolltop = window.pageYOffset;
                     //console.log("window.pageYOffset: " + scrolltop + "px");
                     //console.log("window.pageYOffset: " + scrolltop + "px", " Video Position: " + (-scrolltop * .7) + "px", " About Position: " + (-scrolltop * .75) + "px");
 
-
                     if (550 >= scrolltop) {
-                        welcome.css({'top': scrolltop * .35 + 'px', 'z-index': '2'}); // .3   move  at 30% of scroll rate
-                        video.css('top', -scrolltop * .7 + 'px'); // move  at 50% of scroll rate
+                        welcome.css({'top': scrolltop * .35 + 'px', 'z-index': '2'}); // .35 move  at 35% of scroll rate
+                        video.css('top', -scrolltop * .7 + 'px'); // .7 move  at 70% of scroll rate
                     }
                     else {
                         welcome.css('z-index', '-3');
                     }
                     if (1200 >= scrolltop) {
                         //console.log("Banner bottom location:  " + bannerPosition + "px, scroll position" + scrolltop + "px");
-                        about.css('top', -scrolltop * .75 + 'px'); //  1.2
+                        about.css('top', -scrolltop * .75 + 'px'); //  .75
 
                     }
                     //console.log("bottom of page position: " + (windowHeight + scrolltop));
+
                     // this determines the positon to trigger the photography link to arise. the .6 is 60% of the photography-wrapper in
                     if ((portfolioTotalHeight + (photographySetHeight * .6)) <= (windowHeight + scrolltop)) {
                         //console.log("triggered!");
@@ -139,29 +136,10 @@ angular.module('portfolioApp')
                     }
 
                     if (windowHeight + scrolltop >= portfolioTotalHeight) {
-////////////////////// This ling right below is the one that is causing the issues with the white space above and below the image depending on browsers size, looks like its going to nee parameters for heights and widths unless I can come up with a better formula
-                        /*
-                         var photographyVariable = 50;
-                         if (windowWidth >= 1441 && windowWidth <= 1920) {
-                         photographyVariable = 50;
-                         if (windowHeight >= 801 && windowHeight <= 1080) {
-                         photographyVariable = 75;
-                         }
-                         else if (windowHeight >=  && windowHeight <= 800) {
-                         photographyVariable = 75;
-                         }
 
-                         }
-                         else if (windowWidth >= 1141 && windowWidth <= 1440) {
-                         photographyVariable = 30;
-
-                         }
-                         */
-
-                        //  Now just set high enough that no whitespace shows on any screen was 120 raising because of mobile, was -33 not sure why?? might be to overlap by 3 px of the set figure of 30 of visiblePortfolio
+                        // (old comment I think 05/22)  Now just set high enough that no whitespace shows on any screen was 120 raising because of mobile, was -33 not sure why?? might be to overlap by 3 px of the set figure of 30 of visiblePortfolio
                         var photograhyFormula = -((windowHeight + scrolltop - portfolioHeight + 160) - windowHeight);
 
-////////////////////// End
                         //console.log("Photography Position: " + photographyPosition + "px, ", "pageYOffset: " + scrolltop + "px, ", "Portfolio Height: " + portfolioTotalHeight + "px, ", "windowHeight: " + windowHeight + "px ", "portfolioTop: " + portfolioTop + "px ", "PortfolioHeight: " + portfolioHeight + "px ", "photogrraphyAlignment: " + photographyAlignment + "px");
                         //console.log((scrolltop * 1.75) - scrolltop);
                         //console.log("windowHeight:            " + windowHeight);
@@ -170,26 +148,6 @@ angular.module('portfolioApp')
                         //console.log("photographyWindowHeight: " + photographySetHeight + "  (photographySetHeight)");
                         //console.log("Photo img height Formula:  ((photographySetHeight + visiblePortfolio) * 2) * 1.75, visiblePortfolio is set at 30");
                         //console.log("photographyFormula: -((windowHeight + scrolltop - portfolioHeight - 33) - windowHeight)");
-                        // The amazing zeroing formula!!!
-                        /*
-                         if (windowWidth < 580) {
-                         if (windowHeight < 650)
-                         photography.css({top: photograhyFormula * 1.55  + 'px', height: photographyImageHeight + "px"});
-                         else
-                         photography.css({top: photograhyFormula * 1.65  + 'px', height: photographyImageHeight + "px"});
-                         }
-                         else if (windowWidth < 768) {
-                         if (windowWidth >= 580)
-                         photography.css({top: photograhyFormula * 1.5  + 'px', height: photographyImageHeight + "px"});
-                         }
-                         else if (windowWidth >= 768) {
-                         if (windowHeight <= 660)
-                         photography.css({top: photograhyFormula * 1.65  + 'px', height: photographyImageHeight + "px"});
-                         else
-                         photography.css({top: photograhyFormula * 1.75  + 'px', height: photographyImageHeight + "px"});
-                         }
-                         else
-                         */
                         photography.css({top: photograhyFormula * .75 + 'px', height: photographyImageHeight + "px"}); // this was 1.75
                     }
                     ticking = false;
@@ -222,9 +180,5 @@ angular.module('portfolioApp')
             });
         };
         homeFunction();
-
-
-
-
 
     });

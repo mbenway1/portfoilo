@@ -29,4 +29,22 @@ angular.module('portfolioApp')
                 angular.element(appMenu).removeClass('slideVertical open').addClass('closed');
             }, 500);
         };
+
+        $scope.animateContact = function () {
+            // console.log("test");
+            setTimeout(function () {
+                $('html, body').animate({
+                    scrollTop: $(document).height()
+                }, 2500);
+            }, 100);
+            setTimeout(function () {
+                angular.element(hireBtn).click();
+            }, 1800);
+            return false;
+        };
+
+        $("ul.nav>li>a").hover(function () {
+            $(this).parent().toggleClass('over');
+        });
+
     });

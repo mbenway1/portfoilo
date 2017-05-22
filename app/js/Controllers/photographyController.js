@@ -7,11 +7,10 @@ angular.module('portfolioApp')
         $scope.message = 'This is the photography page';
         $scope.photo = [
             {
-                id: 1,
                 name: 'CASE IH CX 90',
                 classes: 'photo-1 left',
                 source: 'img/1.jpg',
-                instagram: ''
+                instagram: 'http://dev.michaelbenway.com'
             },
             {
                 name: 'Cocktails',

@@ -8694,7 +8694,12 @@ body {
   overflow-x: hidden; }
 
 p {
-  color: white; }
+    color: white;
+    font-size: 15px;
+    line-height: 1.55;
+    letter-spacing: .04rem;
+    margin-bottom: 15px;
+}
 
 h1, .h1 {
   color: white;
@@ -9233,47 +9238,59 @@ h3, .h3 {
   z-index: -1;
   width: 100vw;
   max-width: 100%;
-    top: 780px;
+    top: 810px;
     padding: 120px 0 50px 0;
 }
 
 @media screen and (min-width: 340px) {
     .portfolio-container {
-        top: 745px;
+        top: 775px;
         padding: 120px 0 50px 0;
     }
 }
 
 @media screen and (min-width: 380px) {
     .portfolio-container {
-        top: 710px;
+        top: 750px;
         padding: 110px 0 70px 0;
     }
 }
 
 @media screen and (min-width: 420px) {
     .portfolio-container {
-        top: 675px;
+        top: 735px;
         padding: 110px 0 70px 0;
     }
 }
   @media screen and (min-width: 480px) {
     .portfolio-container {
-      top: 640px;
+        top: 745px;
       padding: 110px 0 70px 0; } }
   @media screen and (min-width: 768px) {
     .portfolio-container {
-      top: 760px;
+        top: 790px;
       padding: 170px 0 90px 0; } }
   @media screen and (min-width: 1025px) {
     .portfolio-container {
-      padding: 190px 0 90px 0; } }
+        padding: 220px 0 90px 0;
+    }
+  }
   @media screen and (min-width: 1140px) {
     .portfolio-container {
-      padding: 210px 0 90px 0; } }
+        padding: 275px 0 90px 0;
+    }
+  }
   @media screen and (min-width: 1300px) {
     .portfolio-container {
-      padding: 240px 0 90px 0; } }
+        padding: 300px 0 90px 0;
+    }
+  }
+
+@media screen and (min-width: 1440px) {
+    .portfolio-container {
+        padding: 330px 0 90px 0;
+    }
+}
   .portfolio-container .portfolio-wraper {
     display: -webkit-box;
     display: -webkit-flex;
@@ -9722,7 +9739,7 @@ body.modall {
         */
 }
 
-@media screen and (max-width: 1 1024px) {
+@media screen and (max-width: 1024px) {
     .photo-container .photo {
         width: 100% !important;
         height: 50vw !important;
@@ -10087,7 +10104,6 @@ body.modall {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url("images/5.jpg") center top #404040;
     background-size: cover;
     border: 2px solid #404040;
     z-index: 13;

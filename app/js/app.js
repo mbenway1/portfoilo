@@ -1,7 +1,8 @@
 'use strict';
-var portfolioApp = angular.module("portfolioApp", ['ngRoute']);
-var appMenu;
-var homeFunction;
+var portfolioApp = angular.module("portfolioApp", ['ngRoute']),
+    appMenu,
+    hireBtn,
+    homeFunction;
 //var portfoliioFunction;
 //var photographyFunction;
 
@@ -39,6 +40,16 @@ portfolioApp.directive('portfolioHeader', function () {
        link        : function (scope, element) {
 
            appMenu = document.getElementsByClassName("nav-wrapper");
+           hireBtn = document.getElementsByClassName("hire-opener");
        }
    };
 });
+
+window.onbeforeunload = function () {
+    var pathname = window.location.pathname;
+    console.log(pathname);
+    if (pathname == "/photography" || pathname == "/portfolio") {
+        alert("test");
+        return false;
+    }
+};

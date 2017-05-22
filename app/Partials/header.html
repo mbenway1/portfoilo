@@ -10,9 +10,10 @@
     </div>
     <div class="nav-wrapper closed">
         <ul class="nav">
-            <li><a ng-href="portfolio" ng-click="animateMenu()">Portfolio</a></li>
-            <li><a ng-href="photography" ng-click="animateMenu()">Photography</a></li>
-            <li><a ng-href="contact" ng-click="animateMenu()">Contact</a></li> <!-- Still need to make scroll to bottom -->
+            <li><a ng-href="portfolio" ng-click="animateMenu()" class="menu-portfolio">Portfolio</a></li>
+            <li><a ng-href="photography" ng-click="animateMenu()" class="menu-photography">Photography</a></li>
+            <li><a ng-href="contact" ng-click="animateMenu(); animateContact()" class="menu-contact">Contact</a></li>
+            <!-- Still need to make scroll to bottom -->
         </ul>
     </div>
     <div class="nav-mobile-btn" ng-click="animateMenu()">
