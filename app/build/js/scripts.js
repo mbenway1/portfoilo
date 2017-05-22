@@ -44583,7 +44583,7 @@ angular.module('portfolioApp')
                 $photoOffsetBottom = ($windowHeight - $photoHeight - $photoOffsetTop),
                 $photoOffsetLeft = container.offset().left,
                 $photoOffsetRight = ($windowWidth - $photoOffsetLeft - $photoWidth);
-            */
+             */
             pagePosition = container.offset().top;
 
             closeBtnPhoto.removeClass('roll-out');
@@ -44618,7 +44618,7 @@ angular.module('portfolioApp')
                     'top': $scrollTop,
                     'background': "url('/" + selectedImg + "') center top/cover"
                 })
-                .children('.photo-description').children('h2').text(selectedName);
+                    .children('.photo-description').children('h2').text(selectedName);
             }, 1001);
             setTimeout(function () {
                 // This might be better done in a controller, also might help on supplying data to a single template rather then a bunch of pages

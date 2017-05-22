@@ -46,6 +46,12 @@
     @media screen and (min-width: 1440px) { // this one has to stay at 1440
         padding: 330px 0 90px 0;
     }
+    @media screen and (min-width: 1600px) { // this one has to stay at 1600
+        padding: 440px 0 90px 0;
+    }
+    @media screen and (min-width: 1800px) { // this one has to stay at 1800
+        padding: 500px 0 90px 0;
+    }
     .portfolio-wraper {
         display: flex;
         justify-content: space-between;
