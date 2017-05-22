@@ -88,6 +88,7 @@ angular.module('portfolioApp')
         var openPhoto = function (container, thumbPhoto, fullPhoto, descriptionPhoto, closeBtnPhoto) {
             var $window = $(window);
             $scrollTop = $window.scrollTop();
+            /* All unused variables right now
             var $windowWidth = $window.width(),
                 $windowHeight = $window.height(),
                 $photoWidth = container.width(),
@@ -96,6 +97,7 @@ angular.module('portfolioApp')
                 $photoOffsetBottom = ($windowHeight - $photoHeight - $photoOffsetTop),
                 $photoOffsetLeft = container.offset().left,
                 $photoOffsetRight = ($windowWidth - $photoOffsetLeft - $photoWidth);
+             */
             pagePosition = container.offset().top;
 
             closeBtnPhoto.removeClass('roll-out');
@@ -129,8 +131,8 @@ angular.module('portfolioApp')
                 $(".photo-view").addClass("show").css({
                     'top': $scrollTop,
                     'background': "url('/" + selectedImg + "') center top/cover"
-                });
-                $(".photo-view").children('.photo-description').children('h2').text(selectedName);
+                })
+                    .children('.photo-description').children('h2').text(selectedName);
             }, 1001);
             setTimeout(function () {
                 // This might be better done in a controller, also might help on supplying data to a single template rather then a bunch of pages
@@ -163,7 +165,7 @@ angular.module('portfolioApp')
         };
 
 
-        body.on("mouseenter", ".photo-small", function (e) {
+        body.on("mouseenter", ".photo-small", function () {
             //console.log($(this));
 
             var photoThumb = $(this);
@@ -173,7 +175,7 @@ angular.module('portfolioApp')
             hoverPhoto(photoThumb);
         });
 
-        body.on("mouseleave", ".photo-small", function (e) {
+        body.on("mouseleave", ".photo-small", function () {
             //console.log($(this));
 
             var photoThumb = $(this);
@@ -184,14 +186,15 @@ angular.module('portfolioApp')
         });
 
 
-        body.on("click", ".photo-small", function (e) {
+        body.on("click", ".photo-small", function () {
             //console.log($(this));
 
             var photo = $(this).parents('.photo'),
                 photoThumb = $(this).parent(),
                 photoFull = photo.children('.photofull-container'),
-                photoDescription = $(".photo-view").children('.photo-description'),
-                photoCloseBtn = $(".photo-view").children('.close-btn');
+                photoView = $(".photo-view"),
+                photoDescription = photoView.children('.photo-description'),
+                photoCloseBtn = photoView.children('.close-btn');
 
             //console.log();
 
@@ -199,7 +202,7 @@ angular.module('portfolioApp')
         });
 
         // Function to trigger the close of the full screen photo viewer and set up the action function
-        body.on("click", ".close-btn", function (e) {
+        body.on("click", ".close-btn", function () {
             //console.log($(this));
 
             var photo = $(this).parents('.photo-view'),

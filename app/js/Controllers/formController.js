@@ -1,5 +1,5 @@
 angular.module('portfolioApp')
-    .controller('formController', function ($scope, $http) {
+    .controller('formController', function ($scope) { // removed $http variable
 // line below was for when it was inside app.js
 //portfolioApp.controller('formController', function($scope) {
 
@@ -70,53 +70,45 @@ angular.module('portfolioApp')
 
 
         $scope.validate = function () {
-            var e = this.hireInput.id;
-            var select = this.hireSelect.id;
+            var e = this.hireInput.id,
+                select = this.hireSelect.id,
+                regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                nameCompany = $("#" + $scope.hireInput[0].id),
+                email = $("#" + $scope.hireInput[2].id),
+                Message = $("#" + $scope.hireInput[3].id);
+            //unused  var getNameCompany = document.getElementById(nameCompany);
+            //unused  var getEmail = document.getElementById(email);
             //console.log(e);
             //console.log("working!");
-            var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            var nameCompany = $scope.hireInput[0].id;
-            var getNameCompany = document.getElementById(nameCompany);
-            var email = $scope.hireInput[2].id;
-            var Message = $scope.hireInput[3].id;
-            var getEmail = document.getElementById(email);
             //console.log(getNameCompany.dataset.input);
-            if ($("#" + nameCompany).val().length < 2 && e === "NameCompany") {
-                console.log("invalid Name");
-                $("#" + nameCompany).parent().removeClass('error animated shake valid');
+            if (nameCompany.val().length < 2 && e === "NameCompany") {
+                //console.log("invalid Name");
+                nameCompany.parent().removeClass('error animated shake valid');
                 setTimeout(function () {
-                    $("#" + nameCompany).parent().addClass('error animated shake');
+                    nameCompany.parent().addClass('error animated shake');
                 }, 5);
                 return false;
             }
-            else if (!regEmail.test($("#" + email).val()) && e === "Email") {
-                console.log("invalid email");
-                $("#" + email).parent().removeClass('error animated shake valid');
+            else if (!regEmail.test(email.val()) && e === "Email") {
+                //console.log("invalid email");
+                email.parent().removeClass('error animated shake valid');
                 setTimeout(function () {
-                    $("#" + email).parent().addClass('error animated shake');
+                    email.parent().addClass('error animated shake');
                 }, 5);
 
             }
-            else if ($("#" + Message).val().length < 2 && e === "Message") {
-                console.log("invalid Name");
-                $("#" + Message).parent().removeClass('error animated shake valid');
+            else if (Message.val().length < 2 && e === "Message") {
+                //console.log("invalid Name");
+                Message.parent().removeClass('error animated shake valid');
                 setTimeout(function () {
-                    $("#" + Message).parent().addClass('error animated shake');
+                    Message.parent().addClass('error animated shake');
                 }, 5);
                 return false;
             }
-            /*else if ($("#Budget").val() === null && select === "Budget") {
-             console.log("invalid budget");
-             $("#Budget").removeClass('error animated shake valid');
-             setTimeout(function () {
-             $("#Budget").addClass('error animated shake');
-             },5);
-
-             }*/
             else {
                 $("#" + e).parent().removeClass('error animated shake').addClass('valid');
                 $("#" + select).removeClass('error animated shake').addClass('valid');
-                if ($("#" + nameCompany).parent().hasClass('valid') && $("#" + email).parent().hasClass('valid') && $("#" + Message).parent().hasClass('valid')) {
+                if (nameCompany.parent().hasClass('valid') && email.parent().hasClass('valid') && Message.parent().hasClass('valid')) {
                     $(".submit-container").html("<button type='submit' class='hire-btn hire-submit'>Connect With Me</button>");
                     $(".hire-submit").fadeIn();
                 }
@@ -125,31 +117,31 @@ angular.module('portfolioApp')
 
         $scope.submitValidate = function () {
             console.log("sumbit validate triggered");
-            var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            var nameInput = $scope.hireInput[0].id;
-            var emailInput = $scope.hireInput[2].id;
-            var budgetInput = $scope.hireSelect[0].id;
-            if ($("#" + nameInput).val().length < 2) {
+            var regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                nameInput = $("#" + $scope.hireInput[0].id),
+                emailInput = $("#" + $scope.hireInput[2].id),
+                budgetInput = $("#" + $scope.hireSelect[0].id);
+            if (nameInput.val().length < 2) {
                 console.log("invalid Name");
-                $("#" + nameInput).parent().removeClass('error animated shake');
+                nameInput.parent().removeClass('error animated shake');
                 setTimeout(function () {
-                    $("#" + nameInput).parent().addClass('error animated shake');
+                    nameInput.parent().addClass('error animated shake');
                 }, 5);
                 return false;
             }
-            else if (!regEmail.test($("#" + emailInput).val())) {
+            else if (!regEmail.test(emailInput.val())) {
                 console.log("invalid email");
-                $("#" + emailInput).parent().removeClass('error animated shake');
+                emailInput.parent().removeClass('error animated shake');
                 setTimeout(function () {
-                    $("#" + emailInput).parent().addClass('error animated shake');
+                    emailInput.parent().addClass('error animated shake');
                 }, 5);
                 return false;
             }
-            else if ($("#" + budgetInput).val() === null) {
+            else if (budgetInput.val() === null) {
                 console.log("invalid budget");
-                $("#" + budgetInput).removeClass('error animated shake');
+                budgetInput.removeClass('error animated shake');
                 setTimeout(function () {
-                    $("#" + budgetInput).addClass('error animated shake');
+                    budgetInput.addClass('error animated shake');
                 }, 5);
                 return false;
             }

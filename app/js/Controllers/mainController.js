@@ -101,8 +101,7 @@ angular.module('portfolioApp')
                 }
 
                 function update() {
-                    var windowWidth = window.innerWidth, // unused right now
-                        windowHeight = window.innerHeight,
+                    var windowHeight = window.innerHeight,
                         header = $('section.header'),    // bannerPosition = bannerTrueHeight.outerHeight() - 15,
                         welcome = $('div.welcome-wrapper'),
                         video = $('div.video-container'),
