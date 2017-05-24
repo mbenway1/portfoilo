@@ -152,6 +152,86 @@ body {
                 background-size: cover;
             }
         }
+        &.photo-11 {
+            width: 66.666%;
+            .photo-small {
+                background: url("/img/11.jpg") center top rgba(20, 20, 20, 0.1);
+            }
+            .photofull-container {
+                background: url("/img/11.jpg") center top rgba(20, 20, 20, 0.1);
+                background-size: cover;
+            }
+        }
+        &.photo-12 {
+            width: 33.33%;
+            .photo-small {
+                background: url("/img/12.jpg") center top rgba(20, 20, 20, 0.1);
+            }
+            .photofull-container {
+                background: url("/img/12.jpg") center top rgba(20, 20, 20, 0.1);
+                background-size: cover;
+            }
+        }
+        &.photo-13 {
+            width: 20%;
+            .photo-small {
+                background: url("/img/13.jpg") center top rgba(20, 20, 20, 0.1);
+            }
+            .photofull-container {
+                background: url("/img/13.jpg") center top rgba(20, 20, 20, 0.1);
+                background-size: cover;
+            }
+        }
+        &.photo-14 {
+            width: 80%;
+            .photo-small {
+                background: url("/img/14.jpg") center top rgba(20, 20, 20, 0.1);
+            }
+            .photofull-container {
+                background: url("/img/14.jpg") center top rgba(20, 20, 20, 0.1);
+                background-size: cover;
+            }
+        }
+        &.photo-15 {
+            width: 80%;
+            .photo-small {
+                background: url("/img/15.jpg") center top rgba(20, 20, 20, 0.1);
+            }
+            .photofull-container {
+                background: url("/img/15.jpg") center top rgba(20, 20, 20, 0.1);
+                background-size: cover;
+            }
+        }
+        &.photo-16 {
+            width: 20%;
+            .photo-small {
+                background: url("/img/16.jpg") center top rgba(20, 20, 20, 0.1);
+            }
+            .photofull-container {
+                background: url("/img/16.jpg") center top rgba(20, 20, 20, 0.1);
+                background-size: cover;
+            }
+        }
+        &.photo-17 {
+            width: 20%;
+            .photo-small {
+                background: url("/img/17.jpg") center top rgba(20, 20, 20, 0.1);
+            }
+            .photofull-container {
+                background: url("/img/17.jpg") center top rgba(20, 20, 20, 0.1);
+                background-size: cover;
+            }
+        }
+        &.photo-18 {
+            width: 80%;
+            .photo-small {
+                background: url("/img/18.jpg") center top rgba(20, 20, 20, 0.1);
+            }
+            .photofull-container {
+                background: url("/img/18.jpg") center top rgba(20, 20, 20, 0.1);
+                background-size: cover;
+            }
+        }
         /*
         &.photo-11 {
             width: calc(50% - 3px);

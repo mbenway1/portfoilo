@@ -1,8 +1,8 @@
 angular.module('portfolioApp')
-    .controller('photographyController', function ($scope) {
+    .controller('photographyController', function ($scope, $window) {
 // line below was for when it was inside app.js
 //portfolioApp.controller('photographyController', function($scope) {
-
+        $window.scrollTo(0, 0);
         // create a message to display in our view
         $scope.message = 'This is the photography page';
         $scope.photo = [
@@ -25,7 +25,7 @@ angular.module('portfolioApp')
                 instagram: ''
             },
             {
-                name: "Title Photo 4",
+                name: "Outlooking Mt. Yale",
                 classes: 'photo-4 right',
                 source: 'img/4.jpg',
                 instagram: ''
@@ -64,6 +64,54 @@ angular.module('portfolioApp')
                 name: "Blossoming Flower",
                 classes: 'photo-10 right',
                 source: 'img/10.jpg',
+                instagram: ''
+            },
+            {
+                name: "Tracks",
+                classes: 'photo-11 left',
+                source: 'img/11.jpg',
+                instagram: ''
+            },
+            {
+                name: "Aging Tree",
+                classes: 'photo-12 right',
+                source: 'img/12.jpg',
+                instagram: ''
+            },
+            {
+                name: "Trickling Stream",
+                classes: 'photo-13 left',
+                source: 'img/13.jpg',
+                instagram: ''
+            },
+            {
+                name: "Harvard Lakes",
+                classes: 'photo-14 right',
+                source: 'img/14.jpg',
+                instagram: ''
+            },
+            {
+                name: "Mosquito Pass",
+                classes: 'photo-15 left',
+                source: 'img/15.jpg',
+                instagram: ''
+            },
+            {
+                name: "Chalk Creek",
+                classes: 'photo-16 right',
+                source: 'img/16.jpg',
+                instagram: ''
+            },
+            {
+                name: "Evening Reflection",
+                classes: 'photo-17 left',
+                source: 'img/17.jpg',
+                instagram: ''
+            },
+            {
+                name: "Pomeroy Lakes",
+                classes: 'photo-18 right',
+                source: 'img/18.jpg',
                 instagram: ''
             }
         ];

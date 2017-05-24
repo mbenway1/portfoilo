@@ -72,14 +72,14 @@ angular.module('portfolioApp')
         $scope.validate = function () {
             var e = this.hireInput.id,
                 select = this.hireSelect.id,
+                //console.log(e);
+                //console.log("working!");
                 regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 nameCompany = $("#" + $scope.hireInput[0].id),
                 email = $("#" + $scope.hireInput[2].id),
                 Message = $("#" + $scope.hireInput[3].id);
             //unused  var getNameCompany = document.getElementById(nameCompany);
             //unused  var getEmail = document.getElementById(email);
-            //console.log(e);
-            //console.log("working!");
             //console.log(getNameCompany.dataset.input);
             if (nameCompany.val().length < 2 && e === "NameCompany") {
                 //console.log("invalid Name");

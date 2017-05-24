@@ -44047,14 +44047,14 @@ angular.module('portfolioApp')
         $scope.validate = function () {
             var e = this.hireInput.id,
                 select = this.hireSelect.id,
+            //console.log(e);
+            //console.log("working!");
                 regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 nameCompany = $("#" + $scope.hireInput[0].id),
                 email = $("#" + $scope.hireInput[2].id),
                 Message = $("#" + $scope.hireInput[3].id);
             //unused  var getNameCompany = document.getElementById(nameCompany);
             //unused  var getEmail = document.getElementById(email);
-            //console.log(e);
-            //console.log("working!");
             //console.log(getNameCompany.dataset.input);
             if (nameCompany.val().length < 2 && e === "NameCompany") {
                 //console.log("invalid Name");
@@ -44283,29 +44283,38 @@ angular.module('portfolioApp')
             }, 500);
         };
 
+        /*
         $scope.animateContact = function () {
-            // console.log("test");
+            var pathname = window.location.pathname;
+            if (pathname == "/") {
+                console.log("test");
+            }
+            else {
+                window.location.href = '/';
+            }
+            console.log("test");
             setTimeout(function () {
                 $('html, body').animate({
                     scrollTop: $(document).height()
-                }, 2500);
-            }, 100);
+                }, 2000);
+            }, 1000);
             setTimeout(function () {
                 angular.element(hireBtn).click();
             }, 1800);
-            return false;
         };
+        */
 
+        // Makes hover function work in menu
         $("ul.nav>li>a").hover(function () {
             $(this).parent().toggleClass('over');
         });
 
     });
 angular.module('portfolioApp')
-    .controller('mainController', function ($scope) {
+    .controller('mainController', function ($scope, $window) {
 // line below was for when it was inside app.js
 //portfolioApp.controller('mainController', function($scope) {
-
+        $window.scrollTo(0, 0);
         // create a message to display in our view
         $scope.welcomMessage = 'Welcome';
         $scope.portfolioItem = [
@@ -44390,7 +44399,6 @@ angular.module('portfolioApp')
 
                 });
 
-
                 // Start of the parallax animations
                 function onRender() {
                     lastScrollY = window.pageYOffset;
@@ -44404,7 +44412,8 @@ angular.module('portfolioApp')
                 }
 
                 function update() {
-                    var windowHeight = window.innerHeight,
+                    var windowWidth = window.innerWidth, // unused right now
+                        windowHeight = window.innerHeight,
                         header = $('section.header'),    // bannerPosition = bannerTrueHeight.outerHeight() - 15,
                         welcome = $('div.welcome-wrapper'),
                         video = $('div.video-container'),
@@ -44428,7 +44437,6 @@ angular.module('portfolioApp')
 
                     }
                     //console.log("bottom of page position: " + (windowHeight + scrolltop));
-
                     // this determines the positon to trigger the photography link to arise. the .6 is 60% of the photography-wrapper in
                     if ((portfolioTotalHeight + (photographySetHeight * .6)) <= (windowHeight + scrolltop)) {
                         //console.log("triggered!");
@@ -44478,17 +44486,20 @@ angular.module('portfolioApp')
                 // only listen for resize events
                 window.addEventListener('resize', resizeOnRender, false);
 
-
             });
         };
         homeFunction();
 
+
+
+
+
     });
 angular.module('portfolioApp')
-    .controller('photographyController', function ($scope) {
+    .controller('photographyController', function ($scope,$window) {
 // line below was for when it was inside app.js
 //portfolioApp.controller('photographyController', function($scope) {
-
+        $window.scrollTo(0, 0);
         // create a message to display in our view
         $scope.message = 'This is the photography page';
         $scope.photo = [
@@ -44551,6 +44562,54 @@ angular.module('portfolioApp')
                 classes: 'photo-10 right',
                 source: 'img/10.jpg',
                 instagram: ''
+            },
+            {
+                name: "Tracks",
+                classes: 'photo-11 left',
+                source: 'img/11.jpg',
+                instagram: ''
+            },
+            {
+                name: "Aging Tree",
+                classes: 'photo-12 right',
+                source: 'img/12.jpg',
+                instagram: ''
+            },
+            {
+                name: "Trickling Stream",
+                classes: 'photo-13 left',
+                source: 'img/13.jpg',
+                instagram: ''
+            },
+            {
+                name: "Harvard Lakes",
+                classes: 'photo-14 right',
+                source: 'img/14.jpg',
+                instagram: ''
+            },
+            {
+                name: "Mosquito Pass",
+                classes: 'photo-15 left',
+                source: 'img/15.jpg',
+                instagram: ''
+            },
+            {
+                name: "Chalk Creek",
+                classes: 'photo-16 right',
+                source: 'img/16.jpg',
+                instagram: ''
+            },
+            {
+                name: "Evening Reflection",
+                classes: 'photo-17 left',
+                source: 'img/17.jpg',
+                instagram: ''
+            },
+            {
+                name: "Pomeroy Lakes",
+                classes: 'photo-18 right',
+                source: 'img/18.jpg',
+                instagram: ''
             }
         ];
 
@@ -44583,7 +44642,7 @@ angular.module('portfolioApp')
                 $photoOffsetBottom = ($windowHeight - $photoHeight - $photoOffsetTop),
                 $photoOffsetLeft = container.offset().left,
                 $photoOffsetRight = ($windowWidth - $photoOffsetLeft - $photoWidth);
-             */
+            */
             pagePosition = container.offset().top;
 
             closeBtnPhoto.removeClass('roll-out');
@@ -44618,7 +44677,7 @@ angular.module('portfolioApp')
                     'top': $scrollTop,
                     'background': "url('/" + selectedImg + "') center top/cover"
                 })
-                    .children('.photo-description').children('h2').text(selectedName);
+                .children('.photo-description').children('h2').text(selectedName);
             }, 1001);
             setTimeout(function () {
                 // This might be better done in a controller, also might help on supplying data to a single template rather then a bunch of pages
@@ -44703,10 +44762,10 @@ angular.module('portfolioApp')
     });
 
 angular.module('portfolioApp')
-    .controller('portfolioController', function ($scope) {
+    .controller('portfolioController', function ($scope,$window) {
 // line below was for when it was inside app.js
 //portfolioApp.controller('portfolioController', function($scope) {
-
+        $window.scrollTo(0, 0);
         // create a message to display in our view
         $scope.message = 'This is the portfolio page';
     });

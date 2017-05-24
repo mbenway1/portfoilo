@@ -1,8 +1,8 @@
 angular.module('portfolioApp')
-    .controller('mainController', function ($scope) {
+    .controller('mainController', function ($scope, $window) {
 // line below was for when it was inside app.js
 //portfolioApp.controller('mainController', function($scope) {
-
+        $window.scrollTo(0, 0);
         // create a message to display in our view
         $scope.welcomMessage = 'Welcome';
         $scope.portfolioItem = [
@@ -87,7 +87,6 @@ angular.module('portfolioApp')
 
                 });
 
-
                 // Start of the parallax animations
                 function onRender() {
                     lastScrollY = window.pageYOffset;
@@ -101,7 +100,8 @@ angular.module('portfolioApp')
                 }
 
                 function update() {
-                    var windowHeight = window.innerHeight,
+                    var windowWidth = window.innerWidth, // unused right now
+                        windowHeight = window.innerHeight,
                         header = $('section.header'),    // bannerPosition = bannerTrueHeight.outerHeight() - 15,
                         welcome = $('div.welcome-wrapper'),
                         video = $('div.video-container'),
@@ -125,7 +125,6 @@ angular.module('portfolioApp')
 
                     }
                     //console.log("bottom of page position: " + (windowHeight + scrolltop));
-
                     // this determines the positon to trigger the photography link to arise. the .6 is 60% of the photography-wrapper in
                     if ((portfolioTotalHeight + (photographySetHeight * .6)) <= (windowHeight + scrolltop)) {
                         //console.log("triggered!");
@@ -175,9 +174,9 @@ angular.module('portfolioApp')
                 // only listen for resize events
                 window.addEventListener('resize', resizeOnRender, false);
 
-
             });
         };
         homeFunction();
+
 
     });

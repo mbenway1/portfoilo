@@ -22,6 +22,152 @@
     <portfolio-header></portfolio-header>
 
     <div id="main" ng-view>
+        <div class="video-container">
+            <div class="video-wraper">
+                <video class="video" autoplay loop>
+                    <source src="video/video.mp4" type="video/mp4">
+                </video>
+                <div class="welcome-container">
+                    <div id="welcome" class="welcome-wrapper">
+                        <h1 class="welcome">{{ welcomMessage }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-container">
+            <div class="about-bg">
+                <div class="about-title-container">
+                    <div class="about-title">
+                        <h2 class="title-name">Michael Benway</h2>
+                        <div class="title-bar"></div>
+                        <h3 class="title-job">Web Developer</h3>
+                    </div>
+                </div>
+                <div class="about-wraper">
+                    <h2 class="text-center">About</h2>
+                    <!--
+                        about examples to base off of
+                        http://nickboes.com/about/
+                        https://richard.gs/about
+                        http://about.nicolasparies.com/
+                        at 850px wide its 710 tall, thats currently how the css is set up
+                    -->
+                    <div class="about-img-container"><img class="about-img" src="img/me.jpg"></div>
+                    <div class="about-social-container">
+                        <ul class="social-menu">
+                            <li class="social-item linkedin"><a
+                                    href="https://www.linkedin.com/in/michael-benway-53727160/"
+                                    class="fa fa-linkedin"></a></li>
+                            <li class="social-item instagram"><a href="https://www.instagram.com/benwaymichael"
+                                                                 class="fa fa-instagram"></a></li>
+                            <li class="social-item behance"><a href="https://www.behance.net/benwaymicheae7"
+                                                               class="fa fa-behance"></a></li>
+                            <li class="social-item dribbble"><a href="https://dribbble.com/michaelbenway"
+                                                                class="fa fa-dribbble"></a></li>
+                        </ul>
+                    </div>
+                    <p>Michael Benway is a small town guy, raised on a farm in Central Illinois. He is not afraid to get
+                        his
+                        hands dirty and is always ready to jump into programming. Michael is down for adventure and to
+                        try new
+                        things. He was trained at Parkland College earning an A.A.S. in Digital Media; work experience
+                        includes
+                        FASS, Inc., 2wav, and was and intern at Precision Graphics&mdash;totaling to four years.</p>
+
+                    <p>Michael&rsquo;s passion is photography, reveling in pinhole photography, due to its challenging
+                        nature.
+                        Pinhole leads back to the day of film; when the outcome was circumventive. Panoramic photography
+                        relishes in the adventurous nature of Michael. When he is not behind “screens”, he can be found
+                        rock
+                        climbing, working on the farm, and exploring cultures. Michael embraces &ldquo;the challenge&rdquo;
+                        and
+                        is willing to go through extreme lengths to get the perfect experience</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="portfolio-section" class="portfolio-container">
+            <h2>Portfolio</h2>
+            <div class="portfolio-wraper">
+                <div class="portfolio-item" ng-repeat="portfolioItem in portfolioItem">
+                    <img ng-src="{{ portfolioItem.source }}" alt="{{ portfolioItem.name }}">
+                </div>
+            </div>
+        </div>
+
+        <div class="photography-window">
+            <div class="photography-container">
+            </div>
+            <div class="photography-wraper">
+                <a ng-href="/photography" class="photography-button">Photography</a>
+            </div>
+        </div>
+
+        <div class="hire-container">
+            <div class="hire-wraper">
+                <div class="hire-content">
+                    <button type="button" class="hire-btn hire-opener">Hire Me</button>
+                    <form id="hire-form" action="submit.php" ng-controller="formController" method="post">
+
+
+                <span class="input input--haruki first" ng-repeat="hireInput in hireInput">
+                    <input class="input__field input__field--haruki" type="{{ hireInput.type }}" id="{{ hireInput.id }}"
+                           name="{{ hireInput.id }}" ng-blur="validate()" data-input="{{ hireInput.id }}"/>
+                    <label class="input__label input__label--haruki" for="{{ hireInput.id }}">
+                        <span class="input__label-content input__label-content--haruki">{{ hireInput.label }}</span>
+                    </label>
+                </span>
+
+                        <!--span class="input input--haruki first">
+                            <input class="input__field input__field--haruki" type="text" id="NameCompany" onblur="validate()" ng-model="form.nameCompany"/>
+                            <label class="input__label input__label--haruki" for="NameCompany">
+                                <span class="input__label-content input__label-content--haruki">Name/Company</span>
+                            </label>
+                        </span>
+                        <span class="input input--haruki">
+                            <input class="input__field input__field--haruki" type="tel" id="Phone"/>
+                            <label class="input__label input__label--haruki" for="Phone">
+                                <span class="input__label-content input__label-content--haruki">Phone</span>
+                            </label>
+                        </span>
+                        <span class="input input--haruki">
+                            <input class="input__field input__field--haruki" type="email" id="Email"  ng-blur="validate()" ng-model="form.email"/>
+                            <label class="input__label input__label--haruki" for="Email">
+                                <span class="input__label-content input__label-content--haruki">Email</span>
+                            </label>
+                        </span>
+                        <span-- class="input input--haruki">
+                            <input class="input__field input__field--haruki" type="text" id="Message"/>
+                            <label class="input__label input__label--haruki" for="Message">
+                                <span class="input__label-content input__label-content--haruki">Short Message or Just Say Hi</span>
+                            </label>
+                        </span-->
+                        <div class="input-container" ng-repeat="hireSelect in hireSelect">
+                            <select title="budget" id="{{ hireSelect.id }}" name="{{ hireSelect.id }}"
+                                    ng-blur="validate()"
+                                    data-input="Budget">
+                                <option selected disabled>-- Select Your Budget --</option>
+                                <option ng-repeat="budgetoption in budgetoption" value="{{ budgetoption.value }}">{{
+                                    budgetoption.amount }}
+                                </option>
+                                <!--option value="?">Unknown</option>
+                                <option value="500">$500</option>
+                                <option value="1000">$1000</option>
+                                <option value="2000">$2000</option>
+                                <option value="5000">$5000</option>
+                                <option value="10000">$10000</option>
+                                <option value="10000+">$10000+</option-->
+                            </select>
+                        </div>
+                        <div class="input-container submit-container">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 

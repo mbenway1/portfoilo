@@ -1,11 +1,16 @@
 body {
     font: 12px "Avenir Next", sans-serif;
     overflow-x: hidden;
+    // 3 lines are suppose to help in font rendering in the browser.
+    text-rendering: geometricPrecision;
+    // Suppose to help in Chrome and Firefox
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 p {
     color: $white;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.55;
     letter-spacing: .04rem;
     margin-bottom: 15px;

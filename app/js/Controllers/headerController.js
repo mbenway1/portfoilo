@@ -30,19 +30,28 @@ angular.module('portfolioApp')
             }, 500);
         };
 
+        /*
         $scope.animateContact = function () {
-            // console.log("test");
+         var pathname = window.location.pathname;
+         if (pathname == "/") {
+         console.log("test");
+         }
+         else {
+         window.location.href = '/';
+         }
+         console.log("test");
             setTimeout(function () {
                 $('html, body').animate({
                     scrollTop: $(document).height()
-                }, 2500);
-            }, 100);
+         }, 2000);
+         }, 1000);
             setTimeout(function () {
                 angular.element(hireBtn).click();
             }, 1800);
-            return false;
         };
+         */
 
+        // Makes hover function work in menu
         $("ul.nav>li>a").hover(function () {
             $(this).parent().toggleClass('over');
         });

@@ -8721,11 +8721,15 @@ body {
 
 body {
   font: 12px "Avenir Next", sans-serif;
-  overflow-x: hidden; }
+    overflow-x: hidden;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 p {
     color: white;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.55;
     letter-spacing: .04rem;
     margin-bottom: 15px;
@@ -9737,6 +9741,110 @@ body.modall {
 
 .photo-container .photo.photo-10 .photofull-container {
     background: url("/img/10.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-11 {
+    width: 66.666%;
+}
+
+.photo-container .photo.photo-11 .photo-small {
+    background: url("/img/11.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-11 .photofull-container {
+    background: url("/img/11.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-12 {
+    width: 33.33%;
+}
+
+.photo-container .photo.photo-12 .photo-small {
+    background: url("/img/12.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-12 .photofull-container {
+    background: url("/img/12.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-13 {
+    width: 20%;
+}
+
+.photo-container .photo.photo-13 .photo-small {
+    background: url("/img/13.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-13 .photofull-container {
+    background: url("/img/13.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-14 {
+    width: 80%;
+}
+
+.photo-container .photo.photo-14 .photo-small {
+    background: url("/img/14.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-14 .photofull-container {
+    background: url("/img/14.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-15 {
+    width: 80%;
+}
+
+.photo-container .photo.photo-15 .photo-small {
+    background: url("/img/15.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-15 .photofull-container {
+    background: url("/img/15.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-16 {
+    width: 20%;
+}
+
+.photo-container .photo.photo-16 .photo-small {
+    background: url("/img/16.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-16 .photofull-container {
+    background: url("/img/16.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-17 {
+    width: 20%;
+}
+
+.photo-container .photo.photo-17 .photo-small {
+    background: url("/img/17.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-17 .photofull-container {
+    background: url("/img/17.jpg") center top rgba(20, 20, 20, 0.1);
+    background-size: cover;
+}
+
+.photo-container .photo.photo-18 {
+    width: 80%;
+}
+
+.photo-container .photo.photo-18 .photo-small {
+    background: url("/img/18.jpg") center top rgba(20, 20, 20, 0.1);
+}
+
+.photo-container .photo.photo-18 .photofull-container {
+    background: url("/img/18.jpg") center top rgba(20, 20, 20, 0.1);
     background-size: cover;
 }
 
