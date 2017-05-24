@@ -161,8 +161,11 @@ angular.module('portfolioApp')
                 }
 
                 function requestWidthTick() {
-                    if (resizeTicking)
-                        requestAnimationFrame(resizeUpdate);
+                    if (resizeTicking) {
+                        if (window.location.pathname == "/") {
+                            requestAnimationFrame(resizeUpdate);
+                        }
+                    }
                     resizeTicking = true;
                 }
 

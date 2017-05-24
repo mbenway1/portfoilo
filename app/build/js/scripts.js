@@ -44047,8 +44047,8 @@ angular.module('portfolioApp')
         $scope.validate = function () {
             var e = this.hireInput.id,
                 select = this.hireSelect.id,
-            //console.log(e);
-            //console.log("working!");
+                //console.log(e);
+                //console.log("working!");
                 regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 nameCompany = $("#" + $scope.hireInput[0].id),
                 email = $("#" + $scope.hireInput[2].id),
@@ -44258,20 +44258,23 @@ angular.module('portfolioApp')
 
 
         $scope.animateMenu = function () {
-            if (angular.element(appMenu).hasClass('closed')) {
-                angular.element(appMenu).addClass('slideVertical');
 
-                setTimeout(function () {
-                    angular.element(appMenu).addClass('slideHorizontal open').removeClass('closed');
-                }, 500);
-            }
-            else if (angular.element(appMenu).hasClass('open')) {
-                angular.element(appMenu).removeClass('slideHorizontal');
+            if (window.innerWidth <= 768) {
+                if (angular.element(appMenu).hasClass('closed')) {
+                    angular.element(appMenu).addClass('slideVertical');
 
-                setTimeout(function () {
-                    angular.element(appMenu).removeClass('slideVertical open').addClass('closed');
-                }, 500);
+                    setTimeout(function () {
+                        angular.element(appMenu).addClass('slideHorizontal open').removeClass('closed');
+                    }, 500);
+                }
+                else if (angular.element(appMenu).hasClass('open')) {
+                    angular.element(appMenu).removeClass('slideHorizontal');
 
+                    setTimeout(function () {
+                        angular.element(appMenu).removeClass('slideVertical open').addClass('closed');
+                    }, 500);
+
+                }
             }
         };
 
@@ -44285,24 +44288,24 @@ angular.module('portfolioApp')
 
         /*
         $scope.animateContact = function () {
-            var pathname = window.location.pathname;
-            if (pathname == "/") {
-                console.log("test");
-            }
-            else {
-                window.location.href = '/';
-            }
-            console.log("test");
+         var pathname = window.location.pathname;
+         if (pathname == "/") {
+         console.log("test");
+         }
+         else {
+         window.location.href = '/';
+         }
+         console.log("test");
             setTimeout(function () {
                 $('html, body').animate({
                     scrollTop: $(document).height()
-                }, 2000);
-            }, 1000);
+         }, 2000);
+         }, 1000);
             setTimeout(function () {
                 angular.element(hireBtn).click();
             }, 1800);
         };
-        */
+         */
 
         // Makes hover function work in menu
         $("ul.nav>li>a").hover(function () {
@@ -44473,8 +44476,11 @@ angular.module('portfolioApp')
                 }
 
                 function requestWidthTick() {
-                    if (resizeTicking)
-                        requestAnimationFrame(resizeUpdate);
+                    if (resizeTicking) {
+                        if (window.location.pathname == "/") {
+                            requestAnimationFrame(resizeUpdate);
+                        }
+                    }
                     resizeTicking = true;
                 }
 
@@ -44491,12 +44497,9 @@ angular.module('portfolioApp')
         homeFunction();
 
 
-
-
-
     });
 angular.module('portfolioApp')
-    .controller('photographyController', function ($scope,$window) {
+    .controller('photographyController', function ($scope, $window) {
 // line below was for when it was inside app.js
 //portfolioApp.controller('photographyController', function($scope) {
         $window.scrollTo(0, 0);
@@ -44522,7 +44525,7 @@ angular.module('portfolioApp')
                 instagram: ''
             },
             {
-                name: "Title Photo 4",
+                name: "Outlooking Mt. Yale",
                 classes: 'photo-4 right',
                 source: 'img/4.jpg',
                 instagram: ''
@@ -44642,7 +44645,7 @@ angular.module('portfolioApp')
                 $photoOffsetBottom = ($windowHeight - $photoHeight - $photoOffsetTop),
                 $photoOffsetLeft = container.offset().left,
                 $photoOffsetRight = ($windowWidth - $photoOffsetLeft - $photoWidth);
-            */
+             */
             pagePosition = container.offset().top;
 
             closeBtnPhoto.removeClass('roll-out');
@@ -44677,7 +44680,7 @@ angular.module('portfolioApp')
                     'top': $scrollTop,
                     'background': "url('/" + selectedImg + "') center top/cover"
                 })
-                .children('.photo-description').children('h2').text(selectedName);
+                    .children('.photo-description').children('h2').text(selectedName);
             }, 1001);
             setTimeout(function () {
                 // This might be better done in a controller, also might help on supplying data to a single template rather then a bunch of pages
@@ -44762,7 +44765,7 @@ angular.module('portfolioApp')
     });
 
 angular.module('portfolioApp')
-    .controller('portfolioController', function ($scope,$window) {
+    .controller('portfolioController', function ($scope, $window) {
 // line below was for when it was inside app.js
 //portfolioApp.controller('portfolioController', function($scope) {
         $window.scrollTo(0, 0);

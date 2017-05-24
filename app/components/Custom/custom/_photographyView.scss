@@ -45,11 +45,13 @@
             }
         }
         .view-instagram {
+            font-family: "Avenir Next Demi";
             border: 2px solid white;
             padding: 6px 12px;
             font-size: 15px;
             color: white;
             background-color: transparent;
+            border-radius: 0;
             @media screen and (min-width: $desktop-breakpoint) {
                 padding: 10px 16px;
                 font-size: 18px;

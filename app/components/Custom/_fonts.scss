@@ -7,3 +7,13 @@
     url('../fonts/AvenirNextLTPro-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
     url('../fonts/AvenirNextLTPro-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
+
+@font-face {
+    font-family: 'Avenir Next Demi';
+    src: url('../fonts/AvenirNextLTPro-Demi.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/AvenirNextLTPro-Demi.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/AvenirNextLTPro-Demi.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/AvenirNextLTPro-Demi.woff') format('woff'), /* Pretty Modern Browsers */
+    url('../fonts/AvenirNextLTPro-Demi.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/AvenirNextLTPro-Demi.svg#svgFontName') format('svg'); /* Legacy iOS */
+}

@@ -5,20 +5,23 @@ angular.module('portfolioApp')
 
 
         $scope.animateMenu = function () {
-            if (angular.element(appMenu).hasClass('closed')) {
-                angular.element(appMenu).addClass('slideVertical');
 
-                setTimeout(function () {
-                    angular.element(appMenu).addClass('slideHorizontal open').removeClass('closed');
-                }, 500);
-            }
-            else if (angular.element(appMenu).hasClass('open')) {
-                angular.element(appMenu).removeClass('slideHorizontal');
+            if (window.innerWidth <= 768) {
+                if (angular.element(appMenu).hasClass('closed')) {
+                    angular.element(appMenu).addClass('slideVertical');
 
-                setTimeout(function () {
-                    angular.element(appMenu).removeClass('slideVertical open').addClass('closed');
-                }, 500);
+                    setTimeout(function () {
+                        angular.element(appMenu).addClass('slideHorizontal open').removeClass('closed');
+                    }, 500);
+                }
+                else if (angular.element(appMenu).hasClass('open')) {
+                    angular.element(appMenu).removeClass('slideHorizontal');
 
+                    setTimeout(function () {
+                        angular.element(appMenu).removeClass('slideVertical open').addClass('closed');
+                    }, 500);
+
+                }
             }
         };
 

@@ -8505,6 +8505,14 @@ button.close {
   src: url("../fonts/AvenirNextLTPro-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/AvenirNextLTPro-Regular.woff2") format("woff2"), url("../fonts/AvenirNextLTPro-Regular.woff") format("woff"), url("../fonts/AvenirNextLTPro-Regular.ttf") format("truetype"), url("../fonts/AvenirNextLTPro-Regular.svg#svgFontName") format("svg");
   /* Legacy iOS */ }
 
+@font-face {
+    font-family: 'Avenir Next Demi';
+    src: url("../fonts/AvenirNextLTPro-Demi.eot");
+    /* IE9 Compat Modes */
+    src: url("../fonts/AvenirNextLTPro-Demi.eot?#iefix") format("embedded-opentype"), url("../fonts/AvenirNextLTPro-Demi.woff2") format("woff2"), url("../fonts/AvenirNextLTPro-Demi.woff") format("woff"), url("../fonts/AvenirNextLTPro-Demi.ttf") format("truetype"), url("../fonts/AvenirNextLTPro-Demi.svg#svgFontName") format("svg");
+    /* Legacy iOS */
+}
+
 /*
 // Font Weights
 
@@ -10284,11 +10292,13 @@ body.modall {
 }
 
 .photo-view .photo-description .view-instagram {
+    font-family: "Avenir Next Demi";
     border: 2px solid white;
     padding: 6px 12px;
     font-size: 15px;
     color: white;
     background-color: transparent;
+    border-radius: 0;
 }
 
 @media screen and (min-width: 1025px) {
