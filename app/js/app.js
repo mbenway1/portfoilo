@@ -1,12 +1,12 @@
 'use strict';
-var portfolioApp = angular.module("portfolioApp", ['ngRoute']),
-    appMenu,
+//var portfolioApp = angular.module("portfolioApp", ['ngRoute']),
+var appMenu,
     hireBtn,
     homeFunction;
 //var portfoliioFunction;
 //var photographyFunction;
 
-portfolioApp.config(function($routeProvider, $locationProvider) {
+var portfolioApp = angular.module("portfolioApp", ['ngRoute']).config(function ($routeProvider, $locationProvider) {
     $routeProvider
 
     // route for the home page
@@ -33,17 +33,7 @@ portfolioApp.config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({enabled: true, requireBase: false});
 });
 
-portfolioApp.directive('portfolioHeader', function () {
-   return {
-       templateUrl: '../Partials/header.html',
-       controller  : 'headerController',
-       link        : function (scope, element) {
 
-           appMenu = document.getElementsByClassName("nav-wrapper");
-           hireBtn = document.getElementsByClassName("hire-opener");
-       }
-   };
-});
 
 window.onbeforeunload = function () {
     var pathname = window.location.pathname;
@@ -53,3 +43,4 @@ window.onbeforeunload = function () {
         return false;
     }
 };
+

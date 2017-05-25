@@ -24,7 +24,7 @@ angular.module('portfolioApp')
             }
 
         ];
-
+        /*
         homeFunction = function () {
             $(document).ready(function () {
                 var header, headerHeight, video, videoHeight, about, aboutHeight,
@@ -71,6 +71,7 @@ angular.module('portfolioApp')
                     $("div.hire-container").css("top", -photographyAlignment);
                     //console.log(photographyAlignment, photographyImageHeight, photographySetHeight, windowHeight);
                 }
+         // End of alignPhotographyHire()
 
                 setTimeout(function () {
 
@@ -150,6 +151,7 @@ angular.module('portfolioApp')
                     }
                     ticking = false;
                 }
+         // End of update();
 
                 // only listen for scroll events
                 window.addEventListener('scroll', onRender, false);
@@ -180,6 +182,6 @@ angular.module('portfolioApp')
             });
         };
         homeFunction();
-
+         */
 
     });

@@ -16,6 +16,7 @@ module.exports = function (grunt) {
                       'app/bower_components/angular/angular.js',
                       'app/bower_components/angular-route/angular-route.js',
                     'app/js/app.js',
+                    'app/js/Directives/directives.js',
                     'app/js/Controllers/*.js',
                       'app/components/version/version.js',
                       'app/components/version/version-directive.js',
