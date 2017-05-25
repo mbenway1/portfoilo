@@ -6,10 +6,39 @@ portfolioApp.directive('portfolioHeader', function () {
     return {
         templateUrl: '../Partials/header.html',
         controller: 'headerController',
-        link: function (scope, element) {
+        link: function ($scope, element) {
 
             appMenu = document.getElementsByClassName("nav-wrapper");
             hireBtn = document.getElementsByClassName("hire-opener");
+
+
+            $scope.animateMenu = function () {
+                if (window.innerWidth <= 768) {
+                    if (angular.element(appMenu).hasClass('closed')) {
+                        angular.element(appMenu).addClass('slideVertical');
+                        setTimeout(function () {
+                            angular.element(appMenu).addClass('slideHorizontal open').removeClass('closed');
+                        }, 500);
+                    }
+                    else if (angular.element(appMenu).hasClass('open')) {
+                        angular.element(appMenu).removeClass('slideHorizontal');
+                        setTimeout(function () {
+                            angular.element(appMenu).removeClass('slideVertical open').addClass('closed');
+                        }, 500);
+                    }
+                }
+            };
+
+            $scope.menuClose = function () {
+                angular.element(appMenu).removeClass('slideHorizontal');
+                setTimeout(function () {
+                    angular.element(appMenu).removeClass('slideVertical open').addClass('closed');
+                }, 500);
+            };
+            
+            $("ul.nav>li>a").hover(function () {
+                $(this).parent().toggleClass('over');
+            });
         }
     };
 });
@@ -19,7 +48,12 @@ portfolioApp.directive('portfolioHeader', function () {
 //      initiateLanding --  Controls all operations of the home page
 ////////////////////
 portfolioApp.directive('initiateLanding', function () {
-    return function (scope, element, attrs) {
+    return function ($scope, element, attrs) {
+
+        $scope.hireSlider = function () {
+            $(".hire-content").toggleClass('opened');
+        };
+
         angular.element(document).ready(function () {
 
 
@@ -30,6 +64,8 @@ portfolioApp.directive('initiateLanding', function () {
                 lastWidth = 0,
                 ticking = false,
                 resizeTicking = false;
+
+            window.scrollTo(0, 0);
 
             $('.welcome-container').addClass("slideIn");
 
@@ -78,11 +114,6 @@ portfolioApp.directive('initiateLanding', function () {
             }, 1000); // this may need to be longer for slower machines was 120, also tried 220 450 750 and still got it
 
 
-            // This should be done via ng-click unless there is a reason it dont work.
-            $('.hire-opener').click(function () {
-                $(".hire-content").toggleClass('opened');
-
-            });
 
             // Start of the parallax animations
             function onRender() {
