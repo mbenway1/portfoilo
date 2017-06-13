@@ -32,6 +32,7 @@
         display: flex !important;
         justify-content: space-around;
         align-items: center;
+        z-index: 19;
         &.show {
             left: 0;
             transition: left 1.25s ease-in-out;
@@ -75,6 +76,7 @@
         display: flex !important;
         justify-content: center;
         align-items: center;
+        z-index: 20;
         &.show {
             right: 9%;
             transform: rotate(-360deg);
@@ -91,4 +93,14 @@
             font-size: 30px;
         }
     }
+}
+
+.glass {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: url("/img/transparent.png");
+    background-repeat: repeat;
+    z-index: 4;
 }

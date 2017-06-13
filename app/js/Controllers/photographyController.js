@@ -174,8 +174,6 @@ angular.module('portfolioApp')
                 body.addClass('modall').css('top', -($scrollTop) + 'px');
             }, 1000);
             setTimeout(function () {
-                console.log(selectedImg);
-                console.log(selectedName);
                 $(".photo-view").addClass("show").css({
                     'top': $scrollTop,
                     'background': "url('/" + selectedImg + "') center top/cover"
@@ -263,3 +261,4 @@ angular.module('portfolioApp')
         });
 
     });
+

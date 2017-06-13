@@ -35,7 +35,7 @@ portfolioApp.directive('portfolioHeader', function () {
                     angular.element(appMenu).removeClass('slideVertical open').addClass('closed');
                 }, 500);
             };
-            
+
             $("ul.nav>li>a").hover(function () {
                 $(this).parent().toggleClass('over');
             });
@@ -205,4 +205,15 @@ portfolioApp.directive('initiateLanding', function () {
             window.addEventListener('resize', resizeOnRender, false);
         });
     };
+});
+
+
+////////////////////
+//      PortfolioTiles --  Animates the opening and closing of the tiles
+////////////////////
+portfolioApp.directive('photographyTiles', function () {
+    return function ($scope, element, attrs) {
+        angular.element(document).ready(function () {
+        });
+    }
 });

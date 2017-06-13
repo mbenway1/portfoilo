@@ -2,7 +2,9 @@ Options +FollowSymLinks
 RewriteEngine On
 redirect 301 /photography http://dev.michaelbenway.com
 redirect 301 /portfolio http://dev.michaelbenway.com
-
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?dev.michaelbenway [NC]
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?dev.michaelbenway.*$ [NC]
+RewriteRule \.(gif|jpg|png|svg)$ - [F]
 ErrorDocument 404 /index.php
 
 

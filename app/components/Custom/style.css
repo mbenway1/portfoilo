@@ -10271,6 +10271,7 @@ body.modall {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    z-index: 19;
 }
 
 .photo-view .photo-description.show {
@@ -10336,6 +10337,7 @@ body.modall {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    z-index: 20;
 }
 
 .photo-view .close-btn.show {
@@ -10358,4 +10360,14 @@ body.modall {
     font-weight: bold;
     line-height: 1;
     font-size: 30px;
+}
+
+.glass {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: url("/img/transparent.png");
+    background-repeat: repeat;
+    z-index: 4;
 }

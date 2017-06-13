@@ -43956,9 +43956,8 @@ var portfolioApp = angular.module("portfolioApp", ['ngRoute']).config(function (
 
 window.onbeforeunload = function () {
     var pathname = window.location.pathname;
-    console.log(pathname);
+    //console.log(pathname);
     if (pathname == "/photography" || pathname == "/portfolio") {
-        alert("test");
         return false;
     }
 };
@@ -44001,7 +44000,7 @@ portfolioApp.directive('portfolioHeader', function () {
                     angular.element(appMenu).removeClass('slideVertical open').addClass('closed');
                 }, 500);
             };
-            
+
             $("ul.nav>li>a").hover(function () {
                 $(this).parent().toggleClass('over');
             });
@@ -44173,6 +44172,16 @@ portfolioApp.directive('initiateLanding', function () {
     };
 });
 
+
+////////////////////
+//      PortfolioTiles --  Animates the opening and closing of the tiles
+////////////////////
+portfolioApp.directive('photographyTiles', function () {
+    return function ($scope, element, attrs) {
+        angular.element(document).ready(function () {
+        });
+    }
+});
 angular.module('portfolioApp')
     .controller('formController', function ($scope) { // removed $http variable
 // line below was for when it was inside app.js
@@ -44663,8 +44672,6 @@ angular.module('portfolioApp')
                 body.addClass('modall').css('top', -($scrollTop) + 'px');
             }, 1000);
             setTimeout(function () {
-                console.log(selectedImg);
-                console.log(selectedName);
                 $(".photo-view").addClass("show").css({
                     'top': $scrollTop,
                     'background': "url('/" + selectedImg + "') center top/cover"
@@ -44750,8 +44757,9 @@ angular.module('portfolioApp')
 
             closePhoto(photo, photoDescription, photoCloseBtn);
         });
-
+        
     });
+
 
 angular.module('portfolioApp')
     .controller('portfolioController', function ($scope, $window) {

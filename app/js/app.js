@@ -37,9 +37,8 @@ var portfolioApp = angular.module("portfolioApp", ['ngRoute']).config(function (
 
 window.onbeforeunload = function () {
     var pathname = window.location.pathname;
-    console.log(pathname);
+    //console.log(pathname);
     if (pathname == "/photography" || pathname == "/portfolio") {
-        alert("test");
         return false;
     }
 };
